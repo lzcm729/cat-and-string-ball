@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn4481xl7jj4g"]
+
+[ext_resource type="Script" path="res://GUI/quit.gd" id="1_wl336"]
+
+[node name="main_control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="back" type="Button" parent="."]
+offset_top = -1.0
+offset_right = 42.0
+offset_bottom = 30.0
+text = "Back
+"
+script = ExtResource("1_wl336")
+
+[connection signal="pressed" from="back" to="back" method="_on_pressed"]

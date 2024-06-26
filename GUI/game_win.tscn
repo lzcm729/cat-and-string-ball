@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://6wg3k7oe4f7c"]
+
+[node name="game_win" type="Control"]
+layout_mode = 3
+anchors_preset = 0

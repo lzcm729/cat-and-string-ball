@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4q0en5827up2"]
+
+[ext_resource type="Texture2D" uid="uid://c1g2ercyfnime" path="res://UI/start_menu_bg.png" id="1_rpjdc"]
+[ext_resource type="Script" path="res://GUI/play.gd" id="2_ksycf"]
+
+[node name="start_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="StartMenuBg" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("1_rpjdc")
+
+[node name="play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 250.0
+offset_top = 44.0
+offset_right = 315.0
+offset_bottom = 75.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Play"
+script = ExtResource("2_ksycf")
+
+[node name="how_to_play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 250.0
+offset_top = 112.0
+offset_right = 316.0
+offset_bottom = 143.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "How to play"
+
+[node name="exit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 250.0
+offset_top = 146.0
+offset_right = 316.0
+offset_bottom = 177.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Exit"
+
+[node name="about" type="Button" parent="."]
+offset_left = 250.0
+offset_top = 78.0
+offset_right = 315.0
+offset_bottom = 109.0
+text = "About"
+
+[connection signal="pressed" from="play" to="play" method="_on_pressed"]
+[connection signal="pressed" from="how_to_play" to="play" method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="exit" to="play" method="_on_exit_pressed"]
+[connection signal="pressed" from="about" to="play" method="_on_about_pressed"]

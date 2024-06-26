@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3e5souko28lq"]
+
+[ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="1_mk74q"]
+
+[node name="guide" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="main_control" parent="." instance=ExtResource("1_mk74q")]

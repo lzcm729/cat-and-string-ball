@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://d10thg221qavd"]
+
+[node name="game_over" type="Control"]
+layout_mode = 3
+anchors_preset = 0

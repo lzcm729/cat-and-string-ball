@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://bykmdabf32gxa"]
+
+[ext_resource type="Script" path="res://GUI/choose_level.gd" id="1_d41ta"]
+[ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="2_ifohh"]
+
+[node name="choose_level" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_d41ta")
+
+[node name="main_control" parent="." instance=ExtResource("2_ifohh")]
+
+[node name="level1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 51.0
+offset_right = 80.0
+offset_bottom = 82.0
+text = "关卡1"
+
+[node name="level2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 51.0
+offset_right = 155.0
+offset_bottom = 82.0
+text = "关卡2"
+
+[node name="level3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 51.0
+offset_right = 230.0
+offset_bottom = 82.0
+text = "关卡3"
+
+[node name="level4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 51.0
+offset_right = 305.0
+offset_bottom = 82.0
+text = "关卡4"
+
+[node name="level5" type="Button" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 126.0
+offset_right = 80.0
+offset_bottom = 157.0
+text = "关卡5"
+
+[connection signal="pressed" from="level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="level4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="level5" to="." method="_on_level_5_pressed"]
