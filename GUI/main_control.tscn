@@ -1,17 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://bn4481xl7jj4g"]
+[gd_scene load_steps=3 format=3 uid="uid://bn4481xl7jj4g"]
 
+[ext_resource type="Script" path="res://GUI/main_control.gd" id="1_3p0ci"]
 [ext_resource type="Script" path="res://GUI/quit.gd" id="1_wl336"]
 
 [node name="main_control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_3p0ci")
 
 [node name="back" type="Button" parent="."]
+layout_mode = 0
 offset_top = -1.0
 offset_right = 42.0
 offset_bottom = 30.0
 text = "Back
 "
 script = ExtResource("1_wl336")
+
+[node name="level_name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 1.0
+offset_right = 178.0
+offset_bottom = 24.0
+text = "关卡名"
 
 [connection signal="pressed" from="back" to="back" method="_on_pressed"]

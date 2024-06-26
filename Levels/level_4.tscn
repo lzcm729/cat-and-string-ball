@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqec6irfaowvp"]
+[gd_scene load_steps=3 format=3 uid="uid://cqec6irfaowvp"]
 
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="1_2wcxk"]
+[ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_g44qk"]
 
 [node name="Level4" type="Node2D"]
 
+[node name="vacant_room" parent="." instance=ExtResource("1_g44qk")]
+
 [node name="main_control" parent="." instance=ExtResource("1_2wcxk")]
+level_name = "关卡4"

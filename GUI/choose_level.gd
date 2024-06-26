@@ -14,7 +14,6 @@ func _on_level_2_pressed():
 func _on_level_3_pressed():
 	#前往关卡3
 	get_tree().change_scene_to_file("res://Levels/level_3.tscn")
-	
 
 
 func _on_level_4_pressed():
