@@ -1,7 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8b3p0ub10jc3"]
+[gd_scene load_steps=5 format=3 uid="uid://b8b3p0ub10jc3"]
 
+[ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_0vh8p"]
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="1_eossy"]
+[ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="3_l3wy6"]
+[ext_resource type="TileSet" uid="uid://cfha1jbx7duy5" path="res://Levels/vacant_room.tres" id="4_p86rh"]
 
 [node name="Level1" type="Node2D"]
 
+[node name="vacant_room" parent="." instance=ExtResource("1_0vh8p")]
+
 [node name="main_control" parent="." instance=ExtResource("1_eossy")]
+level_name = "关卡1"
+
+[node name="Cat" parent="." instance=ExtResource("3_l3wy6")]
+position = Vector2(12, 150)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("4_p86rh")
+format = 2
+layer_0/tile_data = PackedInt32Array(393219, 65537, 0, 393220, 65537, 0, 393221, 65537, 0, 393222, 65537, 0, 262155, 65537, 0, 262156, 65537, 0, 262157, 65537, 0, 262158, 65537, 0)
