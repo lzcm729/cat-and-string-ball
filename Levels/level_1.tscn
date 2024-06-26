@@ -13,7 +13,7 @@
 level_name = "关卡1"
 
 [node name="Cat" parent="." instance=ExtResource("3_l3wy6")]
-position = Vector2(12, 150)
+position = Vector2(20, 138)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("4_p86rh")
