@@ -8,6 +8,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
 
+@onready var cat_area = $CatArea  # 猫角色的碰撞区域（Area2D），在场景中命名为 CatArea
+
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -30,9 +32,16 @@ func _physics_process(delta):
 		velocity.y = jump_velocity
 		animated_sprite.play("jump")
 		
+	if Input.is_action_just_pressed("ui_patpat"):
+		animated_sprite.play("attack")
+		for body in cat_area.get_overlapping_bodies():
+			if body.has_method("Hit"):
+				body.Hit(Vector2(10000, 0))  # 调用物体的 Hit 方法，施加力量向量 (10000, 0)
+		
 	if direction == -1:
 		animated_sprite.flip_h = true
 	else:
 		animated_sprite.flip_h = false
 	
 	move_and_slide()
+	
