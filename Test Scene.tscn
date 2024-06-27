@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://qhpqewkk7jkf"]
+[gd_scene load_steps=5 format=3 uid="uid://dpi65dkaiaa37"]
 
 [ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="2_6d2f1"]
-[ext_resource type="PackedScene" path="res://Platform.tscn" id="2_v2pje"]
+[ext_resource type="PackedScene" uid="uid://3iyqigiyk7np" path="res://Platform.tscn" id="2_v2pje"]
 [ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="4_oyjqn"]
 
 [sub_resource type="GDScript" id="GDScript_px38j"]
