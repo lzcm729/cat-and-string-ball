@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const speed = 150
+const speed = 300
 const jump_velocity = -800
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -51,17 +51,17 @@ func _physics_process(delta):
 			cat_action.play('JumpRight')
 		
 	if Input.is_action_just_pressed("ui_patpat"):
-		#set_collision_layer_value(2, true)
-		for body in cat_area.get_overlapping_bodies():
-			if body.has_method("Hit"):
-				body.Hit(Vector2(10000, 0))  # 调用物体的 Hit 方法，施加力量向量 (10000, 0)
-		#set_collision_layer_value(2, false)
 		if is_left:
 			cat_action.play('AttackLeft')
-			await cat_action.animation_finished
 		else:
 			cat_action.play('AttackRight')
-			await cat_action.animation_finished			
 	
 	move_and_slide()
 	
+
+func _on_pat_area_body_entered(body):
+	if body.name == 'StringBall':
+		if self.position.x - body.position.x < 0:
+			body.Hit(Vector2(20000, 0))
+		else:
+			body.Hit(Vector2(-20000, 0))
