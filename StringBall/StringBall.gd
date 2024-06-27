@@ -6,6 +6,8 @@ var chaos_core = preload("res://ChaosCore/ChaosCore.tscn")
 var initial_size = 100.
 var broken_size = 30.
 
+var is_drag = false
+
 @onready var current_size = initial_size
 @onready var recorded_position = position
 @onready var initial_collision_scale = $CollisionShape2D.get_scale()
@@ -16,9 +18,12 @@ signal show_chaos_core(pos:Vector2)
 
 func _ready():
 	Hit(Vector2(10000, 0))
+	pass
 
 
 func _process(delta):
+	#if is_drag:
+		#position = get_global_mouse_position()
 	pass
 
 
@@ -27,6 +32,7 @@ func _physics_process(delta):
 	recorded_position = position
 	var distance = delta_position.x + delta_position.y
 	MapDistanceToSize(distance)
+	print_debug(self.linear_velocity)
 	if current_size > broken_size:
 		SetScaleBySize()
 	else:
@@ -70,3 +76,18 @@ func Hit(force:Vector2):
 # 随着缩小要留下印迹
 func DrawFootprint():
 	pass
+
+
+# 被叼起来
+func Picked():
+	pass
+
+
+func _on_input_event(viewport, event, shape_idx):
+	return
+	if event is InputEventMouseButton:
+		print_debug(1)
+		if event.is_pressed():
+			is_drag = true
+		else:
+			is_drag = false

@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://b36bl5hadkdtm"]
+[gd_scene load_steps=5 format=3 uid="uid://b36bl5hadkdtm"]
 
 [ext_resource type="Script" path="res://StringBall/StringBall.gd" id="1_v6uy8"]
 [ext_resource type="Texture2D" uid="uid://cqhak76kqruoh" path="res://StringBall/StringBall.png" id="2_wgvc4"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_43p03"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_eoqub"]
 
 [node name="StringBall" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_43p03")
 angular_damp = 1.0
 script = ExtResource("1_v6uy8")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -16,3 +20,5 @@ texture = ExtResource("2_wgvc4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(4.5, 4.5)
 shape = SubResource("CircleShape2D_eoqub")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
