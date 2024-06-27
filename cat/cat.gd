@@ -12,6 +12,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 #记录猫的朝向
 var is_left = false
 
+var ball_ref : Node2D
+
 func _physics_process(delta):
 	#如果在空中，那么就下坠
 	if not is_on_floor():
@@ -59,5 +61,17 @@ func _physics_process(delta):
 				body.Hit(Vector2(10000, 0))  # 调用物体的 Hit 方法，施加力量向量 (10000, 0)
 		#set_collision_layer_value(2, false)
 	
+	if Input.is_action_just_pressed("pickup_ball"):
+		for body in cat_area.get_overlapping_bodies():
+			if body.has_method("BePicked"):
+				body.BePicked(self)
+				ball_ref = body
+				
+	if Input.is_action_just_pressed("drop_ball"):
+		if ball_ref:
+			ball_ref.BeDropped()
+			ball_ref = null
+		
+			
 	move_and_slide()
 	

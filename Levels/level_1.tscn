@@ -18,7 +18,7 @@ tile_set = ExtResource("4_p86rh")
 format = 2
 
 [node name="StringBall" parent="." instance=ExtResource("5_dgxty")]
-position = Vector2(374, 564)
+position = Vector2(367, 63)
 
 [node name="Cat" parent="." instance=ExtResource("3_l3wy6")]
 position = Vector2(128, 576)

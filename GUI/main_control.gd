@@ -13,3 +13,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+# TEST
+#func _input(event):
+	#if event is InputEventKey and event.pressed:
+		#if event.keycode == KEY_T:
+			#$"../StringBall".BePicked($"../Cat")
+		#if event.keycode == KEY_G:
+			#$"../StringBall".BeDropped()

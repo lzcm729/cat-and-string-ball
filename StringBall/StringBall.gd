@@ -7,7 +7,7 @@ extends RigidBody2D
 var initial_hp = 100.
 var broken_ratio = 0.3
 
-var is_free_moving = true
+var cat_ref : Node2D
 
 @onready var current_hp = initial_hp
 @onready var recorded_position = position
@@ -64,29 +64,26 @@ func Hit(force:Vector2):
 
 # INTERFACE
 # 被叼起来 返回此时球相较于初始值的比例
-func BePicked() -> float:
+func BePicked(cat:Node2D) -> float:
+	cat_ref = cat
 	set_sleeping(true)
-	hide()
+	#hide()
 	return current_hp / initial_hp
 
 
 # INTERFACE
 # 被扔下
-func BeDropped(pos:Vector2):
+func BeDropped():
+	if not cat_ref: return 
+	var pos = cat_ref.position
 	PhysicsServer2D.body_set_state(
 		self.get_rid(),
 		PhysicsServer2D.BODY_STATE_TRANSFORM,
 		Transform2D.IDENTITY.translated(pos)
 	)
 	set_sleeping(false)
-	await get_tree().process_frame
-	show()
+	cat_ref = null
+	#await get_tree().process_frame
+	#show()
 
-
-func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_T:
-			BePicked()
-		if event.keycode == KEY_G:
-			BeDropped(Vector2(500, 250))
 
