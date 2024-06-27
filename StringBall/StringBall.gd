@@ -7,6 +7,7 @@ extends RigidBody2D
 var initial_hp = 100.
 var broken_ratio = 0.3
 
+var can_decay = true
 var cat_ref : Node2D
 
 @onready var current_hp = initial_hp
@@ -27,7 +28,7 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	if not is_sleeping():
+	if can_decay:
 		var delta_position = abs(position - recorded_position)
 		recorded_position = position
 		var distance = delta_position.x + delta_position.y
@@ -57,33 +58,60 @@ func DrawFootprint():
 
 
 # INTERFACE
+# 被叼起来后移动 稳态移动
+func StationaryMove(pos:Vector2):
+	#set_sleeping(false)
+	PhysicsServer2D.body_set_state(
+		self.get_rid(),
+		PhysicsServer2D.BODY_STATE_SLEEPING,
+		false
+	)
+	PhysicsServer2D.body_set_state(
+		self.get_rid(),
+		PhysicsServer2D.BODY_STATE_TRANSFORM,
+		Transform2D.IDENTITY.translated(pos)
+	)
+	PhysicsServer2D.body_set_state(
+		self.get_rid(),
+		PhysicsServer2D.BODY_STATE_SLEEPING,
+		true
+	)
+	#set_sleeping(true)
+
+# INTERFACE
 # 被击打
 func Hit(force:Vector2):
 	apply_central_force(force)
 
 
 # INTERFACE
-# 被叼起来 返回此时球相较于初始值的比例
-func BePicked(cat:Node2D) -> float:
+# 被叼起来
+func BePicked(cat:Node2D):
 	cat_ref = cat
 	set_sleeping(true)
-	#hide()
-	return current_hp / initial_hp
+	can_decay = false
 
 
 # INTERFACE
 # 被扔下
 func BeDropped():
 	if not cat_ref: return 
+	can_decay = true
 	var pos = cat_ref.position
+	set_sleeping(false)
 	PhysicsServer2D.body_set_state(
 		self.get_rid(),
 		PhysicsServer2D.BODY_STATE_TRANSFORM,
 		Transform2D.IDENTITY.translated(pos)
 	)
-	set_sleeping(false)
 	cat_ref = null
-	#await get_tree().process_frame
-	#show()
 
 
+# TEST
+#func _input(event):
+	#if event is InputEventKey and event.pressed:
+		#if event.keycode == KEY_T:
+			#BePicked($"../Cat")
+		#if event.keycode == KEY_G:
+			##BeDropped()
+			#BeCarry(Vector2(500,200))

@@ -58,17 +58,22 @@ func _physics_process(delta):
 		else:
 			cat_action.play('AttackRight')
 	
+	# TEST
 	if Input.is_action_just_pressed("pickup_ball"):
-		for body in cat_area.get_overlapping_bodies():
-			if body.has_method("BePicked"):
-				body.BePicked(self)
-				ball_ref = body
+		# WARNING
+		ball_ref = get_node("../StringBall") 
+		if ball_ref:
+			ball_ref.BePicked(self)
 				
 	if Input.is_action_just_pressed("drop_ball"):
 		if ball_ref:
 			ball_ref.BeDropped()
 			ball_ref = null
-		
+			
+	# TEST
+	if ball_ref:
+		var pos = Vector2(position.x, position.y-200)
+		ball_ref.StationaryMove(pos)
 			
 	move_and_slide()
 	
