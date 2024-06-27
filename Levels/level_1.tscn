@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8b3p0ub10jc3"]
+[gd_scene load_steps=7 format=3 uid="uid://b8b3p0ub10jc3"]
 
 [ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_0vh8p"]
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="1_eossy"]
 [ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="3_l3wy6"]
 [ext_resource type="TileSet" uid="uid://cfha1jbx7duy5" path="res://Levels/vacant_room.tres" id="4_p86rh"]
 [ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="5_dgxty"]
+[ext_resource type="PackedScene" uid="uid://bww4qkx3u7pqh" path="res://Platform.tscn" id="6_nch2q"]
 
 [node name="Level1" type="Node2D"]
 
@@ -22,3 +23,11 @@ position = Vector2(374, 564)
 
 [node name="Cat" parent="." instance=ExtResource("3_l3wy6")]
 position = Vector2(128, 576)
+
+[node name="Stage1" parent="." instance=ExtResource("6_nch2q")]
+position = Vector2(418, 400)
+scale = Vector2(15, 1.165)
+
+[node name="Stage2" parent="." instance=ExtResource("6_nch2q")]
+position = Vector2(887, 231)
+scale = Vector2(20, 1.165)
