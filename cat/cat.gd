@@ -2,47 +2,62 @@ extends CharacterBody2D
 
 
 const speed = 150
-const jump_velocity = -400
+const jump_velocity = -800
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-@onready var animated_sprite = $AnimatedSprite2D
-
 @onready var cat_area = $CatArea  # 猫角色的碰撞区域（Area2D），在场景中命名为 CatArea
+@onready var cat_action = $CatAction
+
+#记录猫的朝向
+var is_left = false
 
 func _physics_process(delta):
+	#如果在空中，那么就下坠
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		
-	if velocity.y > 0 :
-		animated_sprite.play('fall')
-	
 	var direction = Input.get_axis("ui_left", "ui_right")
-
+	if direction:
+		is_left = direction == -1
+	
 	if direction:
 		velocity.x = direction * speed
 		if velocity.y == 0:
-			animated_sprite.play("walk")
+			if is_left:
+				cat_action.play("RunLeft")	
+			else:
+				cat_action.play("RunRight")					
 	else: 
 		velocity.x = move_toward(velocity.x, 0, speed)
 		if velocity.y == 0:
-			animated_sprite.play("idle")
+			if is_left:
+				cat_action.play("IdleLeft")
+			else:
+				cat_action.play("IdleRight")				
 	
+	if velocity.y > 0 :
+		if is_left:
+			cat_action.play("FallLeft")
+		else:
+			cat_action.play('FallRight')
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = jump_velocity
-		animated_sprite.play("jump")
+		if is_left:
+			cat_action.play('JumpLeft')
+		else:
+			cat_action.play('JumpRight')
 		
 	if Input.is_action_just_pressed("ui_patpat"):
-		animated_sprite.play("attack")
+		if is_left:
+			cat_action.play('AttackLeft')
+		else:
+			cat_action.play('AttackRight')
 		#set_collision_layer_value(2, true)
 		for body in cat_area.get_overlapping_bodies():
 			if body.has_method("Hit"):
 				body.Hit(Vector2(10000, 0))  # 调用物体的 Hit 方法，施加力量向量 (10000, 0)
 		#set_collision_layer_value(2, false)
-	if direction == -1:
-		animated_sprite.flip_h = true
-	else:
-		animated_sprite.flip_h = false
 	
 	move_and_slide()
 	
