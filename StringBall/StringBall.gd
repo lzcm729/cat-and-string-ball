@@ -15,7 +15,8 @@ signal show_chaos_core(pos:Vector2)
 
 
 func _ready():
-	Hit(Vector2(10000, 0))
+	#Hit(Vector2(10000, 0))
+	pass
 
 
 func _process(delta):

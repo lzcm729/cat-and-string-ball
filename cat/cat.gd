@@ -34,10 +34,11 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("ui_patpat"):
 		animated_sprite.play("attack")
+		#set_collision_layer_value(2, true)
 		for body in cat_area.get_overlapping_bodies():
 			if body.has_method("Hit"):
 				body.Hit(Vector2(10000, 0))  # 调用物体的 Hit 方法，施加力量向量 (10000, 0)
-		
+		#set_collision_layer_value(2, false)
 	if direction == -1:
 		animated_sprite.flip_h = true
 	else:
