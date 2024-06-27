@@ -181,3 +181,9 @@ offset_bottom = 10.0
 theme_override_font_sizes/font_size = 14
 text = "猫"
 horizontal_alignment = 1
+
+[node name="CatArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatArea"]
+position = Vector2(21, 0)
+shape = SubResource("RectangleShape2D_abu8b")

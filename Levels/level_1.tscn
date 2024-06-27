@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8b3p0ub10jc3"]
+[gd_scene load_steps=6 format=3 uid="uid://b8b3p0ub10jc3"]
 
 [ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_0vh8p"]
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="1_eossy"]
 [ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="3_l3wy6"]
 [ext_resource type="TileSet" uid="uid://cfha1jbx7duy5" path="res://Levels/vacant_room.tres" id="4_p86rh"]
+[ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="5_gvjvj"]
 
 [node name="Level1" type="Node2D"]
 
