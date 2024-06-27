@@ -8,7 +8,6 @@ var initial_hp = 100.
 var broken_ratio = 0.3
 
 var can_decay = true
-var cat_ref : Node2D
 
 @onready var current_hp = initial_hp
 @onready var recorded_position = position
@@ -32,21 +31,21 @@ func _physics_process(delta):
 		var delta_position = abs(position - recorded_position)
 		recorded_position = position
 		var distance = delta_position.x + delta_position.y
-		MapDistanceToSize(distance)
+		MapDistanceToHP(distance)
 		if current_hp > initial_hp * broken_ratio:
-			SetScaleBySize()
+			SetScaleByHP()
 		else:
 			$Sprite2D.hide()
 			show_chaos_core.emit(position)
 			queue_free()
 
 
-func MapDistanceToSize(distance:float):
+func MapDistanceToHP(distance:float):
 	# 每移动1/n单位距离 size-1
 	current_hp -= clampf(distance/50, 0, INF)
 
 
-func SetScaleBySize():
+func SetScaleByHP():
 	var ratio = current_hp / initial_hp
 	$CollisionShape2D.set_scale(initial_collision_scale*ratio)
 	# TODO sprite需要其他方案
@@ -60,23 +59,16 @@ func DrawFootprint():
 # INTERFACE
 # 被叼起来后移动 稳态移动
 func StationaryMove(pos:Vector2):
-	#set_sleeping(false)
-	PhysicsServer2D.body_set_state(
-		self.get_rid(),
-		PhysicsServer2D.BODY_STATE_SLEEPING,
-		false
-	)
-	PhysicsServer2D.body_set_state(
-		self.get_rid(),
-		PhysicsServer2D.BODY_STATE_TRANSFORM,
-		Transform2D.IDENTITY.translated(pos)
-	)
-	PhysicsServer2D.body_set_state(
-		self.get_rid(),
-		PhysicsServer2D.BODY_STATE_SLEEPING,
-		true
-	)
-	#set_sleeping(true)
+	set_sleeping(false)
+	# NOTE 运动时必须用下面这个改位置
+	#PhysicsServer2D.body_set_state(
+		#get_rid(),
+		#PhysicsServer2D.BODY_STATE_TRANSFORM,
+		#Transform2D.IDENTITY.translated(pos)
+	#)
+	self.global_transform.origin = pos # wtf? 竟然可行吗
+	set_sleeping(true)
+
 
 # INTERFACE
 # 被击打
@@ -87,7 +79,7 @@ func Hit(force:Vector2):
 # INTERFACE
 # 被叼起来
 func BePicked(cat:Node2D):
-	cat_ref = cat
+	#set_freeze_enabled(true)
 	set_sleeping(true)
 	can_decay = false
 
@@ -95,23 +87,6 @@ func BePicked(cat:Node2D):
 # INTERFACE
 # 被扔下
 func BeDropped():
-	if not cat_ref: return 
 	can_decay = true
-	var pos = cat_ref.position
 	set_sleeping(false)
-	PhysicsServer2D.body_set_state(
-		self.get_rid(),
-		PhysicsServer2D.BODY_STATE_TRANSFORM,
-		Transform2D.IDENTITY.translated(pos)
-	)
-	cat_ref = null
-
-
-# TEST
-#func _input(event):
-	#if event is InputEventKey and event.pressed:
-		#if event.keycode == KEY_T:
-			#BePicked($"../Cat")
-		#if event.keycode == KEY_G:
-			##BeDropped()
-			#BeCarry(Vector2(500,200))
+	recorded_position = position

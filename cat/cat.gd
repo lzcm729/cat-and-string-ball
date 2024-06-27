@@ -57,26 +57,14 @@ func _physics_process(delta):
 			cat_action.play('AttackLeft')
 		else:
 			cat_action.play('AttackRight')
-	
-	# TEST
-	if Input.is_action_just_pressed("pickup_ball"):
-		# WARNING
-		ball_ref = get_node("../StringBall") 
-		if ball_ref:
-			ball_ref.BePicked(self)
-				
-	if Input.is_action_just_pressed("drop_ball"):
-		if ball_ref:
-			ball_ref.BeDropped()
-			ball_ref = null
-			
+
 	# TEST
 	if ball_ref:
-		var pos = Vector2(position.x, position.y-200)
+		var pos = Vector2(position.x+50, position.y-100)
 		ball_ref.StationaryMove(pos)
 			
 	move_and_slide()
-	
+
 
 func _on_pat_area_body_entered(body):
 	if body.name == 'StringBall':
@@ -84,3 +72,24 @@ func _on_pat_area_body_entered(body):
 			body.Hit(Vector2(20000, 0))
 		else:
 			body.Hit(Vector2(-20000, 0))
+			
+
+func PickupBall(ball:Node2D):
+	if not ball: return
+	ball_ref = ball
+	ball_ref.BePicked(self)
+
+
+func DropBall():
+	if not ball_ref: return
+	ball_ref.BeDropped()
+	ball_ref = null
+
+
+# TEST
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_T:
+			PickupBall(get_node("../StringBall")) # WARNING
+		if event.keycode == KEY_G:
+			DropBall()
