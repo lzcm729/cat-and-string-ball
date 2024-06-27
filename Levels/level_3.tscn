@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://rgqiijqlwyu8"]
+[gd_scene load_steps=6 format=3 uid="uid://rgqiijqlwyu8"]
 
 [ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_55ktd"]
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="1_nmuv4"]
+[ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="3_60qb0"]
+[ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="4_rjfnu"]
+[ext_resource type="PackedScene" uid="uid://mhbfl6j2k673" path="res://item_rug/rug.tscn" id="5_87tk2"]
 
 [node name="Level_3" type="Node2D"]
 
@@ -9,3 +12,12 @@
 
 [node name="main_control" parent="." instance=ExtResource("1_nmuv4")]
 level_name = "关卡3"
+
+[node name="StringBall" parent="." instance=ExtResource("3_60qb0")]
+position = Vector2(374, 564)
+
+[node name="Cat" parent="." instance=ExtResource("4_rjfnu")]
+position = Vector2(128, 576)
+
+[node name="Rug" parent="." instance=ExtResource("5_87tk2")]
+position = Vector2(2, 667)

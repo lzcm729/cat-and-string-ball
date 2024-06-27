@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2jpdxpv8bt0q"]
+
+[ext_resource type="Texture2D" uid="uid://r3wiis3e22jn" path="res://icon.svg" id="1_8d41d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qktb1"]
+size = Vector2(20.1, 20)
+
+[node name="Cleaner" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.999992, 1)
+scale = Vector2(1.60938, 0.75)
+texture = ExtResource("1_8d41d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.499997, 0)
+scale = Vector2(10, 5)
+shape = SubResource("RectangleShape2D_qktb1")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -76.0
+offset_top = -72.0
+offset_right = 73.0
+offset_bottom = -49.0
+text = "扫地机器人·全自动型"
