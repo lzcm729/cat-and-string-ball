@@ -11,19 +11,18 @@ script = ExtResource("1_3p0ci")
 [node name="back" type="Button" parent="."]
 layout_mode = 0
 offset_top = -1.0
-offset_right = 193.0
-offset_bottom = 100.0
+offset_right = 42.0
+offset_bottom = 30.0
 text = "Back
 "
 script = ExtResource("1_wl336")
 
 [node name="level_name" type="Label" parent="."]
 layout_mode = 0
-offset_left = 558.0
-offset_top = 26.0
-offset_right = 678.0
-offset_bottom = 81.0
-theme_override_font_sizes/font_size = 40
+offset_left = 136.0
+offset_top = 1.0
+offset_right = 178.0
+offset_bottom = 24.0
 text = "关卡名"
 
 [connection signal="pressed" from="back" to="back" method="_on_pressed"]

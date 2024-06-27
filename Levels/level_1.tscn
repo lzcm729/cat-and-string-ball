@@ -15,6 +15,10 @@ level_name = "关卡1"
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("4_p86rh")
 format = 2
+layer_0/tile_data = PackedInt32Array(393219, 65537, 0, 393220, 65537, 0, 393221, 65537, 0, 393222, 65537, 0, 262155, 65537, 0, 262156, 65537, 0, 262157, 65537, 0, 262158, 65537, 0)
 
 [node name="Cat" parent="." instance=ExtResource("3_l3wy6")]
-position = Vector2(128, 576)
+position = Vector2(20, 138)
+
+[node name="StringBall" parent="." instance=ExtResource("5_gvjvj")]
+position = Vector2(170, 110)

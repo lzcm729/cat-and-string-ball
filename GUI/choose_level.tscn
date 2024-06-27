@@ -12,42 +12,42 @@ script = ExtResource("1_d41ta")
 
 [node name="level1" type="Button" parent="."]
 layout_mode = 0
-offset_left = 333.0
-offset_top = 211.0
-offset_right = 449.0
-offset_bottom = 267.0
+offset_left = 30.0
+offset_top = 51.0
+offset_right = 80.0
+offset_bottom = 82.0
 text = "关卡1"
 
 [node name="level2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 472.0
-offset_top = 214.0
-offset_right = 570.0
-offset_bottom = 267.0
+offset_left = 105.0
+offset_top = 51.0
+offset_right = 155.0
+offset_bottom = 82.0
 text = "关卡2"
 
 [node name="level3" type="Button" parent="."]
 layout_mode = 0
-offset_left = 605.0
-offset_top = 215.0
-offset_right = 703.0
-offset_bottom = 267.0
+offset_left = 180.0
+offset_top = 51.0
+offset_right = 230.0
+offset_bottom = 82.0
 text = "关卡3"
 
 [node name="level4" type="Button" parent="."]
 layout_mode = 0
-offset_left = 752.0
-offset_top = 214.0
-offset_right = 871.0
-offset_bottom = 270.0
+offset_left = 255.0
+offset_top = 51.0
+offset_right = 305.0
+offset_bottom = 82.0
 text = "关卡4"
 
 [node name="level5" type="Button" parent="."]
 layout_mode = 0
-offset_left = 478.0
-offset_top = 338.0
-offset_right = 564.0
-offset_bottom = 406.0
+offset_left = 30.0
+offset_top = 126.0
+offset_right = 80.0
+offset_bottom = 157.0
 text = "关卡5"
 
 [connection signal="pressed" from="level1" to="." method="_on_level_1_pressed"]
