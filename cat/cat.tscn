@@ -123,6 +123,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [39]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_tcosr"]
 resource_name = "FallRight"
@@ -139,6 +151,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [19]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_xka4b"]
@@ -262,6 +286,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [37]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_h2f5l"]
 resource_name = "JumpRight"
@@ -278,6 +314,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [17]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_wr3en"]
 length = 0.001
@@ -292,6 +340,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_krk20"]
@@ -370,6 +430,7 @@ autoplay = "IdleRight"
 position = Vector2(8, 43)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_kf1xv")
+disabled = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
 
@@ -383,7 +444,6 @@ collision_mask = 12
 position = Vector2(0, -42)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_nlfbr")
-disabled = true
 debug_color = Color(0.918074, 0.213702, 0.480587, 0.42)
 
 [connection signal="body_entered" from="Marker2D/PatArea" to="." method="_on_pat_area_body_entered"]
