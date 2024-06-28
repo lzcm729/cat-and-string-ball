@@ -8,6 +8,8 @@ var initial_hp = 100.
 var broken_ratio = 0.3
 
 var can_decay = true
+var is_in_water = false
+var volumn_in_water = 0.
 
 @onready var current_hp = initial_hp
 @onready var recorded_position = position
@@ -18,7 +20,7 @@ signal show_chaos_core(pos:Vector2)
 
 
 func _ready():
-	BeHit(Vector2(10000, 0))
+	#BeHit(Vector2(10000, 0))
 	pass
 
 
@@ -27,11 +29,27 @@ func _process(delta):
 
 
 func _physics_process(delta):
+	if is_in_water:
+		var current_radius = $CollisionShape2D.shape.radius
+		$WaterDetector.force_raycast_update()
+		if $WaterDetector.is_colliding():
+			var collision_point_water = $WaterDetector.get_collision_point()
+			var distance_water = (collision_point_water - position).y
+			if distance_water >= 0:
+				var theta = 2*acos(distance_water/current_radius)
+				volumn_in_water = (current_radius**2 / 2) * (theta-sin(theta))
+			else:
+				$AirDetector.force_raycast_update()
+				var collision_point_air = $AirDetector.get_collision_point()
+				var distance_air = abs((collision_point_air - position).y)
+				var theta = 2*acos(distance_air/current_radius)
+				volumn_in_water = (PI * current_radius**2)- (current_radius**2 / 2) * (theta-sin(theta))
 	if can_decay:
 		var delta_position = abs(position - recorded_position)
 		recorded_position = position
 		var distance = delta_position.x + delta_position.y
 		MapDistanceToHP(distance)
+		
 	if current_hp > initial_hp * broken_ratio:
 		SetScaleByHP()
 	else:
@@ -47,7 +65,11 @@ func MapDistanceToHP(distance:float):
 
 func SetScaleByHP():
 	var ratio = current_hp / initial_hp
-	$CollisionShape2D.set_scale(initial_collision_scale*ratio)
+	var radius = 50 * ratio
+	#$CollisionShape2D.set_scale(initial_collision_scale*ratio)
+	$CollisionShape2D.shape.set_deferred("radius", radius)
+	$WaterDetector.set_target_position(Vector2(0, radius))
+	$AirDetector.set_target_position(Vector2(0, -radius))
 	# TODO sprite需要其他方案
 	$Sprite2D.set_scale(initial_sprite_scale*ratio)
 
