@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # 定义移动速度
-var speed = 10000
+var speed = 100
 # 定义移动方向，初始为向右
 var direction = Vector2(1, 0)
 
@@ -14,13 +14,15 @@ func _ready():
 
 func _physics_process(delta):
 	# 移动 `cleaner`
-	var velocity = direction * speed
+	velocity = direction * speed
 	move_and_slide()
 	# 检测碰撞，如果碰到边界则反转方向
 	if is_on_wall():
 		direction.x *= -1
 
-func _on_cleaner_area_entered(area):
-	# 如果进入 `cleanerArea` 的是小球，则调用小球的 `hit` 方法
-	if area.name == "Ball":
-		area.hit()
+func _on_cleaner_area_body_entered(body):
+	if body.name == "StringBall":
+		if position.x - body.position.x > 0:
+			body.BeHit(Vector2(-10000,-20000))
+		else:
+			body.BeHit(Vector2(10000,-20000))

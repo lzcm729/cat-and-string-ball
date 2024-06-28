@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2jpdxpv8bt0q"]
+[gd_scene load_steps=6 format=3 uid="uid://b2jpdxpv8bt0q"]
 
 [ext_resource type="Texture2D" uid="uid://r3wiis3e22jn" path="res://icon.svg" id="1_8d41d"]
+[ext_resource type="Script" path="res://item_cleaner/cleaner.gd" id="1_bj7lu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qktb1"]
 size = Vector2(20.1, 20)
@@ -12,6 +13,8 @@ size = Vector2(21, 103)
 size = Vector2(22.5, 100.5)
 
 [node name="Cleaner" type="CharacterBody2D"]
+collision_layer = 16
+script = ExtResource("1_bj7lu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-0.999992, 1)
@@ -31,6 +34,8 @@ offset_bottom = -49.0
 text = "扫地机器人·全自动型"
 
 [node name="CleanerArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CleanerArea"]
 position = Vector2(-112, 0)
@@ -39,3 +44,5 @@ shape = SubResource("RectangleShape2D_oarh4")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CleanerArea"]
 position = Vector2(112, -1)
 shape = SubResource("RectangleShape2D_2xxjo")
+
+[connection signal="body_entered" from="CleanerArea" to="." method="_on_cleaner_area_body_entered"]

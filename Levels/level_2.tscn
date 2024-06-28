@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2hb3jufadsr0"]
+[gd_scene load_steps=7 format=3 uid="uid://b2hb3jufadsr0"]
 
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="1_lxh2x"]
 [ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="2_elcjv"]
 [ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="3_mvw4s"]
 [ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="4_kpi4q"]
 [ext_resource type="PackedScene" uid="uid://b2jpdxpv8bt0q" path="res://item_cleaner/cleaner.tscn" id="5_4iwd8"]
+[ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="6_fbydx"]
 
 [node name="Level2" type="Node2D"]
 
@@ -24,4 +25,9 @@ level_name = "关卡2"
 level_health = 3
 level_id = 2
 
+[node name="ChaosCore" parent="." instance=ExtResource("6_fbydx")]
+visible = false
+position = Vector2(-10.3825, -59.1853)
+
+[connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
 [connection signal="cat_pat_ball" from="Cat" to="main_control" method="_on_cat_cat_pat_ball"]
