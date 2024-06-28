@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="3_l3wy6"]
 [ext_resource type="TileSet" uid="uid://cfha1jbx7duy5" path="res://Levels/vacant_room.tres" id="4_p86rh"]
 [ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="5_dgxty"]
-[ext_resource type="PackedScene" uid="uid://bww4qkx3u7pqh" path="res://Platform.tscn" id="6_nch2q"]
+[ext_resource type="PackedScene" uid="uid://3iyqigiyk7np" path="res://Platform.tscn" id="6_nch2q"]
 
 [node name="Level1" type="Node2D"]
 

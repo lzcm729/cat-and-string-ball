@@ -10,35 +10,38 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var cat_action = $CatAction
 @onready var animation_tree = $AnimationTree
 
+#猫咪的状态机
+enum {
+	MOVE,
+	ATTACK
+}
+
 #记录猫的朝向
 var is_left = false
 
 var ball_ref : Node2D
 
+var state = MOVE
+
 func _physics_process(delta):
+	match state:
+		MOVE:
+			move_state()
+		ATTACK:
+			attack_state()
+	
+	
+	
 	#如果在空中，那么就下坠
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		
-	var direction = Input.get_axis("ui_left", "ui_right")
 	
+	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		is_left = direction == -1
 	
-	if direction:
-		velocity.x = direction * speed
-		if velocity.y == 0:
-			if is_left:
-				cat_action.play("RunLeft")	
-			else:
-				cat_action.play("RunRight")					
-	else: 
-		velocity.x = move_toward(velocity.x, 0, speed)
-		if velocity.y == 0:
-			if is_left:
-				cat_action.play("IdleLeft")
-			else:
-				cat_action.play("IdleRight")				
+
 	
 	if velocity.y > 0 :
 		if is_left:
@@ -53,10 +56,8 @@ func _physics_process(delta):
 			cat_action.play('JumpRight')
 		
 	if Input.is_action_just_pressed("ui_patpat"):
-		if is_left:
-			cat_action.play('AttackLeft')
-		else:
-			cat_action.play('AttackRight')
+		state = ATTACK
+
 
 	# TEST
 	if ball_ref:
@@ -85,6 +86,33 @@ func DropBall():
 	ball_ref.BeDropped()
 	ball_ref = null
 
+
+#状态函数
+func move_state():
+	var direction = Input.get_axis("ui_left", "ui_right")
+	if direction:
+		velocity.x = direction * speed
+		if velocity.y == 0:
+			if is_left:
+				cat_action.play("RunLeft")	
+			else:
+				cat_action.play("RunRight")					
+	else: 
+		velocity.x = move_toward(velocity.x, 0, speed)
+		if velocity.y == 0:
+			if is_left:
+				cat_action.play("IdleLeft")
+			else:
+				cat_action.play("IdleRight")
+				
+func attack_state():
+	if is_left:
+		cat_action.play('AttackLeft')
+	else:
+		cat_action.play('AttackRight')
+	await cat_action.animation_finished
+	state = MOVE
+	
 
 # TEST
 func _input(event):
