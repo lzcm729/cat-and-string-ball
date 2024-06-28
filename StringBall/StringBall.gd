@@ -18,7 +18,7 @@ signal show_chaos_core(pos:Vector2)
 
 
 func _ready():
-	Hit(Vector2(10000, 0))
+	BeHit(Vector2(10000, 0))
 	pass
 
 
@@ -72,13 +72,13 @@ func StationaryMove(pos:Vector2):
 
 # INTERFACE
 # 被击打
-func Hit(force:Vector2):
+func BeHit(force:Vector2):
 	apply_central_force(force)
 
 
 # INTERFACE
 # 被叼起来
-func BePicked(cat:Node2D):
+func BePicked():
 	#set_freeze_enabled(true)
 	set_sleeping(true)
 	can_decay = false

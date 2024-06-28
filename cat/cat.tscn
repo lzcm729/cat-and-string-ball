@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c4q7s0ehyqx0o"]
+[gd_scene load_steps=18 format=3 uid="uid://c4q7s0ehyqx0o"]
 
 [ext_resource type="Script" path="res://cat/cat.gd" id="1_6rb40"]
 [ext_resource type="Texture2D" uid="uid://bvd1v3llm4gn3" path="res://UI/cat.png" id="2_oathd"]
@@ -350,6 +350,10 @@ height = 98.0
 radius = 31.0
 height = 96.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7kny"]
+radius = 43.0
+height = 100.0
+
 [node name="Cat" type="CharacterBody2D"]
 collision_layer = 0
 script = ExtResource("1_6rb40")
@@ -385,4 +389,9 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_nlfbr")
 debug_color = Color(0.918074, 0.213702, 0.480587, 0.42)
 
-[connection signal="body_entered" from="Marker2D/PatArea" to="." method="_on_pat_area_body_entered"]
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-24, -10)
+shape = SubResource("CapsuleShape2D_p7kny")

@@ -6,7 +6,8 @@ const jump_velocity = -800
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-@onready var cat_area = $Marker2D/PatArea  # 猫角色的碰撞区域（Area2D），在场景中命名为 CatArea
+#@onready var hit_area = $Marker2D/PatArea  # 猫角色的碰撞区域（Area2D）
+@onready var hit_area = $Area2D  # 猫角色的碰撞区域（Area2D）
 @onready var cat_action = $CatAction
 @onready var animation_tree = $AnimationTree
 
@@ -18,7 +19,6 @@ enum {
 
 #记录猫的朝向
 var is_left = false
-
 var ball_ref : Node2D
 
 var state = MOVE
@@ -67,25 +67,31 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func _on_pat_area_body_entered(body):
-	if body.name == 'StringBall':
-		if self.position.x - body.position.x < 0:
-			body.Hit(Vector2(20000, 0))
-		else:
-			body.Hit(Vector2(-20000, 0))
-			
-
 func PickupBall(ball:Node2D):
 	if not ball: return
 	ball_ref = ball
-	ball_ref.BePicked(self)
+	ball_ref.BePicked()
 
 
 func DropBall():
 	if not ball_ref: return
 	ball_ref.BeDropped()
 	ball_ref = null
-
+	
+# 向前挥击
+func Hit(id:String):
+	# 播放攻击动画
+	cat_action.play(id)
+	
+	var overlapping_bodies = hit_area.get_overlapping_bodies()
+	for body in overlapping_bodies:
+		if body.name == "StringBall":
+			if self.position.x - body.position.x < 0:
+				print_debug('left')
+				body.BeHit(Vector2(20000, 0))
+			else:
+				print_debug('right')
+				body.BeHit(Vector2(-20000, 0))
 
 #状态函数
 func move_state():
@@ -121,3 +127,5 @@ func _input(event):
 			PickupBall(get_node("../StringBall")) # WARNING
 		if event.keycode == KEY_G:
 			DropBall()
+		if event.keycode == KEY_Q:
+			Hit('AttackLeft' if is_left else 'AttackRight')
