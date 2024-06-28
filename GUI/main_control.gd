@@ -14,6 +14,7 @@ const game_over_templ = preload("res://GUI/game_over.tscn")
 func _ready():
 	level_name_label.text = str(level_name)
 	health_label.text = '血量' + str(level_health)
+	connect("eat_core", Callable(self, "_on_cat_eat_core"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,7 +22,7 @@ func _physics_process(delta):
 	if level_health == 0:
 		var game_over = game_over_templ.instantiate()
 		game_over.level_id = level_id
-		self.add_child(game_over)
+		add_child(game_over)
 
 # TEST
 #func _input(event):
@@ -35,3 +36,10 @@ func _physics_process(delta):
 func _on_cat_cat_pat_ball():
 	level_health = level_health - 1
 	health_label.text = '血量' + str(level_health)
+
+
+
+func _on_cat_eat_core():
+	var game_win = game_win_templ.instantiate()
+	game_win.level_id = level_id
+	add_child(game_win)

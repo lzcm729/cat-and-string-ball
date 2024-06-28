@@ -5,6 +5,7 @@ const speed = 300
 const jump_velocity = -800
 
 signal cat_pat_ball
+signal eat_core
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var force_y = gravity
@@ -141,4 +142,5 @@ func _on_pat_area_body_entered(body):
 		else:
 			body.BeHit(Vector2(50000, -40000))
 	if body.name == 'ChaosCore':
+		emit_signal("eat_core")
 		body.BeEaten()
