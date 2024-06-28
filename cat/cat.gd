@@ -7,6 +7,7 @@ const jump_velocity = -800
 signal cat_pat_ball
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@onready var force_y = gravity
 
 #@onready var hit_area = $Marker2D/PatArea  # 猫角色的碰撞区域（Area2D）
 @onready var hit_area = $Area2D  # 猫角色的碰撞区域（Area2D）
@@ -33,10 +34,9 @@ func _physics_process(delta):
 			attack_state()
 	
 	
-	
 	#如果在空中，那么就下坠
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += force_y * delta
 		
 	
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -137,8 +137,8 @@ func _on_pat_area_body_entered(body):
 	if body.name == "StringBall":
 		emit_signal("cat_pat_ball")
 		if is_left:
-			body.BeHit(Vector2(-10000, 0))
+			body.BeHit(Vector2(-50000, -40000))
 		else:
-			body.BeHit(Vector2(10000, 0))
+			body.BeHit(Vector2(50000, -40000))
 	if body.name == 'ChaosCore':
 		body.BeEaten()
