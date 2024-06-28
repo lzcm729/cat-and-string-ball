@@ -12,9 +12,6 @@
 
 [node name="vacant_room" parent="." instance=ExtResource("1_g44qk")]
 
-[node name="main_control" parent="." instance=ExtResource("1_2wcxk")]
-level_name = "关卡4"
-
 [node name="Cat" parent="." instance=ExtResource("3_asw2m")]
 position = Vector2(416, 321)
 
@@ -40,5 +37,10 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterBody"]
 shape = SubResource("RectangleShape2D_lrq5i")
 
+[node name="main_control" parent="." instance=ExtResource("1_2wcxk")]
+level_name = "关卡4"
+
+[connection signal="cat_pat_ball" from="Cat" to="main_control" method="_on_cat_cat_pat_ball"]
+[connection signal="eat_core" from="Cat" to="main_control" method="_on_cat_eat_core"]
 [connection signal="body_entered" from="WaterBody" to="WaterBody" method="_on_body_entered"]
 [connection signal="body_exited" from="WaterBody" to="WaterBody" method="_on_body_exited"]
