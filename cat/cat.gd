@@ -138,9 +138,9 @@ func _on_pat_area_body_entered(body):
 	if body.name == "StringBall":
 		emit_signal("cat_pat_ball")
 		if is_left:
-			body.BeHit(Vector2(-50000, -40000))
+			body.BeHit(Vector2(-50000, 0))
 		else:
-			body.BeHit(Vector2(50000, -40000))
+			body.BeHit(Vector2(50000, 0))
 	if body.name == 'ChaosCore':
 		emit_signal("eat_core")
 		body.BeEaten()
