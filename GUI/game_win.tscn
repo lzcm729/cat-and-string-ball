@@ -1,5 +1,46 @@
-[gd_scene format=3 uid="uid://6wg3k7oe4f7c"]
+[gd_scene load_steps=2 format=3 uid="uid://6wg3k7oe4f7c"]
+
+[ext_resource type="Script" path="res://GUI/game_win.gd" id="1_gdy4o"]
 
 [node name="game_win" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_gdy4o")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.172549)
+offset_right = 1277.0
+offset_bottom = 722.0
+color = Color(0, 0, 0, 0.439216)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 463.0
+offset_top = 289.0
+offset_right = 818.0
+offset_bottom = 385.0
+theme_override_font_sizes/font_size = 70
+text = "you win"
+horizontal_alignment = 1
+
+[node name="back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 431.0
+offset_top = 456.0
+offset_right = 530.0
+offset_bottom = 519.0
+theme_override_font_sizes/font_size = 40
+text = "back"
+
+[node name="next" type="Button" parent="."]
+layout_mode = 0
+offset_left = 777.0
+offset_top = 455.0
+offset_right = 871.0
+offset_bottom = 518.0
+theme_override_font_sizes/font_size = 40
+text = "next
+"
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="next" to="." method="_on_next_pressed"]

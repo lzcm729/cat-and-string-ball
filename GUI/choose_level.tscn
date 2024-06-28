@@ -10,6 +10,9 @@ script = ExtResource("1_d41ta")
 
 [node name="main_control" parent="." instance=ExtResource("2_ifohh")]
 
+[node name="health" parent="main_control" index="2"]
+visible = false
+
 [node name="level1" type="Button" parent="."]
 layout_mode = 0
 offset_left = 333.0
@@ -55,3 +58,5 @@ text = "关卡5"
 [connection signal="pressed" from="level3" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="level4" to="." method="_on_level_4_pressed"]
 [connection signal="pressed" from="level5" to="." method="_on_level_5_pressed"]
+
+[editable path="main_control"]

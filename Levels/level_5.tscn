@@ -21,9 +21,6 @@ size = Vector2(111.461, 111.818)
 
 [node name="vacant_room" parent="." instance=ExtResource("1_2qggi")]
 
-[node name="main_control" parent="." instance=ExtResource("1_w16hm")]
-level_name = "关卡5"
-
 [node name="StaticBody2D" parent="." instance=ExtResource("3_wic4y")]
 position = Vector2(274, 324)
 scale = Vector2(7.16, 1)
@@ -63,11 +60,9 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Stove/FireArea"]
 visible = false
-scale = Vector2(1, 1)
 texture = ExtResource("5_265qc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stove/FireArea"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5onvp")
 
 [node name="IgnitionButton" type="StaticBody2D" parent="."]
@@ -76,7 +71,6 @@ scale = Vector2(1.1819, 0.630895)
 script = ExtResource("4_t8gcx")
 
 [node name="Sprite2D" type="Sprite2D" parent="IgnitionButton"]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="IgnitionButton"]
 shape = SubResource("RectangleShape2D_gbec1")
@@ -98,6 +92,10 @@ position = Vector2(456, 584)
 [node name="ChaosCore" parent="." instance=ExtResource("9_oc55v")]
 visible = false
 position = Vector2(448, 64)
+
+[node name="main_control" parent="." instance=ExtResource("1_w16hm")]
+level_name = "关卡5"
+level_id = 5
 
 [connection signal="body_entered" from="Stove/FireArea" to="Stove" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Stove/FireArea" to="Stove" method="_on_area_2d_body_exited"]

@@ -4,6 +4,8 @@ extends CharacterBody2D
 const speed = 300
 const jump_velocity = -800
 
+signal cat_pat_ball
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 #@onready var hit_area = $Marker2D/PatArea  # 猫角色的碰撞区域（Area2D）
@@ -133,6 +135,7 @@ func _input(event):
 
 func _on_pat_area_body_entered(body):
 	if body.name == "StringBall":
+		emit_signal("cat_pat_ball")
 		if is_left:
 			body.BeHit(Vector2(-10000, 0))
 		else:

@@ -42,3 +42,5 @@ shape = SubResource("RectangleShape2D_lrq5i")
 
 [connection signal="body_entered" from="WaterBody" to="WaterBody" method="_on_body_entered"]
 [connection signal="body_exited" from="WaterBody" to="WaterBody" method="_on_body_exited"]
+level_health = 2
+level_id = 4
