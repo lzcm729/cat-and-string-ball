@@ -129,3 +129,11 @@ func _input(event):
 			DropBall()
 		if event.keycode == KEY_Q:
 			Hit('AttackLeft' if is_left else 'AttackRight')
+
+
+func _on_pat_area_body_entered(body):
+	if body.name == "StringBall":
+		if is_left:
+			body.BeHit(Vector2(-10000, 0))
+		else:
+			body.BeHit(Vector2(10000, 0))
