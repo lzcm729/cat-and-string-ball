@@ -52,6 +52,7 @@ drop_ball={
 
 2d_physics/layer_1="墙壁"
 2d_physics/layer_2="猫"
+2d_physics/layer_3="混乱核心"
 2d_physics/layer_4="线球"
 
 [physics]
