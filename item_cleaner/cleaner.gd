@@ -23,6 +23,6 @@ func _physics_process(delta):
 func _on_cleaner_area_body_entered(body):
 	if body.name == "StringBall":
 		if position.x - body.position.x > 0:
-			body.BeHit(Vector2(-10000,-20000))
+			body.BeHit(Vector2(-50000,-20000))
 		else:
-			body.BeHit(Vector2(10000,-20000))
+			body.BeHit(Vector2(50000,-20000))
