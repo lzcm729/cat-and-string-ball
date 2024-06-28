@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqec6irfaowvp"]
+[gd_scene load_steps=7 format=3 uid="uid://cqec6irfaowvp"]
 
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="1_2wcxk"]
 [ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_g44qk"]
+[ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="3_asw2m"]
+[ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="4_lobqw"]
+[ext_resource type="Script" path="res://Levels/WaterBody.gd" id="5_q4ihk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrq5i"]
 
 [node name="Level4" type="Node2D"]
 
@@ -9,3 +14,31 @@
 
 [node name="main_control" parent="." instance=ExtResource("1_2wcxk")]
 level_name = "关卡4"
+
+[node name="Cat" parent="." instance=ExtResource("3_asw2m")]
+position = Vector2(416, 321)
+
+[node name="StringBall" parent="." instance=ExtResource("4_lobqw")]
+position = Vector2(646, 245)
+
+[node name="WaterBody" type="Area2D" parent="."]
+position = Vector2(639, 429)
+scale = Vector2(64.4773, 25.6731)
+collision_layer = 0
+collision_mask = 10
+gravity_point_center = Vector2(0, -1)
+gravity_direction = Vector2(0, -1)
+gravity = 1200.0
+linear_damp_space_override = 1
+linear_damp = 2.0
+angular_damp_space_override = 1
+script = ExtResource("5_q4ihk")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="WaterBody"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterBody"]
+shape = SubResource("RectangleShape2D_lrq5i")
+
+[connection signal="body_entered" from="WaterBody" to="WaterBody" method="_on_body_entered"]
+[connection signal="body_exited" from="WaterBody" to="WaterBody" method="_on_body_exited"]
