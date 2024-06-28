@@ -1,5 +1,6 @@
 extends StaticBody2D
 
+signal level_win
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,7 +14,7 @@ func _process(delta):
 
 
 func BeEaten():
-	pass
+	level_win.emit()
 
 
 func _on_string_ball_show_chaos_core(pos):
