@@ -11,9 +11,6 @@
 
 [node name="vacant_room" parent="." instance=ExtResource("1_0vh8p")]
 
-[node name="main_control" parent="." instance=ExtResource("1_eossy")]
-level_name = "关卡1"
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("4_p86rh")
 format = 2
@@ -31,3 +28,9 @@ scale = Vector2(15, 1.165)
 [node name="Stage2" parent="." instance=ExtResource("6_nch2q")]
 position = Vector2(887, 231)
 scale = Vector2(20, 1.165)
+
+[node name="main_control" parent="." instance=ExtResource("1_eossy")]
+level_name = "关卡1"
+level_health = 9
+
+[connection signal="cat_pat_ball" from="Cat" to="main_control" method="_on_cat_cat_pat_ball"]

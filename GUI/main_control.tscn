@@ -19,11 +19,20 @@ script = ExtResource("1_wl336")
 
 [node name="level_name" type="Label" parent="."]
 layout_mode = 0
-offset_left = 558.0
-offset_top = 26.0
-offset_right = 678.0
-offset_bottom = 81.0
+offset_left = 561.0
+offset_top = 25.0
+offset_right = 681.0
+offset_bottom = 80.0
 theme_override_font_sizes/font_size = 40
 text = "关卡名"
+
+[node name="health" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1014.0
+offset_top = 19.0
+offset_right = 1253.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 38
+text = "血量："
 
 [connection signal="pressed" from="back" to="back" method="_on_pressed"]

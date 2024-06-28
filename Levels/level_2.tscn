@@ -10,9 +10,6 @@
 
 [node name="vacant_room" parent="." instance=ExtResource("2_elcjv")]
 
-[node name="main_control" parent="." instance=ExtResource("1_lxh2x")]
-level_name = "关卡2"
-
 [node name="StringBall" parent="." instance=ExtResource("3_mvw4s")]
 position = Vector2(374, 564)
 
@@ -21,3 +18,10 @@ position = Vector2(128, 576)
 
 [node name="Cleaner" parent="." instance=ExtResource("5_4iwd8")]
 position = Vector2(1087, 620)
+
+[node name="main_control" parent="." instance=ExtResource("1_lxh2x")]
+level_name = "关卡2"
+level_health = 3
+level_id = 2
+
+[connection signal="cat_pat_ball" from="Cat" to="main_control" method="_on_cat_cat_pat_ball"]
