@@ -140,3 +140,5 @@ func _on_pat_area_body_entered(body):
 			body.BeHit(Vector2(-10000, 0))
 		else:
 			body.BeHit(Vector2(10000, 0))
+	if body.name == 'ChaosCore':
+		body.BeEaten()
