@@ -32,12 +32,12 @@ func _physics_process(delta):
 		recorded_position = position
 		var distance = delta_position.x + delta_position.y
 		MapDistanceToHP(distance)
-		if current_hp > initial_hp * broken_ratio:
-			SetScaleByHP()
-		else:
-			$Sprite2D.hide()
-			show_chaos_core.emit(position)
-			queue_free()
+	if current_hp > initial_hp * broken_ratio:
+		SetScaleByHP()
+	else:
+		$Sprite2D.hide()
+		show_chaos_core.emit(position)
+		queue_free()
 
 
 func MapDistanceToHP(distance:float):
@@ -90,3 +90,7 @@ func BeDropped():
 	can_decay = true
 	set_sleeping(false)
 	recorded_position = position
+
+
+func BeBurned():
+	current_hp *= 0.99

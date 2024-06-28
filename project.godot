@@ -48,6 +48,12 @@ drop_ball={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="墙壁"
+2d_physics/layer_2="猫"
+2d_physics/layer_4="线球"
+
 [physics]
 
 2d/default_linear_damp=0.0

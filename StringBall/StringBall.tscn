@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b36bl5hadkdtm"]
+[gd_scene load_steps=6 format=3 uid="uid://b36bl5hadkdtm"]
 
 [ext_resource type="Script" path="res://StringBall/StringBall.gd" id="1_v6uy8"]
+[ext_resource type="Texture2D" uid="uid://3bljcqruh2ta" path="res://ChaosCore/ChaosCore.png" id="2_6i0lo"]
 [ext_resource type="Texture2D" uid="uid://cqhak76kqruoh" path="res://StringBall/StringBall.png" id="2_wgvc4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_duu8p"]
@@ -13,6 +14,10 @@ collision_layer = 8
 physics_material_override = SubResource("PhysicsMaterial_duu8p")
 angular_damp = 1.0
 script = ExtResource("1_v6uy8")
+
+[node name="ChaosCoreToken" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_6i0lo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
