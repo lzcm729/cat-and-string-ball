@@ -20,14 +20,15 @@ position = Vector2(128, 576)
 [node name="Cleaner" parent="." instance=ExtResource("5_4iwd8")]
 position = Vector2(1087, 620)
 
+[node name="ChaosCore" parent="." instance=ExtResource("6_fbydx")]
+visible = false
+position = Vector2(-10.3825, -59.1853)
+
 [node name="main_control" parent="." instance=ExtResource("1_lxh2x")]
 level_name = "关卡2"
 level_health = 3
 level_id = 2
 
-[node name="ChaosCore" parent="." instance=ExtResource("6_fbydx")]
-visible = false
-position = Vector2(-10.3825, -59.1853)
-
 [connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
 [connection signal="cat_pat_ball" from="Cat" to="main_control" method="_on_cat_cat_pat_ball"]
+[connection signal="eat_core" from="Cat" to="main_control" method="_on_cat_eat_core"]
