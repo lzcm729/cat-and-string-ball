@@ -33,7 +33,7 @@ func _on_body_exited(body):
 func apply_buoyancy(body):
 	var volume = body.volumn_in_water
 	var buoyant_force = water_density * volume * gravity / 1000
-	print_debug(buoyant_force)
+	#print_debug(buoyant_force)
 	var displacement = buoyant_force * Vector2(0, -1)
 	body.apply_force(displacement, body.global_transform.origin)
 

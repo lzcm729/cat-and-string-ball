@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqec6irfaowvp"]
+[gd_scene load_steps=8 format=3 uid="uid://cqec6irfaowvp"]
 
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="1_2wcxk"]
 [ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_g44qk"]
 [ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="3_asw2m"]
 [ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="4_lobqw"]
 [ext_resource type="Script" path="res://Levels/WaterBody.gd" id="5_q4ihk"]
+[ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="6_hyhb7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrq5i"]
 
@@ -29,7 +30,6 @@ gravity_direction = Vector2(0, -1)
 gravity = 1200.0
 linear_damp_space_override = 1
 linear_damp = 2.0
-angular_damp_space_override = 1
 script = ExtResource("5_q4ihk")
 metadata/_edit_group_ = true
 
@@ -59,8 +59,11 @@ debug_color = Color(0, 0.565222, 0.866317, 0.42)
 [node name="main_control" parent="." instance=ExtResource("1_2wcxk")]
 level_name = "关卡4"
 
+[node name="ChaosCore" parent="." instance=ExtResource("6_hyhb7")]
+
 [connection signal="cat_pat_ball" from="Cat" to="main_control" method="_on_cat_cat_pat_ball"]
 [connection signal="eat_core" from="Cat" to="main_control" method="_on_cat_eat_core"]
+[connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
 [connection signal="body_entered" from="WaterBody" to="WaterBody" method="_on_body_entered"]
 [connection signal="body_exited" from="WaterBody" to="WaterBody" method="_on_body_exited"]
 [connection signal="body_shape_entered" from="WaterBody" to="WaterBody" method="_on_body_shape_entered"]
