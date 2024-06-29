@@ -28,6 +28,7 @@ position = Vector2(-10.3825, -59.1853)
 level_name = "关卡2"
 level_health = 3
 level_id = 2
+back_type = 2
 
 [connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
 [connection signal="cat_pat_ball" from="Cat" to="main_control" method="_on_cat_cat_pat_ball"]

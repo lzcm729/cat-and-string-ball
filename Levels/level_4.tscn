@@ -58,6 +58,7 @@ debug_color = Color(0, 0.565222, 0.866317, 0.42)
 
 [node name="main_control" parent="." instance=ExtResource("1_2wcxk")]
 level_name = "关卡4"
+back_type = 2
 
 [node name="ChaosCore" parent="." instance=ExtResource("6_hyhb7")]
 
