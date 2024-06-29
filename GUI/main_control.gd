@@ -3,6 +3,7 @@ extends Control
 @export var level_name = ''
 @export var level_health = 5
 @export var level_id = 1
+@export var back_type = 1
 
 @onready var level_name_label = $level_name
 @onready var health_label = $health
@@ -43,3 +44,10 @@ func _on_cat_eat_core():
 	var game_win = game_win_templ.instantiate()
 	game_win.level_id = level_id
 	add_child(game_win)
+
+
+func _on_back_pressed():
+	if back_type == 1:
+		get_tree().change_scene_to_file("res://GUI/start_menu.tscn")
+	else:
+		get_tree().change_scene_to_file("res://GUI/choose_level.tscn")

@@ -58,6 +58,7 @@ debug_color = Color(0, 0.565222, 0.866317, 0.42)
 
 [node name="main_control" parent="." instance=ExtResource("1_2wcxk")]
 level_name = "关卡4"
+back_type = 2
 
 [connection signal="cat_pat_ball" from="Cat" to="main_control" method="_on_cat_cat_pat_ball"]
 [connection signal="eat_core" from="Cat" to="main_control" method="_on_cat_eat_core"]

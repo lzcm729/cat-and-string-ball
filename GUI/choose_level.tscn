@@ -1,62 +1,90 @@
-[gd_scene load_steps=3 format=3 uid="uid://bykmdabf32gxa"]
+[gd_scene load_steps=12 format=3 uid="uid://bykmdabf32gxa"]
 
-[ext_resource type="Script" path="res://GUI/choose_level.gd" id="1_d41ta"]
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="2_ifohh"]
+[ext_resource type="Texture2D" uid="uid://45ieprje7p0e" path="res://UI/level_choose/level_choose.png" id="2_wqi2i"]
+[ext_resource type="PackedScene" uid="uid://cb27i8cr6oyqq" path="res://GUI/level_entry.tscn" id="3_7sto8"]
+[ext_resource type="Texture2D" uid="uid://bm3ieh51odt1x" path="res://UI/level_choose/level_1.png" id="4_2h6pj"]
+[ext_resource type="Texture2D" uid="uid://doygj3cg4xa0t" path="res://UI/level_choose/level_2.png" id="4_luml1"]
+[ext_resource type="Texture2D" uid="uid://n3qlsp0mp0x5" path="res://UI/level_choose/level_3.png" id="5_p4aya"]
+[ext_resource type="Texture2D" uid="uid://b1k2dbvx6l6ql" path="res://UI/level_choose/level_4.png" id="7_j1rdi"]
 
-[node name="choose_level" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("1_d41ta")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_np16b"]
+size = Vector2(262, 447)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1s3m"]
+size = Vector2(244, 443)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsda4"]
+size = Vector2(254, 446)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avpys"]
+size = Vector2(346, 459)
+
+[node name="choose_level" type="Node2D"]
+
+[node name="LevelChoose" type="Sprite2D" parent="."]
+position = Vector2(641, 361)
+texture = ExtResource("2_wqi2i")
+
+[node name="level_fire" parent="." instance=ExtResource("3_7sto8")]
+position = Vector2(46, 198)
+level_id = 5
+
+[node name="Sprite2D" parent="level_fire" index="0"]
+position = Vector2(49, 200)
+texture = ExtResource("4_2h6pj")
+
+[node name="CollisionShape2D" parent="level_fire" index="1"]
+position = Vector2(132, 212.5)
+shape = SubResource("RectangleShape2D_np16b")
+debug_color = Color(1, 1, 1, 0)
+
+[node name="level_wood" parent="." instance=ExtResource("3_7sto8")]
+position = Vector2(338, 192)
+level_id = 2
+
+[node name="Sprite2D" parent="level_wood" index="0"]
+position = Vector2(121, 219)
+texture = ExtResource("4_luml1")
+
+[node name="CollisionShape2D" parent="level_wood" index="1"]
+position = Vector2(121, 220.5)
+shape = SubResource("RectangleShape2D_d1s3m")
+debug_color = Color(1, 1, 1, 0)
+
+[node name="level_iron" parent="." instance=ExtResource("3_7sto8")]
+position = Vector2(611, 188)
+level_id = 3
+
+[node name="Sprite2D" parent="level_iron" index="0"]
+position = Vector2(128, 220)
+texture = ExtResource("5_p4aya")
+
+[node name="CollisionShape2D" parent="level_iron" index="1"]
+position = Vector2(127, 223)
+shape = SubResource("RectangleShape2D_qsda4")
+debug_color = Color(1, 1, 1, 0)
+
+[node name="level_water" parent="." instance=ExtResource("3_7sto8")]
+position = Vector2(893, 180)
+level_id = 4
+
+[node name="Sprite2D" parent="level_water" index="0"]
+position = Vector2(172, 223)
+texture = ExtResource("7_j1rdi")
+
+[node name="CollisionShape2D" parent="level_water" index="1"]
+position = Vector2(174, 225.5)
+shape = SubResource("RectangleShape2D_avpys")
+debug_color = Color(1, 1, 1, 0)
 
 [node name="main_control" parent="." instance=ExtResource("2_ifohh")]
 
 [node name="health" parent="main_control" index="2"]
 visible = false
 
-[node name="level1" type="Button" parent="."]
-layout_mode = 0
-offset_left = 333.0
-offset_top = 211.0
-offset_right = 449.0
-offset_bottom = 267.0
-text = "关卡1"
-
-[node name="level2" type="Button" parent="."]
-layout_mode = 0
-offset_left = 472.0
-offset_top = 214.0
-offset_right = 570.0
-offset_bottom = 267.0
-text = "关卡2"
-
-[node name="level3" type="Button" parent="."]
-layout_mode = 0
-offset_left = 605.0
-offset_top = 215.0
-offset_right = 703.0
-offset_bottom = 267.0
-text = "关卡3"
-
-[node name="level4" type="Button" parent="."]
-layout_mode = 0
-offset_left = 752.0
-offset_top = 214.0
-offset_right = 871.0
-offset_bottom = 270.0
-text = "关卡4"
-
-[node name="level5" type="Button" parent="."]
-layout_mode = 0
-offset_left = 478.0
-offset_top = 338.0
-offset_right = 564.0
-offset_bottom = 406.0
-text = "关卡5"
-
-[connection signal="pressed" from="level1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="level2" to="." method="_on_level_2_pressed"]
-[connection signal="pressed" from="level3" to="." method="_on_level_3_pressed"]
-[connection signal="pressed" from="level4" to="." method="_on_level_4_pressed"]
-[connection signal="pressed" from="level5" to="." method="_on_level_5_pressed"]
-
+[editable path="level_fire"]
+[editable path="level_wood"]
+[editable path="level_iron"]
+[editable path="level_water"]
 [editable path="main_control"]
