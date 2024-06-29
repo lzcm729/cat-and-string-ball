@@ -12,7 +12,6 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	if body.name == 'Cat':
-		$Normal.hide()
-		$Broken.show()
-		set_monitoring(false)
+	$Normal.hide()
+	$Broken.show()
+	set_deferred('monitoring', false)

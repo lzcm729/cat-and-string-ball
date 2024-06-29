@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://wq4prlmuphp3"]
+[gd_scene load_steps=16 format=3 uid="uid://wq4prlmuphp3"]
 
 [ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_2qggi"]
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="1_w16hm"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="8_0k72l"]
 [ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="9_oc55v"]
 [ext_resource type="PackedScene" uid="uid://bl27o6gj46g03" path="res://Debris/Debris.tscn" id="10_sfyyq"]
+[ext_resource type="Texture2D" uid="uid://ma83bneojpuc" path="res://Debris/高脚杯/cup.png" id="11_0b55n"]
+[ext_resource type="Texture2D" uid="uid://cx4xj1es38e02" path="res://Debris/高脚杯/cup_broke.png" id="12_le4mt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbec1"]
 
@@ -23,7 +25,7 @@ size = Vector2(111.461, 111.818)
 [node name="vacant_room" parent="." instance=ExtResource("1_2qggi")]
 
 [node name="StaticBody2D" parent="." instance=ExtResource("3_wic4y")]
-position = Vector2(274, 324)
+position = Vector2(280, 472)
 scale = Vector2(7.16, 1)
 
 [node name="StaticBody2D3" parent="." instance=ExtResource("3_wic4y")]
@@ -35,8 +37,47 @@ position = Vector2(864, 568)
 scale = Vector2(13.9693, 11.0094)
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("3_wic4y")]
-position = Vector2(273, 468)
-scale = Vector2(7.16, 1)
+position = Vector2(344, 248)
+scale = Vector2(30.842, -0.939402)
+
+[node name="高脚杯" parent="." groups=["Debris"] instance=ExtResource("10_sfyyq")]
+position = Vector2(496, 200)
+metadata/_edit_group_ = true
+
+[node name="Normal" parent="高脚杯" index="0"]
+texture = ExtResource("11_0b55n")
+
+[node name="Broken" parent="高脚杯" index="1"]
+texture = ExtResource("12_le4mt")
+
+[node name="CollisionShape2D" parent="高脚杯" index="2"]
+position = Vector2(0, 4)
+
+[node name="高脚杯2" parent="." groups=["Debris"] instance=ExtResource("10_sfyyq")]
+position = Vector2(568, 200)
+metadata/_edit_group_ = true
+
+[node name="Normal" parent="高脚杯2" index="0"]
+texture = ExtResource("11_0b55n")
+
+[node name="Broken" parent="高脚杯2" index="1"]
+texture = ExtResource("12_le4mt")
+
+[node name="CollisionShape2D" parent="高脚杯2" index="2"]
+position = Vector2(0, 4)
+
+[node name="高脚杯3" parent="." groups=["Debris"] instance=ExtResource("10_sfyyq")]
+position = Vector2(416, 200)
+metadata/_edit_group_ = true
+
+[node name="Normal" parent="高脚杯3" index="0"]
+texture = ExtResource("11_0b55n")
+
+[node name="Broken" parent="高脚杯3" index="1"]
+texture = ExtResource("12_le4mt")
+
+[node name="CollisionShape2D" parent="高脚杯3" index="2"]
+position = Vector2(0, 4)
 
 [node name="Stove" type="StaticBody2D" parent="."]
 position = Vector2(872, 424)
@@ -98,9 +139,6 @@ position = Vector2(448, 64)
 level_name = "关卡5"
 level_id = 5
 
-[node name="Debris" parent="." instance=ExtResource("10_sfyyq")]
-position = Vector2(624, 592)
-
 [connection signal="body_entered" from="Stove/FireArea" to="Stove" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Stove/FireArea" to="Stove" method="_on_area_2d_body_exited"]
 [connection signal="turn_off_fire" from="IgnitionButton" to="Stove" method="_on_ignition_button_turn_off_fire"]
@@ -110,3 +148,7 @@ position = Vector2(624, 592)
 [connection signal="cat_pat_ball" from="Cat" to="main_control" method="_on_cat_cat_pat_ball"]
 [connection signal="eat_core" from="Cat" to="main_control" method="_on_cat_eat_core"]
 [connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
+
+[editable path="高脚杯"]
+[editable path="高脚杯2"]
+[editable path="高脚杯3"]

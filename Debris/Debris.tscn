@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://r3wiis3e22jn" path="res://icon.svg" id="2_07rli"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxtc7"]
-size = Vector2(128, 128)
+size = Vector2(32, 72)
 
 [node name="Debris" type="Area2D"]
 collision_layer = 128
-collision_mask = 2
+collision_mask = 14
 script = ExtResource("1_0texo")
 
 [node name="Normal" type="Sprite2D" parent="."]
@@ -17,7 +17,6 @@ texture = ExtResource("2_07rli")
 [node name="Broken" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("2_07rli")
-flip_v = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fxtc7")
