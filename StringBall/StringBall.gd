@@ -29,9 +29,6 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	if is_in_water:
-		CalculateVolunmInWater()
-		
 	if can_decay:
 		var delta_position = abs(position - recorded_position)
 		MapDistanceToHP(delta_position.x + delta_position.y)
@@ -43,6 +40,12 @@ func _physics_process(delta):
 		$Sprite2D.hide()
 		show_chaos_core.emit(position)
 		queue_free()
+
+
+func _integrate_forces(state):
+	if is_in_water:
+		CalculateVolunmInWater()
+		state.apply_central_force(CalculateBuoyancy(1))
 
 
 func MapDistanceToHP(distance:float):
@@ -82,6 +85,12 @@ func CalculateVolunmInWater():
 			volumn_in_water = (PI * current_radius**2)- (current_radius**2 / 2) * (theta-sin(theta))
 
 
+func CalculateBuoyancy(water_density) -> Vector2:
+	var buoyant_force = water_density * volumn_in_water * ProjectSettings.get_setting("physics/2d/default_gravity")
+	var displacement = buoyant_force * Vector2(0, -1) / 1000
+	return displacement
+	
+	
 # INTERFACE
 # 被叼起来后移动 稳态移动
 func StationaryMove(pos:Vector2):

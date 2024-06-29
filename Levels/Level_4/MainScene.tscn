@@ -67,7 +67,7 @@ back_type = 2
 position = Vector2(911, 89)
 lock_rotation = true
 linear_damp = 3.0
-angular_damp = 10.0
+angular_damp = 5.0
 
 [connection signal="cat_pat_ball" from="Cat" to="main_control" method="_on_cat_cat_pat_ball"]
 [connection signal="eat_core" from="Cat" to="main_control" method="_on_cat_eat_core"]

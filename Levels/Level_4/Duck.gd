@@ -11,10 +11,10 @@ func _process(delta):
 	pass
 
 
-func _physics_process(delta):
-	if is_in_water:
-		CalculateVolunmInWater()
-		ApplyBuoyancy(1)
+#func _physics_process(delta):
+	#if is_in_water:
+		#CalculateVolunmInWater()
+		#ApplyBuoyancy(1)
 
 
 # 计算排开水体积
@@ -33,13 +33,12 @@ func GetWholeVolunm() -> float:
 	return 128*128
 
 
-func ApplyBuoyancy(water_density):
+func CalculateBuoyancy(water_density) -> Vector2:
 	var buoyant_force = water_density * volumn_in_water * ProjectSettings.get_setting("physics/2d/default_gravity")
 	var displacement = buoyant_force * Vector2(0, -1) / 50
-	#print_debug(volumn_in_water, displacement)
-	apply_central_force(displacement)
+	return displacement
 
-
-#func _integrate_forces(state):
-	#if is_in_water:
-		#ApplyBuoyancy(1)
+func _integrate_forces(state):
+	if is_in_water:
+		CalculateVolunmInWater()
+		state.apply_central_force(CalculateBuoyancy(1))
