@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://wq4prlmuphp3"]
+[gd_scene load_steps=14 format=3 uid="uid://wq4prlmuphp3"]
 
 [ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_2qggi"]
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="1_w16hm"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="7_5tk4k"]
 [ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="8_0k72l"]
 [ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="9_oc55v"]
+[ext_resource type="PackedScene" uid="uid://bl27o6gj46g03" path="res://Debris/Debris.tscn" id="10_sfyyq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbec1"]
 
@@ -96,6 +97,9 @@ position = Vector2(448, 64)
 [node name="main_control" parent="." instance=ExtResource("1_w16hm")]
 level_name = "关卡5"
 level_id = 5
+
+[node name="Debris" parent="." instance=ExtResource("10_sfyyq")]
+position = Vector2(624, 592)
 
 [connection signal="body_entered" from="Stove/FireArea" to="Stove" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Stove/FireArea" to="Stove" method="_on_area_2d_body_exited"]
