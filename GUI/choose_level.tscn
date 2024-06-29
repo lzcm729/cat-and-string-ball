@@ -1,12 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://bykmdabf32gxa"]
+[gd_scene load_steps=16 format=3 uid="uid://bykmdabf32gxa"]
 
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="2_ifohh"]
 [ext_resource type="Texture2D" uid="uid://45ieprje7p0e" path="res://UI/level_choose/level_choose.png" id="2_wqi2i"]
 [ext_resource type="PackedScene" uid="uid://cb27i8cr6oyqq" path="res://GUI/level_entry.tscn" id="3_7sto8"]
 [ext_resource type="Texture2D" uid="uid://bm3ieh51odt1x" path="res://UI/level_choose/level_1.png" id="4_2h6pj"]
+[ext_resource type="Texture2D" path="res://UI/level_choose/level_1_mouse.png" id="4_ds5qt"]
 [ext_resource type="Texture2D" uid="uid://doygj3cg4xa0t" path="res://UI/level_choose/level_2.png" id="4_luml1"]
 [ext_resource type="Texture2D" uid="uid://n3qlsp0mp0x5" path="res://UI/level_choose/level_3.png" id="5_p4aya"]
+[ext_resource type="Texture2D" path="res://UI/level_choose/level_2_mouse.png" id="6_3scw1"]
 [ext_resource type="Texture2D" uid="uid://b1k2dbvx6l6ql" path="res://UI/level_choose/level_4.png" id="7_j1rdi"]
+[ext_resource type="Texture2D" uid="uid://b2d222jymp35t" path="res://UI/level_choose/level_3_mouse.png" id="8_6fy16"]
+[ext_resource type="Texture2D" uid="uid://ccssgsbwkp1nq" path="res://UI/level_choose/level_4_mouse.png" id="10_wj2pj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_np16b"]
 size = Vector2(262, 447)
@@ -30,7 +34,7 @@ texture = ExtResource("2_wqi2i")
 position = Vector2(46, 198)
 level_id = 5
 
-[node name="Sprite2D" parent="level_fire" index="0"]
+[node name="door" parent="level_fire" index="0"]
 position = Vector2(49, 200)
 texture = ExtResource("4_2h6pj")
 
@@ -39,11 +43,16 @@ position = Vector2(132, 212.5)
 shape = SubResource("RectangleShape2D_np16b")
 debug_color = Color(1, 1, 1, 0)
 
+[node name="highlight" parent="level_fire" index="2"]
+visible = false
+position = Vector2(130, 204)
+texture = ExtResource("4_ds5qt")
+
 [node name="level_wood" parent="." instance=ExtResource("3_7sto8")]
 position = Vector2(338, 192)
 level_id = 2
 
-[node name="Sprite2D" parent="level_wood" index="0"]
+[node name="door" parent="level_wood" index="0"]
 position = Vector2(121, 219)
 texture = ExtResource("4_luml1")
 
@@ -52,11 +61,16 @@ position = Vector2(121, 220.5)
 shape = SubResource("RectangleShape2D_d1s3m")
 debug_color = Color(1, 1, 1, 0)
 
+[node name="highlight" parent="level_wood" index="2"]
+visible = false
+position = Vector2(120, 216)
+texture = ExtResource("6_3scw1")
+
 [node name="level_iron" parent="." instance=ExtResource("3_7sto8")]
 position = Vector2(611, 188)
 level_id = 3
 
-[node name="Sprite2D" parent="level_iron" index="0"]
+[node name="door" parent="level_iron" index="0"]
 position = Vector2(128, 220)
 texture = ExtResource("5_p4aya")
 
@@ -65,12 +79,17 @@ position = Vector2(127, 223)
 shape = SubResource("RectangleShape2D_qsda4")
 debug_color = Color(1, 1, 1, 0)
 
+[node name="highlight" parent="level_iron" index="2"]
+visible = false
+position = Vector2(127, 214)
+texture = ExtResource("8_6fy16")
+
 [node name="level_water" parent="." instance=ExtResource("3_7sto8")]
 position = Vector2(893, 180)
 level_id = 4
 
-[node name="Sprite2D" parent="level_water" index="0"]
-position = Vector2(172, 223)
+[node name="door" parent="level_water" index="0"]
+position = Vector2(173, 223)
 texture = ExtResource("7_j1rdi")
 
 [node name="CollisionShape2D" parent="level_water" index="1"]
@@ -78,7 +97,16 @@ position = Vector2(174, 225.5)
 shape = SubResource("RectangleShape2D_avpys")
 debug_color = Color(1, 1, 1, 0)
 
+[node name="highlight" parent="level_water" index="2"]
+visible = false
+position = Vector2(173, 221)
+texture = ExtResource("10_wj2pj")
+
 [node name="main_control" parent="." instance=ExtResource("2_ifohh")]
+offset_left = -2.0
+offset_top = -2.0
+offset_right = -2.0
+offset_bottom = -2.0
 
 [node name="health" parent="main_control" index="2"]
 visible = false
