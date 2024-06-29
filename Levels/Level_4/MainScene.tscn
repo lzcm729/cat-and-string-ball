@@ -1,22 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqec6irfaowvp"]
+[gd_scene load_steps=9 format=3 uid="uid://cqec6irfaowvp"]
 
-[ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="1_2wcxk"]
-[ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_g44qk"]
-[ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="3_asw2m"]
-[ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="4_lobqw"]
-[ext_resource type="Script" path="res://Levels/WaterBody.gd" id="5_q4ihk"]
-[ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="6_hyhb7"]
+[ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_tmqq4"]
+[ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="2_ehrsk"]
+[ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="3_bf55f"]
+[ext_resource type="Script" path="res://Levels/Level_4/WaterBody.gd" id="4_5p5dd"]
+[ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="5_rs18h"]
+[ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="6_6r2w2"]
+[ext_resource type="PackedScene" uid="uid://bx0knw8nruxex" path="res://Levels/Level_4/Duck.tscn" id="7_ah616"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrq5i"]
 
 [node name="Level4" type="Node2D"]
 
-[node name="vacant_room" parent="." instance=ExtResource("1_g44qk")]
+[node name="vacant_room" parent="." instance=ExtResource("1_tmqq4")]
 
-[node name="Cat" parent="." instance=ExtResource("3_asw2m")]
+[node name="Cat" parent="." instance=ExtResource("2_ehrsk")]
 position = Vector2(416, 321)
 
-[node name="StringBall" parent="." instance=ExtResource("4_lobqw")]
+[node name="StringBall" parent="." instance=ExtResource("3_bf55f")]
 position = Vector2(644, 75)
 lock_rotation = true
 
@@ -24,13 +25,13 @@ lock_rotation = true
 position = Vector2(639, 429)
 scale = Vector2(64.4773, 25.6731)
 collision_layer = 32
-collision_mask = 10
+collision_mask = 266
 gravity_point_center = Vector2(0, -1)
 gravity_direction = Vector2(0, -1)
 gravity = 1200.0
 linear_damp_space_override = 1
 linear_damp = 2.0
-script = ExtResource("5_q4ihk")
+script = ExtResource("4_5p5dd")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="WaterBody"]
@@ -56,11 +57,17 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_lrq5i")
 debug_color = Color(0, 0.565222, 0.866317, 0.42)
 
-[node name="main_control" parent="." instance=ExtResource("1_2wcxk")]
+[node name="main_control" parent="." instance=ExtResource("5_rs18h")]
 level_name = "关卡4"
 back_type = 2
 
-[node name="ChaosCore" parent="." instance=ExtResource("6_hyhb7")]
+[node name="ChaosCore" parent="." instance=ExtResource("6_6r2w2")]
+
+[node name="Duck" parent="." instance=ExtResource("7_ah616")]
+position = Vector2(911, 89)
+lock_rotation = true
+linear_damp = 3.0
+angular_damp = 10.0
 
 [connection signal="cat_pat_ball" from="Cat" to="main_control" method="_on_cat_cat_pat_ball"]
 [connection signal="eat_core" from="Cat" to="main_control" method="_on_cat_eat_core"]

@@ -30,25 +30,12 @@ func _process(delta):
 
 func _physics_process(delta):
 	if is_in_water:
-		var current_radius = $CollisionShape2D.shape.radius
-		$WaterDetector.force_raycast_update()
-		if $WaterDetector.is_colliding():
-			var collision_point_water = $WaterDetector.get_collision_point()
-			var distance_water = (collision_point_water - position).y
-			if distance_water >= 0:
-				var theta = 2*acos(distance_water/current_radius)
-				volumn_in_water = (current_radius**2 / 2) * (theta-sin(theta))
-			else:
-				$AirDetector.force_raycast_update()
-				var collision_point_air = $AirDetector.get_collision_point()
-				var distance_air = abs((collision_point_air - position).y)
-				var theta = 2*acos(distance_air/current_radius)
-				volumn_in_water = (PI * current_radius**2)- (current_radius**2 / 2) * (theta-sin(theta))
+		CalculateVolunmInWater()
+		
 	if can_decay:
 		var delta_position = abs(position - recorded_position)
+		MapDistanceToHP(delta_position.x + delta_position.y)
 		recorded_position = position
-		var distance = delta_position.x + delta_position.y
-		MapDistanceToHP(distance)
 		
 	if current_hp > initial_hp * broken_ratio:
 		SetScaleByHP()
@@ -76,6 +63,23 @@ func SetScaleByHP():
 # 随着缩小要留下印迹
 func DrawFootprint():
 	pass
+
+# 计算排开水体积
+func CalculateVolunmInWater():
+	var current_radius = $CollisionShape2D.shape.radius
+	$WaterDetector.force_raycast_update()
+	if $WaterDetector.is_colliding():
+		var collision_point_water = $WaterDetector.get_collision_point()
+		var distance_water = (collision_point_water - position).y
+		if distance_water >= 0:
+			var theta = 2*acos(distance_water/current_radius)
+			volumn_in_water = (current_radius**2 / 2) * (theta-sin(theta))
+		else:
+			$AirDetector.force_raycast_update()
+			var collision_point_air = $AirDetector.get_collision_point()
+			var distance_air = abs((collision_point_air - position).y)
+			var theta = 2*acos(distance_air/current_radius)
+			volumn_in_water = (PI * current_radius**2)- (current_radius**2 / 2) * (theta-sin(theta))
 
 
 # INTERFACE

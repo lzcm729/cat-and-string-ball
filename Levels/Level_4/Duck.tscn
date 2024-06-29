@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx0knw8nruxex"]
+
+[ext_resource type="Texture2D" uid="uid://r3wiis3e22jn" path="res://icon.svg" id="1_5ka61"]
+[ext_resource type="Script" path="res://Levels/Level_4/Duck.gd" id="1_inu3m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6h3w"]
+size = Vector2(32, 32)
+
+[node name="Duck" type="RigidBody2D"]
+collision_layer = 256
+collision_mask = 0
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 64)
+script = ExtResource("1_inu3m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_5ka61")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.74846e-06, 0)
+shape = SubResource("RectangleShape2D_u6h3w")
+
+[node name="WaterDetector" type="RayCast2D" parent="."]
+position = Vector2(0, -16)
+enabled = false
+target_position = Vector2(0, 32)
+collision_mask = 32
+hit_from_inside = true
+collide_with_areas = true

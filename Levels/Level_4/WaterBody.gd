@@ -3,6 +3,8 @@ extends Area2D
 # Adjust these values based on your requirements
 var water_density = 1.0
 var ball
+var duck
+var bodies_in_water = {}
 
 func _ready():
 	pass
@@ -13,27 +15,35 @@ func _process(delta):
 func _physics_process(delta):
 	if ball:
 		apply_buoyancy(ball)
-#
+	#if duck:
+		#apply_buoyancy(duck)
+		
+		
 func _on_body_entered(body):
+	body.is_in_water = true
+	
 	if body.name == 'Cat':
-		body.is_in_water = true
+		pass
 	if body.name == 'StringBall':
-		body.is_in_water = true
 		ball = body
+	if body.name == 'Duck':
+		duck = body
 #
 #
 func _on_body_exited(body):
+	body.is_in_water = false
+	
 	if body.name == 'Cat':
-		body.is_in_water = false
+		pass
 	if body.name == 'StringBall':
-		body.is_in_water = false
 		ball = null
+	if body.name == 'Duck':
+		duck = null
 
 
 func apply_buoyancy(body):
 	var volume = body.volumn_in_water
 	var buoyant_force = water_density * volume * gravity / 1000
-	#print_debug(buoyant_force)
 	var displacement = buoyant_force * Vector2(0, -1)
 	body.apply_force(displacement, body.global_transform.origin)
 
