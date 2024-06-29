@@ -4,8 +4,9 @@ extends RigidBody2D
 #@onready var sprite = $Sprite2D
 #@onready var collision = $CollisionShape2D
 
-var initial_hp = 100.
-var broken_ratio = 0.3
+
+@export var initial_hp = 100.
+@export var broken_threshold = 0.3
 
 var can_decay = true
 var is_in_water = false
@@ -34,7 +35,7 @@ func _physics_process(delta):
 		MapDistanceToHP(delta_position.x + delta_position.y)
 		recorded_position = position
 		
-	if current_hp > initial_hp * broken_ratio:
+	if current_hp > initial_hp * broken_threshold:
 		SetScaleByHP()
 	else:
 		$Sprite2D.hide()
