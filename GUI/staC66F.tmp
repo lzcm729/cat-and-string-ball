@@ -6,9 +6,9 @@
 [ext_resource type="Script" path="res://GUI/play.gd" id="2_ksycf"]
 [ext_resource type="Texture2D" uid="uid://beoepwvdm1smf" path="res://UI/start_menu/house_grass.png" id="3_3iuki"]
 
-[sub_resource type="Curve2D" id="Curve2D_3i7d3"]
+[sub_resource type="Curve2D" id="Curve2D_ytomm"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 664, 589, 0, 0, 0, 0, 664, 554)
+"points": PackedVector2Array(0, 0, 0, 0, 633, 561, 0, 0, 0, 0, 633, 533)
 }
 point_count = 2
 
@@ -23,28 +23,21 @@ script = ExtResource("1_poxuc")
 position = Vector2(640, 360)
 texture = ExtResource("1_p8x6v")
 
-[node name="path" type="Path2D" parent="Bg"]
-position = Vector2(-7, 35)
-curve = SubResource("Curve2D_3i7d3")
-
-[node name="title_follow" type="PathFollow2D" parent="Bg/path"]
-position = Vector2(664, 589)
-rotation = -1.5708
-loop = false
-
-[node name="Title" type="Sprite2D" parent="Bg/path/title_follow"]
-position = Vector2(309, -28)
-rotation = 1.5708
+[node name="Title" type="Sprite2D" parent="Bg"]
+position = Vector2(623, 290)
 texture = ExtResource("2_2dwan")
 
-[node name="housegrass_follow" type="PathFollow2D" parent="Bg/path"]
-position = Vector2(664, 575.954)
-rotation = -1.5708
-progress = 13.062
-loop = false
+[node name="Path2D" type="Path2D" parent="Bg"]
+position = Vector2(-3, -40)
+curve = SubResource("Curve2D_ytomm")
 
-[node name="HouseGrass" type="Sprite2D" parent="Bg/path/housegrass_follow"]
-position = Vector2(229.377, -17.2171)
+[node name="PathFollow2D" type="PathFollow2D" parent="Bg/Path2D"]
+position = Vector2(633, 533)
+rotation = -1.5708
+progress = 28.0
+
+[node name="HouseGrass" type="Sprite2D" parent="Bg/Path2D/PathFollow2D"]
+position = Vector2(133.792, 10.239)
 rotation = 1.5708
 scale = Vector2(1, 1)
 texture = ExtResource("3_3iuki")
