@@ -59,6 +59,7 @@ drop_ball={
 2d_physics/layer_7="空气"
 2d_physics/layer_8="杂物"
 2d_physics/layer_9="橡皮鸭"
+2d_physics/layer_10="可挥击对象"
 
 [physics]
 

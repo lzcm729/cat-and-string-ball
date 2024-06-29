@@ -147,3 +147,9 @@ func _on_pat_area_body_entered(body):
 	if body.name == 'ChaosCore':
 		emit_signal("eat_core")
 		body.BeEaten()
+	if body.name == 'Duck':
+		if is_left:
+			body.apply_central_force(Vector2(-5000, -2000))
+		else:
+			body.apply_central_force(Vector2(5000, -2000))
+		

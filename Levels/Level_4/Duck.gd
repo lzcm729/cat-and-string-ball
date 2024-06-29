@@ -35,7 +35,7 @@ func GetWholeVolunm() -> float:
 
 func CalculateBuoyancy(water_density) -> Vector2:
 	var buoyant_force = water_density * volumn_in_water * ProjectSettings.get_setting("physics/2d/default_gravity")
-	var displacement = buoyant_force * Vector2(0, -1) / 50
+	var displacement = buoyant_force * Vector2(0, -1) / 500
 	return displacement
 
 func _integrate_forces(state):

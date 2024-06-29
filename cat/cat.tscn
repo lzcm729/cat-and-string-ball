@@ -438,7 +438,7 @@ disabled = true
 position = Vector2(-107, 18)
 rotation = 1.5708
 collision_layer = 8
-collision_mask = 12
+collision_mask = 780
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/PatArea"]
 position = Vector2(0, -42)
