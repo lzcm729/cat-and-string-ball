@@ -44,7 +44,6 @@ shape = SubResource("RectangleShape2D_np16b")
 debug_color = Color(1, 1, 1, 0)
 
 [node name="highlight" parent="level_fire" index="2"]
-visible = false
 position = Vector2(130, 204)
 texture = ExtResource("4_ds5qt")
 
@@ -62,7 +61,6 @@ shape = SubResource("RectangleShape2D_d1s3m")
 debug_color = Color(1, 1, 1, 0)
 
 [node name="highlight" parent="level_wood" index="2"]
-visible = false
 position = Vector2(120, 216)
 texture = ExtResource("6_3scw1")
 
@@ -80,7 +78,6 @@ shape = SubResource("RectangleShape2D_qsda4")
 debug_color = Color(1, 1, 1, 0)
 
 [node name="highlight" parent="level_iron" index="2"]
-visible = false
 position = Vector2(127, 214)
 texture = ExtResource("8_6fy16")
 
@@ -98,7 +95,6 @@ shape = SubResource("RectangleShape2D_avpys")
 debug_color = Color(1, 1, 1, 0)
 
 [node name="highlight" parent="level_water" index="2"]
-visible = false
 position = Vector2(173, 221)
 texture = ExtResource("10_wj2pj")
 
