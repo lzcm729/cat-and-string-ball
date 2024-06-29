@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const speed = 300
-const jump_velocity = -800
+const speed = 250
+const jump_velocity = -600
 
 signal cat_pat_ball
 signal eat_core
@@ -12,7 +12,8 @@ var gravity = 980
 #@onready var hit_area = $Marker2D/PatArea  # 猫角色的碰撞区域（Area2D）
 @onready var hit_area = $Area2D  # 猫角色的碰撞区域（Area2D）
 @onready var cat_action = $CatAction
-@onready var animation_tree = $AnimationTree
+@onready var cat_sprite = $new_cat
+
 
 #猫咪的状态机
 enum {
@@ -50,19 +51,18 @@ func _physics_process(delta):
 
 	
 	if velocity.y > 0 :
-		if is_left:
-			cat_action.play("FallLeft")
-		else:
-			cat_action.play('FallRight')
+		cat_action.play("fall")
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = jump_velocity
-		if is_left:
-			cat_action.play('JumpLeft')
-		else:
-			cat_action.play('JumpRight')
+		cat_action.play('jump')
 		
 	if Input.is_action_just_pressed("ui_patpat"):
 		state = ATTACK
+		
+	if is_left:
+		cat_sprite.flip_h = false
+	else:
+		cat_sprite.flip_h = true		
 
 
 	# TEST
@@ -105,23 +105,14 @@ func move_state():
 	if direction:
 		velocity.x = direction * speed
 		if velocity.y == 0:
-			if is_left:
-				cat_action.play("RunLeft")	
-			else:
-				cat_action.play("RunRight")					
+			cat_action.play("walk")			
 	else: 
 		velocity.x = move_toward(velocity.x, 0, speed)
 		if velocity.y == 0:
-			if is_left:
-				cat_action.play("IdleLeft")
-			else:
-				cat_action.play("IdleRight")
+			cat_action.play("idle")
 				
 func attack_state():
-	if is_left:
-		cat_action.play('AttackLeft')
-	else:
-		cat_action.play('AttackRight')
+	cat_action.play('pat')
 	await cat_action.animation_finished
 	state = MOVE
 	
