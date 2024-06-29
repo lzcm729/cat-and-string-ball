@@ -16,12 +16,13 @@
 position = Vector2(416, 321)
 
 [node name="StringBall" parent="." instance=ExtResource("4_lobqw")]
-position = Vector2(646, 245)
+position = Vector2(644, 75)
+lock_rotation = true
 
 [node name="WaterBody" type="Area2D" parent="."]
 position = Vector2(639, 429)
 scale = Vector2(64.4773, 25.6731)
-collision_layer = 0
+collision_layer = 32
 collision_mask = 10
 gravity_point_center = Vector2(0, -1)
 gravity_direction = Vector2(0, -1)
@@ -37,6 +38,24 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterBody"]
 shape = SubResource("RectangleShape2D_lrq5i")
 
+[node name="AirBody" type="Area2D" parent="."]
+position = Vector2(639, 98)
+scale = Vector2(64.4773, 7.4331)
+collision_layer = 64
+collision_mask = 0
+gravity_space_override = 1
+gravity_point_center = Vector2(0, -1)
+gravity_direction = Vector2(0, -1)
+gravity = 1200.0
+linear_damp_space_override = 1
+linear_damp = 1.0
+angular_damp_space_override = 1
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AirBody"]
+shape = SubResource("RectangleShape2D_lrq5i")
+debug_color = Color(0, 0.565222, 0.866317, 0.42)
+
 [node name="main_control" parent="." instance=ExtResource("1_2wcxk")]
 level_name = "关卡4"
 
@@ -44,3 +63,4 @@ level_name = "关卡4"
 [connection signal="eat_core" from="Cat" to="main_control" method="_on_cat_eat_core"]
 [connection signal="body_entered" from="WaterBody" to="WaterBody" method="_on_body_entered"]
 [connection signal="body_exited" from="WaterBody" to="WaterBody" method="_on_body_exited"]
+[connection signal="body_shape_entered" from="WaterBody" to="WaterBody" method="_on_body_shape_entered"]

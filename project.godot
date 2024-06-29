@@ -55,6 +55,8 @@ drop_ball={
 2d_physics/layer_3="混乱核心"
 2d_physics/layer_4="线球"
 2d_physics/layer_5="平台"
+2d_physics/layer_6="水"
+2d_physics/layer_7="空气"
 
 [physics]
 
