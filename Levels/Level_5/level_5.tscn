@@ -1,17 +1,17 @@
 [gd_scene load_steps=16 format=3 uid="uid://wq4prlmuphp3"]
 
-[ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_2qggi"]
-[ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="1_w16hm"]
-[ext_resource type="PackedScene" uid="uid://3iyqigiyk7np" path="res://Platform.tscn" id="3_wic4y"]
-[ext_resource type="Script" path="res://Levels/Level_5/Stove.gd" id="4_67jgi"]
-[ext_resource type="Script" path="res://Levels/Level_5/IgnitionButton.gd" id="4_t8gcx"]
-[ext_resource type="Texture2D" uid="uid://r3wiis3e22jn" path="res://icon.svg" id="5_265qc"]
-[ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="7_5tk4k"]
-[ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="8_0k72l"]
-[ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="9_oc55v"]
-[ext_resource type="PackedScene" uid="uid://bl27o6gj46g03" path="res://Debris/Debris.tscn" id="10_sfyyq"]
-[ext_resource type="Texture2D" uid="uid://ma83bneojpuc" path="res://Debris/高脚杯/cup.png" id="11_0b55n"]
-[ext_resource type="Texture2D" uid="uid://cx4xj1es38e02" path="res://Debris/高脚杯/cup_broke.png" id="12_le4mt"]
+[ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_v2ohj"]
+[ext_resource type="PackedScene" uid="uid://3iyqigiyk7np" path="res://Platform.tscn" id="2_2o3aw"]
+[ext_resource type="PackedScene" uid="uid://bl27o6gj46g03" path="res://Debris/Debris.tscn" id="3_ciewo"]
+[ext_resource type="Texture2D" uid="uid://ma83bneojpuc" path="res://Debris/高脚杯/cup.png" id="4_at8n7"]
+[ext_resource type="Texture2D" uid="uid://cx4xj1es38e02" path="res://Debris/高脚杯/cup_broke.png" id="5_r2h4m"]
+[ext_resource type="Script" path="res://Levels/Level_5/Stove.gd" id="6_m7sr7"]
+[ext_resource type="Texture2D" uid="uid://r3wiis3e22jn" path="res://icon.svg" id="7_covcq"]
+[ext_resource type="Script" path="res://Levels/Level_5/IgnitionButton.gd" id="8_aamd1"]
+[ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="9_62sn3"]
+[ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="10_c3l7r"]
+[ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="11_x170y"]
+[ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="12_w0qob"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbec1"]
 
@@ -22,59 +22,59 @@ size = Vector2(111.461, 111.818)
 
 [node name="Level5" type="Node2D"]
 
-[node name="vacant_room" parent="." instance=ExtResource("1_2qggi")]
+[node name="vacant_room" parent="." instance=ExtResource("1_v2ohj")]
 
-[node name="StaticBody2D" parent="." instance=ExtResource("3_wic4y")]
+[node name="StaticBody2D" parent="." instance=ExtResource("2_2o3aw")]
 position = Vector2(280, 472)
 scale = Vector2(7.16, 1)
 
-[node name="StaticBody2D3" parent="." instance=ExtResource("3_wic4y")]
+[node name="StaticBody2D3" parent="." instance=ExtResource("2_2o3aw")]
 position = Vector2(864, 448)
 scale = Vector2(21.32, 1)
 
-[node name="StaticBody2D4" parent="." instance=ExtResource("3_wic4y")]
+[node name="StaticBody2D4" parent="." instance=ExtResource("2_2o3aw")]
 position = Vector2(864, 568)
 scale = Vector2(13.9693, 11.0094)
 
-[node name="StaticBody2D2" parent="." instance=ExtResource("3_wic4y")]
+[node name="StaticBody2D2" parent="." instance=ExtResource("2_2o3aw")]
 position = Vector2(344, 248)
 scale = Vector2(30.842, -0.939402)
 
-[node name="高脚杯" parent="." groups=["Debris"] instance=ExtResource("10_sfyyq")]
+[node name="高脚杯" parent="." groups=["Debris"] instance=ExtResource("3_ciewo")]
 position = Vector2(496, 200)
 metadata/_edit_group_ = true
 
 [node name="Normal" parent="高脚杯" index="0"]
-texture = ExtResource("11_0b55n")
+texture = ExtResource("4_at8n7")
 
 [node name="Broken" parent="高脚杯" index="1"]
-texture = ExtResource("12_le4mt")
+texture = ExtResource("5_r2h4m")
 
 [node name="CollisionShape2D" parent="高脚杯" index="2"]
 position = Vector2(0, 4)
 
-[node name="高脚杯2" parent="." groups=["Debris"] instance=ExtResource("10_sfyyq")]
+[node name="高脚杯2" parent="." groups=["Debris"] instance=ExtResource("3_ciewo")]
 position = Vector2(568, 200)
 metadata/_edit_group_ = true
 
 [node name="Normal" parent="高脚杯2" index="0"]
-texture = ExtResource("11_0b55n")
+texture = ExtResource("4_at8n7")
 
 [node name="Broken" parent="高脚杯2" index="1"]
-texture = ExtResource("12_le4mt")
+texture = ExtResource("5_r2h4m")
 
 [node name="CollisionShape2D" parent="高脚杯2" index="2"]
 position = Vector2(0, 4)
 
-[node name="高脚杯3" parent="." groups=["Debris"] instance=ExtResource("10_sfyyq")]
+[node name="高脚杯3" parent="." groups=["Debris"] instance=ExtResource("3_ciewo")]
 position = Vector2(416, 200)
 metadata/_edit_group_ = true
 
 [node name="Normal" parent="高脚杯3" index="0"]
-texture = ExtResource("11_0b55n")
+texture = ExtResource("4_at8n7")
 
 [node name="Broken" parent="高脚杯3" index="1"]
-texture = ExtResource("12_le4mt")
+texture = ExtResource("5_r2h4m")
 
 [node name="CollisionShape2D" parent="高脚杯3" index="2"]
 position = Vector2(0, 4)
@@ -82,12 +82,12 @@ position = Vector2(0, 4)
 [node name="Stove" type="StaticBody2D" parent="."]
 position = Vector2(872, 424)
 scale = Vector2(5.74189, 1.43089)
-script = ExtResource("4_67jgi")
+script = ExtResource("6_m7sr7")
 
 [node name="Sprite2D" type="Sprite2D" parent="Stove"]
 position = Vector2(-5.36442e-06, -2.86102e-05)
 scale = Vector2(0.152389, 0.174716)
-texture = ExtResource("5_265qc")
+texture = ExtResource("7_covcq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stove"]
 shape = SubResource("RectangleShape2D_gbec1")
@@ -102,7 +102,7 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Stove/FireArea"]
 visible = false
-texture = ExtResource("5_265qc")
+texture = ExtResource("7_covcq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stove/FireArea"]
 shape = SubResource("RectangleShape2D_5onvp")
@@ -110,7 +110,7 @@ shape = SubResource("RectangleShape2D_5onvp")
 [node name="IgnitionButton" type="StaticBody2D" parent="."]
 position = Vector2(696, 432)
 scale = Vector2(1.1819, 0.630895)
-script = ExtResource("4_t8gcx")
+script = ExtResource("8_aamd1")
 
 [node name="Sprite2D" type="Sprite2D" parent="IgnitionButton"]
 
@@ -125,19 +125,20 @@ collision_mask = 2
 position = Vector2(0, -25.3608)
 shape = SubResource("RectangleShape2D_nmjxg")
 
-[node name="Cat" parent="." instance=ExtResource("7_5tk4k")]
+[node name="Cat" parent="." instance=ExtResource("9_62sn3")]
 position = Vector2(200, 600)
 
-[node name="StringBall" parent="." instance=ExtResource("8_0k72l")]
+[node name="StringBall" parent="." instance=ExtResource("10_c3l7r")]
 position = Vector2(456, 584)
 
-[node name="ChaosCore" parent="." instance=ExtResource("9_oc55v")]
+[node name="ChaosCore" parent="." instance=ExtResource("11_x170y")]
 visible = false
 position = Vector2(448, 64)
 
-[node name="main_control" parent="." instance=ExtResource("1_w16hm")]
+[node name="main_control" parent="." instance=ExtResource("12_w0qob")]
 level_name = "关卡5"
 level_id = 5
+back_type = 2
 
 [connection signal="body_entered" from="Stove/FireArea" to="Stove" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Stove/FireArea" to="Stove" method="_on_area_2d_body_exited"]

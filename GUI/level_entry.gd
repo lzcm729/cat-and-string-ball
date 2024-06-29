@@ -14,7 +14,7 @@ func _process(delta):
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.is_pressed():
-			get_tree().change_scene_to_file("res://Levels/level_" + str(level_id) +".tscn")
+			get_tree().change_scene_to_file("res://Levels/Level_"+ str(level_id) +"/level_" + str(level_id) +".tscn")
 
 
 func _on_mouse_entered():

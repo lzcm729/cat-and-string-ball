@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dw85br2ysl6yv"]
+[gd_scene load_steps=13 format=3 uid="uid://dw85br2ysl6yv"]
 
-[ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_55ktd"]
-[ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="1_nmuv4"]
-[ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="3_60qb0"]
-[ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="4_rjfnu"]
-[ext_resource type="Texture2D" uid="uid://r3wiis3e22jn" path="res://icon.svg" id="5_msh6b"]
+[ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_qkfhq"]
+[ext_resource type="Texture2D" uid="uid://r3wiis3e22jn" path="res://icon.svg" id="2_0ynm1"]
+[ext_resource type="Texture2D" uid="uid://bq01b16rgxbrn" path="res://Levels/Level_3/level_3_wall.png" id="2_m4nf7"]
+[ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="3_xjyuq"]
+[ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="4_dbd44"]
+[ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="5_4aifg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcdf6"]
 size = Vector2(146.5, 34.5)
@@ -25,7 +26,11 @@ size = Vector2(800, 2.98755)
 
 [node name="Level_3" type="Node2D"]
 
-[node name="vacant_room" parent="." instance=ExtResource("1_55ktd")]
+[node name="vacant_room" parent="." instance=ExtResource("1_qkfhq")]
+
+[node name="Level3Wall" type="Sprite2D" parent="."]
+position = Vector2(642, 361)
+texture = ExtResource("2_m4nf7")
 
 [node name="Chair" type="StaticBody2D" parent="."]
 position = Vector2(-232, 683)
@@ -35,7 +40,7 @@ constant_linear_velocity = Vector2(6.33, 5.98)
 [node name="Sprite2D" type="Sprite2D" parent="Chair"]
 position = Vector2(723.5, -181.5)
 scale = Vector2(1.17969, 2.55469)
-texture = ExtResource("5_msh6b")
+texture = ExtResource("2_0ynm1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair"]
 position = Vector2(722, -328)
@@ -64,7 +69,7 @@ constant_linear_velocity = Vector2(6.33, 5.98)
 [node name="Sprite2D" type="Sprite2D" parent="Books"]
 position = Vector2(938, -289.75)
 scale = Vector2(2.03516, 4.61328)
-texture = ExtResource("5_msh6b")
+texture = ExtResource("2_0ynm1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Books"]
 position = Vector2(939, -447.078)
@@ -126,13 +131,13 @@ offset_bottom = -11.0
 text = "柔软的地毯"
 metadata/_edit_use_anchors_ = true
 
-[node name="StringBall" parent="." instance=ExtResource("3_60qb0")]
+[node name="StringBall" parent="." instance=ExtResource("3_xjyuq")]
 position = Vector2(427, 617)
 
-[node name="Cat" parent="." instance=ExtResource("4_rjfnu")]
+[node name="Cat" parent="." instance=ExtResource("4_dbd44")]
 position = Vector2(287, 594)
 
-[node name="main_control" parent="." instance=ExtResource("1_nmuv4")]
+[node name="main_control" parent="." instance=ExtResource("5_4aifg")]
 level_name = "关卡3"
 level_health = 6
 level_id = 3

@@ -1,16 +1,16 @@
 [gd_scene load_steps=14 format=3 uid="uid://cqec6irfaowvp"]
 
-[ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_tmqq4"]
-[ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="2_ehrsk"]
-[ext_resource type="Texture2D" uid="uid://6touatertv61" path="res://Levels/Level_4/level_4_wall.png" id="2_s3rby"]
-[ext_resource type="Texture2D" uid="uid://c0nhg0ufpfvqi" path="res://Levels/Level_4/level_4_toilet.png" id="3_5ylwl"]
-[ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="3_bf55f"]
-[ext_resource type="Script" path="res://Levels/Level_4/WaterBody.gd" id="4_5p5dd"]
-[ext_resource type="Texture2D" uid="uid://ww4okg8hxlpx" path="res://Levels/Level_4/level_4_bathtub.png" id="4_6dbbv"]
-[ext_resource type="PackedScene" uid="uid://3iyqigiyk7np" path="res://Platform.tscn" id="4_w1kjl"]
-[ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="5_rs18h"]
-[ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="6_6r2w2"]
-[ext_resource type="PackedScene" uid="uid://bx0knw8nruxex" path="res://Levels/Level_4/Duck.tscn" id="7_ah616"]
+[ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_w7awu"]
+[ext_resource type="Texture2D" uid="uid://6touatertv61" path="res://Levels/Level_4/level_4_wall.png" id="2_634sg"]
+[ext_resource type="Texture2D" uid="uid://c0nhg0ufpfvqi" path="res://Levels/Level_4/level_4_toilet.png" id="3_cyo0m"]
+[ext_resource type="PackedScene" uid="uid://3iyqigiyk7np" path="res://Platform.tscn" id="4_8ydj3"]
+[ext_resource type="Texture2D" uid="uid://ww4okg8hxlpx" path="res://Levels/Level_4/level_4_bathtub.png" id="5_gtguf"]
+[ext_resource type="Script" path="res://Levels/Level_4/WaterBody.gd" id="6_u1dep"]
+[ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="7_kvmji"]
+[ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="8_lreus"]
+[ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="9_40xqr"]
+[ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="10_axgbo"]
+[ext_resource type="PackedScene" uid="uid://bx0knw8nruxex" path="res://Levels/Level_4/Duck.tscn" id="11_1r1ni"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrq5i"]
 
@@ -18,27 +18,27 @@
 
 [node name="Level4" type="Node2D"]
 
-[node name="vacant_room" parent="." instance=ExtResource("1_tmqq4")]
+[node name="vacant_room" parent="." instance=ExtResource("1_w7awu")]
 
 [node name="Level4Wall" type="Sprite2D" parent="."]
 position = Vector2(640, 312)
-texture = ExtResource("2_s3rby")
+texture = ExtResource("2_634sg")
 
 [node name="Toilet" type="Sprite2D" parent="."]
 position = Vector2(199, 512)
-texture = ExtResource("3_5ylwl")
+texture = ExtResource("3_cyo0m")
 
-[node name="StaticBody2D" parent="Toilet" instance=ExtResource("4_w1kjl")]
+[node name="StaticBody2D" parent="Toilet" instance=ExtResource("4_8ydj3")]
 position = Vector2(-2, -23)
 scale = Vector2(8.6, 0.48)
 
-[node name="StaticBody2D2" parent="." instance=ExtResource("4_w1kjl")]
+[node name="StaticBody2D2" parent="." instance=ExtResource("4_8ydj3")]
 position = Vector2(165, 248)
 scale = Vector2(13.4, 0.960003)
 
 [node name="Bathbub" type="Sprite2D" parent="."]
 position = Vector2(879, 497)
-texture = ExtResource("4_6dbbv")
+texture = ExtResource("5_gtguf")
 
 [node name="WaterBody" type="Area2D" parent="Bathbub"]
 visible = false
@@ -51,7 +51,7 @@ gravity_direction = Vector2(0, -1)
 gravity = 1200.0
 linear_damp_space_override = 1
 linear_damp = 2.0
-script = ExtResource("4_5p5dd")
+script = ExtResource("6_u1dep")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Bathbub/WaterBody"]
@@ -78,20 +78,20 @@ position = Vector2(0.257484, 13.4759)
 shape = SubResource("RectangleShape2D_lrq5i")
 debug_color = Color(0.953134, 0, 0.555118, 0.42)
 
-[node name="Cat" parent="." instance=ExtResource("2_ehrsk")]
+[node name="Cat" parent="." instance=ExtResource("7_kvmji")]
 position = Vector2(201, 580)
 
-[node name="StringBall" parent="." instance=ExtResource("3_bf55f")]
+[node name="StringBall" parent="." instance=ExtResource("8_lreus")]
 position = Vector2(399, 572)
 lock_rotation = true
 
-[node name="main_control" parent="." instance=ExtResource("5_rs18h")]
+[node name="main_control" parent="." instance=ExtResource("9_40xqr")]
 level_name = "关卡4"
 back_type = 2
 
-[node name="ChaosCore" parent="." instance=ExtResource("6_6r2w2")]
+[node name="ChaosCore" parent="." instance=ExtResource("10_axgbo")]
 
-[node name="Duck" parent="." instance=ExtResource("7_ah616")]
+[node name="Duck" parent="." instance=ExtResource("11_1r1ni")]
 position = Vector2(911, 89)
 lock_rotation = true
 linear_damp = 3.0

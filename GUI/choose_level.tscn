@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://45ieprje7p0e" path="res://UI/level_choose/level_choose.png" id="2_wqi2i"]
 [ext_resource type="PackedScene" uid="uid://cb27i8cr6oyqq" path="res://GUI/level_entry.tscn" id="3_7sto8"]
 [ext_resource type="Texture2D" uid="uid://bm3ieh51odt1x" path="res://UI/level_choose/level_1.png" id="4_2h6pj"]
-[ext_resource type="Texture2D" path="res://UI/level_choose/level_1_mouse.png" id="4_ds5qt"]
+[ext_resource type="Texture2D" uid="uid://bv6d75m5chpfk" path="res://UI/level_choose/level_1_mouse.png" id="4_ds5qt"]
 [ext_resource type="Texture2D" uid="uid://doygj3cg4xa0t" path="res://UI/level_choose/level_2.png" id="4_luml1"]
 [ext_resource type="Texture2D" uid="uid://n3qlsp0mp0x5" path="res://UI/level_choose/level_3.png" id="5_p4aya"]
-[ext_resource type="Texture2D" path="res://UI/level_choose/level_2_mouse.png" id="6_3scw1"]
+[ext_resource type="Texture2D" uid="uid://cg6kc1j2h2hkf" path="res://UI/level_choose/level_2_mouse.png" id="6_3scw1"]
 [ext_resource type="Texture2D" uid="uid://b1k2dbvx6l6ql" path="res://UI/level_choose/level_4.png" id="7_j1rdi"]
 [ext_resource type="Texture2D" uid="uid://b2d222jymp35t" path="res://UI/level_choose/level_3_mouse.png" id="8_6fy16"]
 [ext_resource type="Texture2D" uid="uid://ccssgsbwkp1nq" path="res://UI/level_choose/level_4_mouse.png" id="10_wj2pj"]
@@ -48,7 +48,7 @@ position = Vector2(130, 204)
 texture = ExtResource("4_ds5qt")
 
 [node name="level_wood" parent="." instance=ExtResource("3_7sto8")]
-position = Vector2(338, 192)
+position = Vector2(361, 192)
 level_id = 2
 
 [node name="door" parent="level_wood" index="0"]
@@ -65,7 +65,7 @@ position = Vector2(120, 216)
 texture = ExtResource("6_3scw1")
 
 [node name="level_iron" parent="." instance=ExtResource("3_7sto8")]
-position = Vector2(611, 188)
+position = Vector2(655, 188)
 level_id = 3
 
 [node name="door" parent="level_iron" index="0"]
@@ -82,7 +82,7 @@ position = Vector2(127, 214)
 texture = ExtResource("8_6fy16")
 
 [node name="level_water" parent="." instance=ExtResource("3_7sto8")]
-position = Vector2(893, 180)
+position = Vector2(913, 181)
 level_id = 4
 
 [node name="door" parent="level_water" index="0"]
