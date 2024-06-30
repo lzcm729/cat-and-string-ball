@@ -31,7 +31,7 @@ position = Vector2(641, 361)
 texture = ExtResource("2_wqi2i")
 
 [node name="level_fire" parent="." instance=ExtResource("3_7sto8")]
-position = Vector2(53, 257)
+position = Vector2(978, 255)
 level_id = 5
 
 [node name="door" parent="level_fire" index="0"]
@@ -48,8 +48,8 @@ position = Vector2(130, 204)
 texture = ExtResource("4_ds5qt")
 
 [node name="level_wood" parent="." instance=ExtResource("3_7sto8")]
-position = Vector2(368, 251)
-level_id = 2
+position = Vector2(56, 250)
+level_id = 3
 
 [node name="door" parent="level_wood" index="0"]
 position = Vector2(121, 219)
@@ -65,8 +65,8 @@ position = Vector2(120, 216)
 texture = ExtResource("6_3scw1")
 
 [node name="level_iron" parent="." instance=ExtResource("3_7sto8")]
-position = Vector2(662, 247)
-level_id = 3
+position = Vector2(354, 246)
+level_id = 2
 
 [node name="door" parent="level_iron" index="0"]
 position = Vector2(128, 220)
@@ -82,7 +82,7 @@ position = Vector2(127, 214)
 texture = ExtResource("8_6fy16")
 
 [node name="level_water" parent="." instance=ExtResource("3_7sto8")]
-position = Vector2(920, 240)
+position = Vector2(622, 239)
 level_id = 4
 
 [node name="door" parent="level_water" index="0"]

@@ -98,12 +98,6 @@ scale = Vector2(10.23, 1)
 [node name="StringBall" parent="." instance=ExtResource("3_xjyuq")]
 position = Vector2(427, 617)
 
-[node name="main_control" parent="." instance=ExtResource("5_4aifg")]
-level_name = "Rug·soft"
-level_health = 6
-level_id = 3
-back_type = 2
-
 [node name="CatNew" parent="." instance=ExtResource("8_lf71e")]
 position = Vector2(185, 610)
 
@@ -114,9 +108,16 @@ hit_force = Vector2(50000, 0)
 position = Vector2(-9, -328)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("3_b0eo8")]
-position = Vector2(645, 212)
-scale = Vector2(19.96, 0.6)
+position = Vector2(651, 212)
+scale = Vector2(9, 0.6)
+
+[node name="main_control" parent="." instance=ExtResource("5_4aifg")]
+level_name = "Rug·soft"
+level_health = 6
+level_id = 3
+back_type = 2
 
 [connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
+[connection signal="cat_pat_ball" from="CatNew" to="main_control" method="_on_cat_new_cat_pat_ball"]
 
 [editable path="CatNew"]

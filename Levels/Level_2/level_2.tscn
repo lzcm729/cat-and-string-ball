@@ -48,5 +48,6 @@ collision_mask = 15
 constant_linear_velocity = Vector2(6.33, 5.98)
 
 [connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
+[connection signal="cat_pat_ball" from="CatNew" to="main_control" method="_on_cat_new_cat_pat_ball"]
 
 [editable path="CatNew"]
