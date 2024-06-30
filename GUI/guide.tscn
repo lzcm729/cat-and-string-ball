@@ -179,6 +179,13 @@ position = Vector2(-535, -404.305)
 scale = Vector2(0.293, 0.293)
 texture = ExtResource("5_exisb")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1005, 209)
+scale = Vector2(1.26025, 1.26025)
+texture = ExtResource("4_empxl")
+hframes = 20
+frame = 12
+
 [node name="carry" type="Node2D" parent="."]
 position = Vector2(875, 867)
 
@@ -200,10 +207,36 @@ offset_bottom = -589.0
 theme_override_font_sizes/font_size = 30
 text = "T"
 
+[node name="Label8" type="Label" parent="carry"]
+anchors_preset = -1
+anchor_left = 11.1
+anchor_top = -2.803
+anchor_right = 11.1
+anchor_bottom = -2.803
+offset_left = 157.0
+offset_top = -650.0
+offset_right = 197.0
+offset_bottom = -608.0
+theme_override_font_sizes/font_size = 30
+text = "↑"
+
+[node name="Label7" type="Label" parent="carry"]
+anchors_preset = -1
+anchor_left = 11.1
+anchor_top = -2.803
+anchor_right = 11.1
+anchor_bottom = -2.803
+offset_left = 90.0
+offset_top = -649.0
+offset_right = 130.0
+offset_bottom = -607.0
+theme_override_font_sizes/font_size = 30
+text = "↑"
+
 [node name="Label5" type="Label" parent="carry"]
-offset_left = -182.091
+offset_left = -178.0
 offset_top = -661.0
-offset_right = -142.091
+offset_right = -138.0
 offset_bottom = -619.0
 theme_override_font_sizes/font_size = 30
 text = "↑"

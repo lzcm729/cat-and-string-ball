@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d10thg221qavd"]
+[gd_scene load_steps=8 format=3 uid="uid://d10thg221qavd"]
 
 [ext_resource type="Script" path="res://GUI/game_over.gd" id="1_r5ywv"]
 [ext_resource type="Texture2D" uid="uid://cuu3x68xfiysj" path="res://UI/btn2.png" id="2_ktcpn"]
@@ -12,10 +12,17 @@ texture = ExtResource("2_ktcpn")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d33b1"]
 texture = ExtResource("3_jybma")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_23ey7"]
+
 [node name="game_over" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_r5ywv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1277.0
+offset_bottom = 722.0
+color = Color(0.454912, 0.41935, 0.405431, 0.0980392)
 
 [node name="hint" type="Label" parent="."]
 layout_mode = 0
@@ -46,6 +53,7 @@ offset_right = 489.0
 offset_bottom = 523.0
 theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxTexture_d33b1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_23ey7")
 text = "back"
 
 [connection signal="pressed" from="try_again" to="." method="_on_try_again_pressed"]

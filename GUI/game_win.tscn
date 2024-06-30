@@ -14,11 +14,10 @@ anchors_preset = 0
 script = ExtResource("1_gdy4o")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-modulate = Color(1, 1, 1, 0.172549)
-layout_mode = 0
+self_modulate = Color(1, 1, 1, 0.133333)
 offset_right = 1277.0
 offset_bottom = 722.0
-color = Color(0, 0, 0, 0.439216)
+color = Color(0.940188, 0.13607, 0.00522411, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
