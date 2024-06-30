@@ -23,4 +23,5 @@ func _on_ignition_button_turn_off_fire():
 
 func _on_ignition_button_turn_on_fire():
 	$FireArea/AnimatedSprite2D.show()
+	$FireArea/AnimatedSprite2D.play("default")
 	$FireArea.set_monitoring(true)
