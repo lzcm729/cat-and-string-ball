@@ -123,6 +123,7 @@ back_type = 2
 
 [node name="ChaosCore" parent="." instance=ExtResource("10_axgbo")]
 visible = false
+position = Vector2(-8, -327)
 
 [node name="Duck" parent="." instance=ExtResource("11_1r1ni")]
 position = Vector2(911, 89)
