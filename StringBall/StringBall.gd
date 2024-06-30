@@ -117,6 +117,7 @@ func BeHit(force:Vector2):
 func BePicked():
 	#set_freeze_enabled(true)
 	set_sleeping(true)
+	$CollisionShape2D.disabled = true
 	can_decay = false
 
 
@@ -125,6 +126,7 @@ func BePicked():
 func BeDropped():
 	can_decay = true
 	set_sleeping(false)
+	$CollisionShape2D.disabled = false
 	recorded_position = position
 
 
