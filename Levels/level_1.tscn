@@ -38,11 +38,6 @@ texture = ExtResource("3_bve72")
 position = Vector2(-1, 101)
 scale = Vector2(13.4, 0.960003)
 
-[node name="main_control" parent="." instance=ExtResource("1_eossy")]
-level_name = "Cat→Ball"
-level_health = 9
-back_type = 2
-
 [node name="Label" type="Label" parent="."]
 offset_left = 92.0
 offset_top = 378.0
@@ -132,8 +127,17 @@ hit_force = Vector2(50000, 0)
 [node name="ChaosCore" parent="." instance=ExtResource("8_7ealb")]
 position = Vector2(-4, -327)
 
+[node name="main_control" parent="." instance=ExtResource("1_eossy")]
+level_name = "Cat→Ball"
+level_health = 9
+back_type = 2
+
+[node name="back" parent="main_control" index="0"]
+text = "Skip"
+
 [connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
 [connection signal="cat_pat_ball" from="CatNew" to="main_control" method="_on_cat_cat_pat_ball"]
 [connection signal="eat_core" from="CatNew" to="main_control" method="_on_cat_eat_core"]
 
 [editable path="CatNew"]
+[editable path="main_control"]
