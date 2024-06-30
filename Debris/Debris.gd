@@ -12,6 +12,7 @@ func _process(delta):
 
 
 func _on_body_entered(body):
+	$AudioStreamPlayer.play()
 	$Normal.hide()
 	$Broken.show()
 	set_deferred('monitoring', false)

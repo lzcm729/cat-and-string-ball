@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://diioklqsdsyrm"]
+
+[ext_resource type="AudioStream" uid="uid://baxgufs7q2yv7" path="res://sounds/pat.mp3" id="1_op1ci"]
+[ext_resource type="Script" path="res://AudioStreamPlayer.gd" id="2_7gaxt"]
+
+[node name="pat" type="AudioStreamPlayer"]
+stream = ExtResource("1_op1ci")
+volume_db = -11.718
+autoplay = true
+script = ExtResource("2_7gaxt")

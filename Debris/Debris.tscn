@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bl27o6gj46g03"]
+[gd_scene load_steps=5 format=3 uid="uid://bl27o6gj46g03"]
 
 [ext_resource type="Script" path="res://Debris/Debris.gd" id="1_0texo"]
 [ext_resource type="Texture2D" uid="uid://r3wiis3e22jn" path="res://icon.svg" id="2_07rli"]
+[ext_resource type="AudioStream" uid="uid://c0bq3awv0oaln" path="res://sounds/glass.wav" id="3_yb3kg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxtc7"]
 size = Vector2(32, 72)
@@ -20,5 +21,9 @@ texture = ExtResource("2_07rli")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fxtc7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yb3kg")
+volume_db = -27.831
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

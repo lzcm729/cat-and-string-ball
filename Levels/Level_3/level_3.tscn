@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dw85br2ysl6yv"]
+[gd_scene load_steps=13 format=3 uid="uid://dw85br2ysl6yv"]
 
 [ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_qkfhq"]
 [ext_resource type="Texture2D" uid="uid://bq01b16rgxbrn" path="res://Levels/Level_3/level_3_wall.png" id="2_m4nf7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cuhmchofsripx" path="res://Levels/Level_3/level_3_rug.png" id="5_v27jq"]
 [ext_resource type="PackedScene" uid="uid://b0w6mv2us6hhb" path="res://cat/Cat_new.tscn" id="8_lf71e"]
 [ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="9_w07of"]
+[ext_resource type="AudioStream" uid="uid://bc1lluoi5qvnl" path="res://sounds/door.wav" id="10_4yvvh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gk5is"]
 size = Vector2(800, 2.98755)
@@ -116,6 +117,10 @@ level_name = "Rug·soft"
 level_health = 6
 level_id = 3
 back_type = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_4yvvh")
+autoplay = true
 
 [connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
 [connection signal="cat_pat_ball" from="CatNew" to="main_control" method="_on_cat_cat_pat_ball"]

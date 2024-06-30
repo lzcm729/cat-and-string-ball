@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cb27i8cr6oyqq"]
+[gd_scene load_steps=3 format=3 uid="uid://cb27i8cr6oyqq"]
 
 [ext_resource type="Script" path="res://GUI/level_entry.gd" id="1_bi6nn"]
+[ext_resource type="Texture2D" uid="uid://cqhak76kqruoh" path="res://StringBall/StringBall.png" id="2_o5arl"]
 
 [node name="level_entry" type="Area2D"]
 script = ExtResource("1_bi6nn")
@@ -11,6 +12,11 @@ script = ExtResource("1_bi6nn")
 
 [node name="highlight" type="Sprite2D" parent="."]
 visible = false
+
+[node name="StringBall" type="Sprite2D" parent="."]
+position = Vector2(127, -62)
+scale = Vector2(0.387209, 0.387209)
+texture = ExtResource("2_o5arl")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

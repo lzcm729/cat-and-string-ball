@@ -98,6 +98,9 @@ debug_color = Color(1, 1, 1, 0)
 position = Vector2(173, 221)
 texture = ExtResource("10_wj2pj")
 
+[node name="StringBall" parent="level_water" index="3"]
+position = Vector2(164, -56)
+
 [node name="main_control" parent="." instance=ExtResource("2_ifohh")]
 offset_left = -2.0
 offset_top = -2.0

@@ -6,6 +6,8 @@ extends Node
 @export var left_hit_cast: ShapeCast2D
 @export var right_hit_cast: ShapeCast2D
 
+const pat_sound = preload("res://sounds/pat.tscn")
+
 var ball_ref
 
 func handle_hit(body:Cat, want_to_hit:bool, orientation:int):
@@ -20,6 +22,8 @@ func handle_hit(body:Cat, want_to_hit:bool, orientation:int):
 		if result.collider.name == "StringBall":
 			result.collider.BeHit(Vector2(orientation*hit_force.x, hit_force.y))
 			body.cat_pat_ball.emit()
+			var pat_sound_templ = pat_sound.instantiate()
+			get_tree().current_scene.add_child(pat_sound_templ)
 		if result.collider.name == 'ChaosCore':
 			result.collider.BeEaten()
 			body.eat_core.emit()
