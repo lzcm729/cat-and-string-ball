@@ -51,7 +51,3 @@ func _on_back_pressed():
 	else:
 		get_tree().change_scene_to_file("res://GUI/choose_level.tscn")
 
-
-func _on_cat_new_cat_pat_ball():
-	level_health = level_health - 1
-	health_label.text = 'Pat:' + str(level_health)
