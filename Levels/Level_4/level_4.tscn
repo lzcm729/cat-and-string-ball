@@ -102,6 +102,24 @@ position = Vector2(745, 69)
 scale = Vector2(1, 16.52)
 shape = SubResource("RectangleShape2D_xvb80")
 
+[node name="Label" type="Label" parent="."]
+offset_left = 957.0
+offset_top = 623.0
+offset_right = 1243.0
+offset_bottom = 665.0
+theme_override_colors/font_color = Color(0.0980392, 0.360784, 0.619608, 0.694118)
+theme_override_font_sizes/font_size = 30
+text = "Press UP↑ to [Swim]"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 1041.0
+offset_top = 621.0
+offset_right = 1096.0
+offset_bottom = 663.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "UP↑"
+
 [node name="window" type="Sprite2D" parent="."]
 position = Vector2(165, 250)
 texture = ExtResource("13_i6rwo")

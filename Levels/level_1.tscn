@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8b3p0ub10jc3"]
+[gd_scene load_steps=10 format=3 uid="uid://b8b3p0ub10jc3"]
 
 [ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_0vh8p"]
+[ext_resource type="Texture2D" uid="uid://dkwvep7atv67i" path="res://UI/room_bg.png" id="1_6drhn"]
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="1_eossy"]
 [ext_resource type="Texture2D" uid="uid://dvgsbtwqlna2g" path="res://Levels/Level_4/level_4_window.png" id="3_bve72"]
 [ext_resource type="TileSet" uid="uid://cfha1jbx7duy5" path="res://Levels/vacant_room.tres" id="4_p86rh"]
@@ -10,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="8_7ealb"]
 
 [node name="Level1" type="Node2D"]
+
+[node name="RoomBg" type="Sprite2D" parent="."]
+position = Vector2(639, 359)
+texture = ExtResource("1_6drhn")
 
 [node name="vacant_room" parent="." instance=ExtResource("1_0vh8p")]
 
@@ -33,18 +38,20 @@ back_type = 2
 [node name="Label" type="Label" parent="."]
 offset_left = 79.0
 offset_top = 383.0
-offset_right = 931.0
+offset_right = 623.0
 offset_bottom = 515.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "1. Press F to [Pat] String Ball
 2. String Ball gets [smaller] as it rolls
 3. Finally, the [Core] appears!"
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 940.0
-offset_top = 576.0
-offset_right = 1342.0
-offset_bottom = 663.0
+offset_left = 948.0
+offset_top = 572.0
+offset_right = 1350.0
+offset_bottom = 659.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Press T to [Carry] String Ball
 Press G to [Drop] String Ball"
@@ -54,17 +61,55 @@ offset_left = 696.0
 offset_top = 125.0
 offset_right = 1210.0
 offset_bottom = 212.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "* Every [Pat] costs [1] PatChance ↗
-* FInd the Core with the given chances"
+* Find the Core with the given chances"
 
 [node name="Label4" type="Label" parent="."]
 offset_left = 914.0
 offset_top = 532.0
 offset_right = 1260.0
 offset_bottom = 574.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "4. Press Space to [Jump]"
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 197.0
+offset_top = 382.0
+offset_right = 237.0
+offset_bottom = 424.0
+theme_override_colors/font_color = Color(1, 0.980392, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "F"
+
+[node name="Label6" type="Label" parent="."]
+offset_left = 1032.0
+offset_top = 531.0
+offset_right = 1117.0
+offset_bottom = 573.0
+theme_override_colors/font_color = Color(1, 0.980392, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Space"
+
+[node name="Label7" type="Label" parent="."]
+offset_left = 1016.0
+offset_top = 571.0
+offset_right = 1042.0
+offset_bottom = 605.0
+theme_override_colors/font_color = Color(1, 0.980392, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "T"
+
+[node name="Label8" type="Label" parent="."]
+offset_left = 1016.0
+offset_top = 608.0
+offset_right = 1042.0
+offset_bottom = 642.0
+theme_override_colors/font_color = Color(1, 0.980392, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "G"
 
 [node name="StringBall" parent="." instance=ExtResource("5_dgxty")]
 position = Vector2(443, 567)
@@ -78,6 +123,7 @@ hit_force = Vector2(50000, 0)
 [node name="ChaosCore" parent="." instance=ExtResource("8_7ealb")]
 position = Vector2(-4, -327)
 
+[connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
 [connection signal="cat_pat_ball" from="CatNew" to="main_control" method="_on_cat_cat_pat_ball"]
 [connection signal="eat_core" from="CatNew" to="main_control" method="_on_cat_eat_core"]
 
