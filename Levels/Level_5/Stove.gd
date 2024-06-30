@@ -16,11 +16,11 @@ func _physics_process(delta):
 			body.BeBurned()
 
 func _on_ignition_button_turn_off_fire():
-	$FireArea/Sprite2D.hide()
+	$FireArea/AnimatedSprite2D.hide()
 	$FireArea.set_monitoring(false)
 
 
 
 func _on_ignition_button_turn_on_fire():
-	$FireArea/Sprite2D.show()
+	$FireArea/AnimatedSprite2D.show()
 	$FireArea.set_monitoring(true)
