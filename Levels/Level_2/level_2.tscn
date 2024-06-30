@@ -23,8 +23,7 @@ position = Vector2(414, 640)
 position = Vector2(1150, 636)
 
 [node name="ChaosCore" parent="." instance=ExtResource("6_fbydx")]
-visible = false
-position = Vector2(-10.3825, -59.1853)
+position = Vector2(-8, -327)
 
 [node name="main_control" parent="." instance=ExtResource("1_lxh2x")]
 level_name = "关卡2"
