@@ -118,6 +118,7 @@ level_id = 3
 back_type = 2
 
 [connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
-[connection signal="cat_pat_ball" from="CatNew" to="main_control" method="_on_cat_new_cat_pat_ball"]
+[connection signal="cat_pat_ball" from="CatNew" to="main_control" method="_on_cat_cat_pat_ball"]
+[connection signal="eat_core" from="CatNew" to="main_control" method="_on_cat_eat_core"]
 
 [editable path="CatNew"]
