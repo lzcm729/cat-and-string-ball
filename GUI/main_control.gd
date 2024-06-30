@@ -14,7 +14,8 @@ const game_over_templ = preload("res://GUI/game_over.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	level_name_label.text = str(level_name)
-	health_label.text = '血量' + str(level_health)
+	health_label.text = 'Pat:' + str(level_health)
+	connect("eat_core", Callable(self, "_on_cat_eat_core"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,7 +36,7 @@ func _physics_process(delta):
 
 func _on_cat_cat_pat_ball():
 	level_health = level_health - 1
-	health_label.text = '血量' + str(level_health)
+	health_label.text = 'Pat:' + str(level_health)
 
 
 

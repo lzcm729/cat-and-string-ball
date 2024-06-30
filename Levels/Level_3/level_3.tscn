@@ -111,7 +111,7 @@ debug_color = Color(0.806497, 0.20968, 0.875486, 0.42)
 position = Vector2(427, 617)
 
 [node name="main_control" parent="." instance=ExtResource("5_4aifg")]
-level_name = "关卡3"
+level_name = "Rug"
 level_health = 6
 level_id = 3
 back_type = 2

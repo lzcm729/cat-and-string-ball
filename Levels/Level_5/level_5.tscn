@@ -240,7 +240,7 @@ visible = false
 position = Vector2(448, 64)
 
 [node name="main_control" parent="." instance=ExtResource("12_w0qob")]
-level_name = "关卡5"
+level_name = "Fire"
 level_id = 5
 back_type = 2
 

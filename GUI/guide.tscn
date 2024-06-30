@@ -7,3 +7,12 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="main_control" parent="." instance=ExtResource("1_mk74q")]
+level_name = "Guide"
+
+[node name="level_name" parent="main_control" index="1"]
+text = ""
+
+[node name="health" parent="main_control" index="2"]
+visible = false
+
+[editable path="main_control"]

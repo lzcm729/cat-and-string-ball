@@ -26,7 +26,7 @@ position = Vector2(1150, 636)
 position = Vector2(-8, -327)
 
 [node name="main_control" parent="." instance=ExtResource("1_lxh2x")]
-level_name = "关卡2"
+level_name = "Cleaner"
 level_health = 3
 level_id = 2
 back_type = 2
