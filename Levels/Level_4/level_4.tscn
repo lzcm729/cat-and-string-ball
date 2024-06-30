@@ -120,7 +120,7 @@ position = Vector2(384, 641)
 lock_rotation = true
 
 [node name="main_control" parent="." instance=ExtResource("9_40xqr")]
-level_name = "关卡4"
+level_name = "Water"
 back_type = 2
 
 [node name="ChaosCore" parent="." instance=ExtResource("10_axgbo")]

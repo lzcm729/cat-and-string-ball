@@ -1,16 +1,46 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4q0en5827up2"]
+[gd_scene load_steps=21 format=3 uid="uid://c4q0en5827up2"]
 
 [ext_resource type="Texture2D" uid="uid://cfjgkcbbgkp8u" path="res://UI/start_menu/sky.png" id="1_p8x6v"]
 [ext_resource type="Script" path="res://GUI/start_menu.gd" id="1_poxuc"]
 [ext_resource type="Texture2D" uid="uid://bllojnq5b52lt" path="res://UI/start_menu/title.png" id="2_2dwan"]
 [ext_resource type="Script" path="res://GUI/play.gd" id="2_ksycf"]
 [ext_resource type="Texture2D" uid="uid://beoepwvdm1smf" path="res://UI/start_menu/house_grass.png" id="3_3iuki"]
+[ext_resource type="Texture2D" uid="uid://c0xo64wg33kc3" path="res://UI/btn4.png" id="5_gobh5"]
+[ext_resource type="Texture2D" uid="uid://k2ccbsxo0ve8" path="res://UI/btn1.png" id="7_tk1pk"]
 
 [sub_resource type="Curve2D" id="Curve2D_3i7d3"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 664, 589, 0, 0, 0, 0, 664, 554)
 }
 point_count = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k4hpf"]
+texture = ExtResource("5_gobh5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d4aty"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fqdl6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_og2nk"]
+texture = ExtResource("7_tk1pk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kslgv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j5e4u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_msxay"]
+texture = ExtResource("7_tk1pk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3ihbo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7qehw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ukugd"]
+texture = ExtResource("7_tk1pk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n4k1q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fs4qi"]
 
 [node name="start_menu" type="Control"]
 layout_mode = 3
@@ -55,13 +85,16 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 566.0
-offset_top = 612.0
-offset_right = 766.0
-offset_bottom = 692.0
+offset_left = 553.0
+offset_top = 583.0
+offset_right = 753.0
+offset_bottom = 693.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 41
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxTexture_k4hpf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d4aty")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fqdl6")
 text = "Play"
 script = ExtResource("2_ksycf")
 
@@ -72,14 +105,17 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1035.0
-offset_top = 615.0
-offset_right = 1237.0
-offset_bottom = 690.0
+offset_left = 1025.0
+offset_top = 583.0
+offset_right = 1252.0
+offset_bottom = 693.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 10
-text = "How to play"
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxTexture_og2nk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kslgv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_j5e4u")
+text = "Guide"
 
 [node name="exit" type="Button" parent="."]
 layout_mode = 1
@@ -88,20 +124,28 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 48.0
-offset_top = 606.0
-offset_right = 249.0
-offset_bottom = 681.0
+offset_left = 44.0
+offset_top = 588.0
+offset_right = 245.0
+offset_bottom = 698.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxTexture_msxay")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3ihbo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7qehw")
 text = "Exit"
 
 [node name="about" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1017.0
-offset_top = 521.0
-offset_right = 1220.0
-offset_bottom = 602.0
+offset_left = 1018.0
+offset_top = 445.0
+offset_right = 1252.0
+offset_bottom = 555.0
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxTexture_ukugd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_n4k1q")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fs4qi")
 text = "About"
 
 [connection signal="pressed" from="play" to="play" method="_on_pressed"]

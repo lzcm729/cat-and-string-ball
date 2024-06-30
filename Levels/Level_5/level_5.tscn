@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://h5g2flt1qk1k" path="res://Levels/Level_5/level_5_btn_norm.png" id="17_h5byr"]
 [ext_resource type="Texture2D" uid="uid://cwdqo8fj1nq5y" path="res://Levels/Level_5/level_5_table.png" id="18_a8rdt"]
 [ext_resource type="Texture2D" uid="uid://c38015m3xeuk8" path="res://Levels/Level_5/level_5_table2.png" id="19_51c5h"]
-[ext_resource type="PackedScene" uid="uid://b0w6mv2us6hhb" path="res://cat/Cat_new.tscn" id="21_k41ey"]
+[ext_resource type="PackedScene" path="res://cat/Cat_new.tscn" id="21_k41ey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5onvp"]
 size = Vector2(130, 66)
@@ -214,7 +214,7 @@ visible = false
 position = Vector2(448, 64)
 
 [node name="main_control" parent="." instance=ExtResource("12_w0qob")]
-level_name = "关卡5"
+level_name = "Fire"
 level_id = 5
 back_type = 2
 

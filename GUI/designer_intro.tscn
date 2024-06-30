@@ -15,9 +15,7 @@ position = Vector2(641, 361)
 texture = ExtResource("1_dmf66")
 
 [node name="main_control" parent="." instance=ExtResource("1_2clud")]
-
-[node name="level_name" parent="main_control" index="1"]
-visible = false
+level_name = "Designers"
 
 [node name="health" parent="main_control" index="2"]
 visible = false
@@ -28,7 +26,6 @@ scale = Vector2(0.169792, 0.169792)
 
 [node name="Naidove" type="Sprite2D" parent="Node2D"]
 position = Vector2(1490.06, 5.88939)
-scale = Vector2(1, 1)
 texture = ExtResource("3_k8aks")
 
 [node name="Label3" type="Label" parent="Node2D"]

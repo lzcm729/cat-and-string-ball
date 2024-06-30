@@ -1,7 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bn4481xl7jj4g"]
+[gd_scene load_steps=10 format=3 uid="uid://bn4481xl7jj4g"]
 
 [ext_resource type="Script" path="res://GUI/main_control.gd" id="1_3p0ci"]
 [ext_resource type="Texture2D" uid="uid://k2ccbsxo0ve8" path="res://UI/btn1.png" id="2_np3g7"]
+[ext_resource type="Texture2D" uid="uid://cuu3x68xfiysj" path="res://UI/btn2.png" id="3_q33ec"]
+[ext_resource type="Texture2D" uid="uid://w1kkwfq8ke82" path="res://UI/btn3.png" id="4_ou4xi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rwpkk"]
+texture = ExtResource("2_np3g7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_prr01"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_73atg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g7jed"]
+texture = ExtResource("3_q33ec")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bc6gx"]
+texture = ExtResource("4_ou4xi")
 
 [node name="main_control" type="Control"]
 layout_mode = 3
@@ -13,30 +28,31 @@ layout_mode = 0
 offset_top = -1.0
 offset_right = 193.0
 offset_bottom = 100.0
-text = "
-"
-
-[node name="Sprite2D" type="Sprite2D" parent="back"]
-position = Vector2(97, 41)
-scale = Vector2(1.16176, 1.16176)
-texture = ExtResource("2_np3g7")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxTexture_rwpkk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_prr01")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_73atg")
+text = "Back"
 
 [node name="level_name" type="Label" parent="."]
 layout_mode = 0
-offset_left = 561.0
-offset_top = 25.0
-offset_right = 681.0
-offset_bottom = 80.0
-theme_override_font_sizes/font_size = 40
-text = "关卡名"
+offset_left = 427.0
+offset_top = 2.0
+offset_right = 879.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxTexture_g7jed")
+text = "Level Name"
+horizontal_alignment = 1
 
 [node name="health" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1014.0
-offset_top = 19.0
-offset_right = 1253.0
-offset_bottom = 82.0
-theme_override_font_sizes/font_size = 38
-text = "血量："
+offset_left = 1019.0
+offset_top = 1.0
+offset_right = 1258.0
+offset_bottom = 111.0
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxTexture_bc6gx")
+text = "Pat："
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
