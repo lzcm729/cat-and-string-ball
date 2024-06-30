@@ -14,9 +14,11 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Cat":
+		$Area2D/CollisionShape2D/Sprite2D.visible = false
 		turn_on_fire.emit()
 
 
 func _on_area_2d_body_exited(body):
 	if body.name == "Cat":
+		$Area2D/CollisionShape2D/Sprite2D.visible = true		
 		turn_off_fire.emit()
