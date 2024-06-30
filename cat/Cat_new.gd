@@ -3,24 +3,30 @@ extends CharacterBody2D
 var ball_ref : Node2D
 var is_in_water = false
 var orientation = 1 #1or-1
+var is_hitting = false
 
 @export_subgroup("Nodes")
 @export var input_component: InputComponent
 @export var gravity_component: GravityComponent
 @export var movement_component: MovementComponent
-@export var animation_component: AnimationComponent
 @export var action_component: ActionComponent
+@export var animation_component: AnimationComponent
 
 
 func _physics_process(delta: float) -> void:
 	gravity_component.handle_gravity(self, delta)
+	
 	movement_component.handle_horizontal_movement(self, input_component.input_horizontal)
-	animation_component.handle_move_animation(input_component.input_horizontal)
+	animation_component.handle_move_animation(self, input_component.input_horizontal)
+	
 	movement_component.handle_jump(self, input_component.get_jump_input())
 	animation_component.handle_jump_animation(movement_component.is_jumping, gravity_component.is_falling)
-	action_component.handle_hit(input_component.get_hit_input(), orientation)
 	
-	move_and_slide()
+	action_component.handle_hit(self, input_component.get_hit_input(), orientation)
+	animation_component.handle_hit_animation(self)
+	
+	if not is_hitting:
+		move_and_slide()
 	
 	if ball_ref:
 		var pos = Vector2(position.x+50, position.y-100)

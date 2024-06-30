@@ -8,8 +8,11 @@ extends Node
 
 var ball_ref
 
-func handle_hit(want_to_jump:bool, orientation:int):
-	if not want_to_jump: return 
+func handle_hit(body:CharacterBody2D, want_to_hit:bool, orientation:int):
+	if not want_to_hit: return
+	if body.movement_component.is_jumping or body.gravity_component.is_falling: return
+	body.velocity.x = 0
+	body.is_hitting = true
 	var hit_cast = right_hit_cast if (orientation == 1) else left_hit_cast
 	hit_cast.force_shapecast_update()
 	var results = hit_cast._get_collision_result()
@@ -18,13 +21,13 @@ func handle_hit(want_to_jump:bool, orientation:int):
 			result.collider.BeHit(Vector2(orientation*hit_force.x, hit_force.y))
 
 
-func PickupBall(ball:Node2D):
+func handle_pickup(ball:Node2D):
 	if not ball: return
 	ball_ref = ball
 	ball_ref.BePicked()
 
 
-func DropBall():
+func handle_drop():
 	if not ball_ref: return
 	ball_ref.BeDropped()
 	ball_ref = null

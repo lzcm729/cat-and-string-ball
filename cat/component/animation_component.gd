@@ -6,24 +6,31 @@ extends Node
 @export var sprite: AnimatedSprite2D
 
 
-func handle_horizontal_flip(move_direction: float) -> void:
+func handle_horizontal_flip(move_direction:float) -> void:
 	if move_direction == 0:
 		return
 
 	sprite.flip_h = false if move_direction > 0 else true
 
 
-func handle_move_animation(move_direction: float) -> void:
+func handle_move_animation(body, move_direction:float) -> void:
+	if body.is_hitting: return
 	handle_horizontal_flip(move_direction)
-
 	if move_direction != 0:
 		sprite.play("run")
 	else:
 		sprite.play("idle")
 
 
-func handle_jump_animation(is_jumping: bool, is_falling: bool) -> void:
+func handle_jump_animation(is_jumping:bool, is_falling:bool) -> void:
 	if is_jumping:
 		sprite.play("jump")
 	elif is_falling:
 		sprite.play("fall")
+
+func handle_hit_animation(body) -> void:
+	if body.is_hitting:
+		if sprite.animation != "hit":
+			sprite.play("hit")
+			await sprite.animation_finished
+			body.is_hitting = false
