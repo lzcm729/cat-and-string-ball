@@ -103,6 +103,9 @@ initial_hp = 65.0
 [node name="CatNew" parent="." instance=ExtResource("8_lf71e")]
 position = Vector2(185, 610)
 
+[node name="MovementComponent" parent="CatNew" index="5"]
+jump_velocity = -500.0
+
 [node name="ActionComponent" parent="CatNew" index="6"]
 hit_force = Vector2(50000, 0)
 

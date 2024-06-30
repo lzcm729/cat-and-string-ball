@@ -117,6 +117,7 @@ text = "G"
 
 [node name="StringBall" parent="." instance=ExtResource("5_dgxty")]
 position = Vector2(415, 536)
+initial_hp = 60.0
 
 [node name="CatNew" parent="." instance=ExtResource("5_5fdyv")]
 position = Vector2(241, 657)
