@@ -22,7 +22,7 @@ size = Vector2(244, 443)
 size = Vector2(254, 446)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avpys"]
-size = Vector2(346, 459)
+size = Vector2(252, 459)
 
 [node name="choose_level" type="Node2D"]
 
@@ -31,7 +31,7 @@ position = Vector2(641, 361)
 texture = ExtResource("2_wqi2i")
 
 [node name="level_fire" parent="." instance=ExtResource("3_7sto8")]
-position = Vector2(46, 198)
+position = Vector2(53, 257)
 level_id = 5
 
 [node name="door" parent="level_fire" index="0"]
@@ -48,7 +48,7 @@ position = Vector2(130, 204)
 texture = ExtResource("4_ds5qt")
 
 [node name="level_wood" parent="." instance=ExtResource("3_7sto8")]
-position = Vector2(361, 192)
+position = Vector2(368, 251)
 level_id = 2
 
 [node name="door" parent="level_wood" index="0"]
@@ -65,7 +65,7 @@ position = Vector2(120, 216)
 texture = ExtResource("6_3scw1")
 
 [node name="level_iron" parent="." instance=ExtResource("3_7sto8")]
-position = Vector2(655, 188)
+position = Vector2(662, 247)
 level_id = 3
 
 [node name="door" parent="level_iron" index="0"]
@@ -82,7 +82,7 @@ position = Vector2(127, 214)
 texture = ExtResource("8_6fy16")
 
 [node name="level_water" parent="." instance=ExtResource("3_7sto8")]
-position = Vector2(913, 181)
+position = Vector2(920, 240)
 level_id = 4
 
 [node name="door" parent="level_water" index="0"]
@@ -90,7 +90,7 @@ position = Vector2(173, 223)
 texture = ExtResource("7_j1rdi")
 
 [node name="CollisionShape2D" parent="level_water" index="1"]
-position = Vector2(174, 225.5)
+position = Vector2(172, 225.5)
 shape = SubResource("RectangleShape2D_avpys")
 debug_color = Color(1, 1, 1, 0)
 

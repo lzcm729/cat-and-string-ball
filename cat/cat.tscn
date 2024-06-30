@@ -6,29 +6,11 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kf1xv"]
 radius = 23.0
-height = 98.0
+height = 70.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nlfbr"]
 radius = 31.0
 height = 96.0
-
-[sub_resource type="Animation" id="Animation_q7m28"]
-resource_name = "walk"
-length = 0.65
-loop_mode = 1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("new_cat:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
-}
 
 [sub_resource type="Animation" id="Animation_hfeyw"]
 length = 0.001
@@ -55,6 +37,22 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_me63s"]
+resource_name = "fall"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("new_cat:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
 }
 
 [sub_resource type="Animation" id="Animation_ka6g5"]
@@ -85,6 +83,22 @@ tracks/1/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_t8gm0"]
+resource_name = "jump"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("new_cat:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
 [sub_resource type="Animation" id="Animation_00gg0"]
 resource_name = "pat"
 length = 0.4
@@ -113,9 +127,11 @@ tracks/1/keys = {
 "values": [false, true]
 }
 
-[sub_resource type="Animation" id="Animation_t8gm0"]
-resource_name = "jump"
-length = 0.1
+[sub_resource type="Animation" id="Animation_q7m28"]
+resource_name = "walk"
+length = 0.65
+loop_mode = 1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -123,26 +139,10 @@ tracks/0/path = NodePath("new_cat:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [4]
-}
-
-[sub_resource type="Animation" id="Animation_me63s"]
-resource_name = "fall"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("new_cat:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [5]
+"values": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m5uw1"]
@@ -167,7 +167,7 @@ hframes = 40
 frame = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 43)
+position = Vector2(1, 45)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_kf1xv")
 

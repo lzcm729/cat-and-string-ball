@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqec6irfaowvp"]
+[gd_scene load_steps=16 format=3 uid="uid://cqec6irfaowvp"]
 
 [ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_w7awu"]
 [ext_resource type="Texture2D" uid="uid://6touatertv61" path="res://Levels/Level_4/level_4_wall.png" id="2_634sg"]
+[ext_resource type="Texture2D" uid="uid://htrth2uny8w5" path="res://Levels/Level_4/level_4_towel.png" id="3_10ggi"]
 [ext_resource type="Texture2D" uid="uid://c0nhg0ufpfvqi" path="res://Levels/Level_4/level_4_toilet.png" id="3_cyo0m"]
 [ext_resource type="PackedScene" uid="uid://3iyqigiyk7np" path="res://Platform.tscn" id="4_8ydj3"]
 [ext_resource type="Texture2D" uid="uid://ww4okg8hxlpx" path="res://Levels/Level_4/level_4_bathtub.png" id="5_gtguf"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="9_40xqr"]
 [ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="10_axgbo"]
 [ext_resource type="PackedScene" uid="uid://bx0knw8nruxex" path="res://Levels/Level_4/Duck.tscn" id="11_1r1ni"]
+[ext_resource type="Texture2D" uid="uid://dvgsbtwqlna2g" path="res://Levels/Level_4/level_4_window.png" id="13_i6rwo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrq5i"]
 
@@ -21,23 +23,27 @@
 [node name="vacant_room" parent="." instance=ExtResource("1_w7awu")]
 
 [node name="Level4Wall" type="Sprite2D" parent="."]
-position = Vector2(640, 312)
+position = Vector2(641, 361)
 texture = ExtResource("2_634sg")
 
+[node name="towel" type="Sprite2D" parent="."]
+position = Vector2(420, 308)
+texture = ExtResource("3_10ggi")
+
+[node name="StaticBody2D" parent="towel" instance=ExtResource("4_8ydj3")]
+position = Vector2(-2, -52)
+scale = Vector2(11.08, 0.48)
+
 [node name="Toilet" type="Sprite2D" parent="."]
-position = Vector2(199, 512)
+position = Vector2(256, 526)
 texture = ExtResource("3_cyo0m")
 
 [node name="StaticBody2D" parent="Toilet" instance=ExtResource("4_8ydj3")]
-position = Vector2(-2, -23)
-scale = Vector2(8.6, 0.48)
-
-[node name="StaticBody2D2" parent="." instance=ExtResource("4_8ydj3")]
-position = Vector2(165, 248)
-scale = Vector2(13.4, 0.960003)
+position = Vector2(-2, -9)
+scale = Vector2(9.08001, 0.48)
 
 [node name="Bathbub" type="Sprite2D" parent="."]
-position = Vector2(879, 497)
+position = Vector2(916, 511)
 texture = ExtResource("5_gtguf")
 
 [node name="WaterBody" type="Area2D" parent="Bathbub"]
@@ -78,11 +84,39 @@ position = Vector2(0.257484, 13.4759)
 shape = SubResource("RectangleShape2D_lrq5i")
 debug_color = Color(0.953134, 0, 0.555118, 0.42)
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Bathbub"]
+position = Vector2(-390, -58)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bathbub/StaticBody2D"]
+position = Vector2(391, 226)
+scale = Vector2(36.2, 0.719995)
+shape = SubResource("RectangleShape2D_xvb80")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bathbub/StaticBody2D"]
+position = Vector2(37, 57)
+scale = Vector2(1, 16.52)
+shape = SubResource("RectangleShape2D_xvb80")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Bathbub/StaticBody2D"]
+position = Vector2(745, 57)
+scale = Vector2(1, 16.52)
+shape = SubResource("RectangleShape2D_xvb80")
+
+[node name="window" type="Sprite2D" parent="."]
+position = Vector2(165, 250)
+texture = ExtResource("13_i6rwo")
+
+[node name="StaticBody2D2" parent="window" instance=ExtResource("4_8ydj3")]
+position = Vector2(-2.00003, 106)
+scale = Vector2(13.4, 0.960003)
+
 [node name="Cat" parent="." instance=ExtResource("7_kvmji")]
-position = Vector2(201, 580)
+position = Vector2(155, 624)
 
 [node name="StringBall" parent="." instance=ExtResource("8_lreus")]
-position = Vector2(399, 572)
+position = Vector2(384, 641)
 lock_rotation = true
 
 [node name="main_control" parent="." instance=ExtResource("9_40xqr")]
@@ -96,26 +130,6 @@ position = Vector2(911, 89)
 lock_rotation = true
 linear_damp = 3.0
 angular_damp = 5.0
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(489, 439)
-collision_mask = 0
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(391, 226)
-scale = Vector2(36.2, 0.719995)
-shape = SubResource("RectangleShape2D_xvb80")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(37, 57)
-scale = Vector2(1, 16.52)
-shape = SubResource("RectangleShape2D_xvb80")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(745, 57)
-scale = Vector2(1, 16.52)
-shape = SubResource("RectangleShape2D_xvb80")
 
 [connection signal="body_entered" from="Bathbub/WaterBody" to="Bathbub/WaterBody" method="_on_body_entered"]
 [connection signal="body_exited" from="Bathbub/WaterBody" to="Bathbub/WaterBody" method="_on_body_exited"]

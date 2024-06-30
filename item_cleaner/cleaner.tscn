@@ -1,48 +1,65 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2jpdxpv8bt0q"]
+[gd_scene load_steps=9 format=3 uid="uid://b2jpdxpv8bt0q"]
 
-[ext_resource type="Texture2D" uid="uid://r3wiis3e22jn" path="res://icon.svg" id="1_8d41d"]
 [ext_resource type="Script" path="res://item_cleaner/cleaner.gd" id="1_bj7lu"]
+[ext_resource type="Texture2D" uid="uid://eowfmon04gwy" path="res://item_cleaner/cleaner.png" id="2_10kmj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qktb1"]
-size = Vector2(20.1, 20)
+size = Vector2(14.1, 8.4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oarh4"]
-size = Vector2(21, 103)
+size = Vector2(21, 42.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xxjo"]
-size = Vector2(22.5, 100.5)
+size = Vector2(22.5, 42.25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5skh5"]
+atlas = ExtResource("2_10kmj")
+region = Rect2(0, 0, 210, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v4gq"]
+atlas = ExtResource("2_10kmj")
+region = Rect2(210, 0, 210, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n4wj2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5skh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v4gq")
+}],
+"loop": true,
+"name": &"clean",
+"speed": 10.0
+}]
 
 [node name="Cleaner" type="CharacterBody2D"]
 collision_layer = 16
 script = ExtResource("1_bj7lu")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-0.999992, 1)
-scale = Vector2(1.60938, 0.75)
-texture = ExtResource("1_8d41d")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.499997, 0)
+position = Vector2(-3.5, 29)
 scale = Vector2(10, 5)
 shape = SubResource("RectangleShape2D_qktb1")
-
-[node name="Label" type="Label" parent="."]
-offset_left = -76.0
-offset_top = -72.0
-offset_right = 73.0
-offset_bottom = -49.0
-text = "扫地机器人·全自动型"
 
 [node name="CleanerArea" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CleanerArea"]
-position = Vector2(-112, 0)
+position = Vector2(-85, 29.25)
 shape = SubResource("RectangleShape2D_oarh4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CleanerArea"]
-position = Vector2(112, -1)
+position = Vector2(78, 29.125)
 shape = SubResource("RectangleShape2D_2xxjo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, 27)
+sprite_frames = SubResource("SpriteFrames_n4wj2")
+animation = &"clean"
+autoplay = "clean"
+frame_progress = 0.453433
 
 [connection signal="body_entered" from="CleanerArea" to="." method="_on_cleaner_area_body_entered"]
