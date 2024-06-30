@@ -99,6 +99,10 @@ position = Vector2(723, -180)
 scale = Vector2(1.47229, 1.22873)
 texture = ExtResource("3_x8tle")
 
+[node name="chairplate" parent="Chair" instance=ExtResource("3_b0eo8")]
+position = Vector2(721, -144)
+scale = Vector2(10.23, 1)
+
 [node name="StringBall" parent="." instance=ExtResource("3_xjyuq")]
 position = Vector2(427, 617)
 
@@ -116,10 +120,6 @@ hit_force = Vector2(50000, 0)
 
 [node name="ChaosCore" parent="." instance=ExtResource("9_w07of")]
 position = Vector2(-9, -328)
-
-[node name="chairplate" parent="." instance=ExtResource("3_b0eo8")]
-position = Vector2(885, 557)
-scale = Vector2(10.23, 1)
 
 [connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
 
