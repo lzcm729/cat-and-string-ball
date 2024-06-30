@@ -98,6 +98,7 @@ scale = Vector2(10.23, 1)
 
 [node name="StringBall" parent="." instance=ExtResource("3_xjyuq")]
 position = Vector2(427, 617)
+initial_hp = 65.0
 
 [node name="CatNew" parent="." instance=ExtResource("8_lf71e")]
 position = Vector2(185, 610)
@@ -114,7 +115,6 @@ scale = Vector2(9, 0.6)
 
 [node name="main_control" parent="." instance=ExtResource("5_4aifg")]
 level_name = "Rug·soft"
-level_health = 6
 level_id = 3
 back_type = 2
 
