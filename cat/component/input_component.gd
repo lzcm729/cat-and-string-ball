@@ -2,7 +2,8 @@ class_name InputComponent
 extends Node
 
 
-var input_horizontal: float = 0.
+var input_horizontal : float = 0.
+var input_vertical : float = 0.
 
 
 func _process(_delta: float) -> void:
@@ -13,6 +14,8 @@ func _process(_delta: float) -> void:
 		get_parent().orientation = -1
 	else:
 		pass
+		
+	input_vertical = Input.get_axis("move_up", "move_down")
 
 func get_jump_input() -> bool:
 	return Input.is_action_just_pressed("jump")

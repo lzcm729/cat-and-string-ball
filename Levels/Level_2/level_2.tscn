@@ -18,7 +18,7 @@ position = Vector2(641, 361)
 texture = ExtResource("2_sma7h")
 
 [node name="StringBall" parent="." instance=ExtResource("3_mvw4s")]
-position = Vector2(648, 475)
+position = Vector2(660, 502)
 
 [node name="Cleaner" parent="." instance=ExtResource("5_4iwd8")]
 position = Vector2(1150, 636)
@@ -27,7 +27,7 @@ position = Vector2(1150, 636)
 position = Vector2(-8, -327)
 
 [node name="main_control" parent="." instance=ExtResource("1_lxh2x")]
-level_name = "Cleaner"
+level_name = "SuperCleaner"
 level_health = 3
 level_id = 2
 back_type = 2
@@ -39,7 +39,7 @@ position = Vector2(150, 652)
 hit_force = Vector2(50000, 0)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("8_rg3jl")]
-position = Vector2(776, 539)
+position = Vector2(802, 561)
 scale = Vector2(30.175, 1)
 
 [node name="Chair" type="StaticBody2D" parent="."]

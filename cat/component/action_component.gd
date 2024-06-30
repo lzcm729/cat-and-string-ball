@@ -19,7 +19,7 @@ func handle_hit(body:Cat, want_to_hit:bool, orientation:int):
 	for result in results:
 		if result.collider.name == "StringBall":
 			result.collider.BeHit(Vector2(orientation*hit_force.x, hit_force.y))
-			body.emit_signal("cat_pat_ball")
+			body.cat_pat_ball.emit()
 		if result.collider.name == 'ChaosCore':
 			result.collider.BeEaten()
 			body.eat_core.emit()
