@@ -34,4 +34,9 @@ back_type = 2
 [node name="CatNew" parent="." instance=ExtResource("7_3efs3")]
 position = Vector2(150, 652)
 
+[node name="ActionComponent" parent="CatNew" index="6"]
+hit_force = Vector2(50000, 0)
+
 [connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
+
+[editable path="CatNew"]
