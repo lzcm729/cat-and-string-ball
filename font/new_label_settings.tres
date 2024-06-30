@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cb6gco4q8mls"]
+
+[ext_resource type="FontFile" uid="uid://b26bh6op8vi7c" path="res://font/NotoColorEmoji.ttf" id="1_pkbrj"]
+
+[resource]
+font = ExtResource("1_pkbrj")
+font_size = 32

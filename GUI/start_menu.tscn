@@ -118,6 +118,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_j5e4u")
 text = "Guide"
 
 [node name="exit" type="Button" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
