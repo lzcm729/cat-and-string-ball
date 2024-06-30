@@ -26,36 +26,28 @@ texture = ExtResource("2_m4nf7")
 [node name="platform" type="Node2D" parent="."]
 position = Vector2(2, 55)
 
-[node name="shelf1-1" parent="platform" instance=ExtResource("3_b0eo8")]
-position = Vector2(223, 55)
-scale = Vector2(19, 0.54)
-
 [node name="shelf1-2" parent="platform" instance=ExtResource("3_b0eo8")]
-position = Vector2(225, 174)
+position = Vector2(224, 169)
 scale = Vector2(19, 0.54)
 
 [node name="shelf1-3" parent="platform" instance=ExtResource("3_b0eo8")]
-position = Vector2(228, 304)
+position = Vector2(227, 301)
 scale = Vector2(19, 0.54)
 
 [node name="shelf1-4" parent="platform" instance=ExtResource("3_b0eo8")]
-position = Vector2(225, 419)
-scale = Vector2(19, 0.54)
-
-[node name="shelf2-1" parent="platform" instance=ExtResource("3_b0eo8")]
-position = Vector2(1063, 57)
+position = Vector2(225, 415)
 scale = Vector2(19, 0.54)
 
 [node name="shelf2-2" parent="platform" instance=ExtResource("3_b0eo8")]
-position = Vector2(1065, 169)
+position = Vector2(1062, 171)
 scale = Vector2(19, 0.54)
 
 [node name="shelf2-3" parent="platform" instance=ExtResource("3_b0eo8")]
-position = Vector2(1042, 307)
+position = Vector2(1041, 303)
 scale = Vector2(20.88, 0.54)
 
 [node name="shelf2-4" parent="platform" instance=ExtResource("3_b0eo8")]
-position = Vector2(1102, 419)
+position = Vector2(1103, 417)
 scale = Vector2(14.595, 0.54)
 
 [node name="rug" type="StaticBody2D" parent="."]
@@ -95,19 +87,19 @@ collision_mask = 15
 constant_linear_velocity = Vector2(6.33, 5.98)
 
 [node name="Sprite2D" type="Sprite2D" parent="Chair"]
-position = Vector2(723, -180)
+position = Vector2(723.949, -182.063)
 scale = Vector2(1.47229, 1.22873)
 texture = ExtResource("3_x8tle")
 
 [node name="chairplate" parent="Chair" instance=ExtResource("3_b0eo8")]
-position = Vector2(721, -144)
+position = Vector2(724, -148)
 scale = Vector2(10.23, 1)
 
 [node name="StringBall" parent="." instance=ExtResource("3_xjyuq")]
 position = Vector2(427, 617)
 
 [node name="main_control" parent="." instance=ExtResource("5_4aifg")]
-level_name = "Rug"
+level_name = "Rug·soft"
 level_health = 6
 level_id = 3
 back_type = 2
@@ -120,6 +112,10 @@ hit_force = Vector2(50000, 0)
 
 [node name="ChaosCore" parent="." instance=ExtResource("9_w07of")]
 position = Vector2(-9, -328)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("3_b0eo8")]
+position = Vector2(645, 212)
+scale = Vector2(19.96, 0.6)
 
 [connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
 
