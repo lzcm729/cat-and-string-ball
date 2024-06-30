@@ -8,6 +8,7 @@ var ball_ref : Node2D
 var is_in_water = false
 var orientation = 1 #1or-1
 var is_hitting = false
+var can_hit = true
 
 @export_subgroup("Nodes")
 @export var input_component: InputComponent
@@ -44,12 +45,14 @@ func PickupBall(ball:Node2D):
 	if not ball: return
 	ball_ref = ball
 	ball_ref.BePicked()
+	can_hit = false
 
 
 func DropBall():
 	if not ball_ref: return
 	ball_ref.BeDropped()
 	ball_ref = null
+	can_hit = true
 
 
 func _input(event):

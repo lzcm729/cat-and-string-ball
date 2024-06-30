@@ -11,6 +11,7 @@ const pat_sound = preload("res://sounds/pat.tscn")
 var ball_ref
 
 func handle_hit(body:Cat, want_to_hit:bool, orientation:int):
+	if not body.can_hit: return
 	if not want_to_hit: return
 	if body.movement_component.is_jumping or body.gravity_component.is_falling and !body.is_in_water: return
 	body.velocity.x = 0
