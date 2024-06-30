@@ -259,6 +259,9 @@ position = Vector2(448, 64)
 [node name="CatNew" parent="." instance=ExtResource("21_k41ey")]
 position = Vector2(300, 634)
 
+[node name="ActionComponent" parent="CatNew" index="6"]
+hit_force = Vector2(50000, 0)
+
 [node name="main_control" parent="." instance=ExtResource("12_w0qob")]
 level_name = "Fire"
 level_id = 5
