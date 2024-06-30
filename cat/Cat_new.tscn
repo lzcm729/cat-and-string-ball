@@ -201,7 +201,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"swim",
-"speed": 1.0
+"speed": 3.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v3a83"]
@@ -227,8 +227,7 @@ animation_component = NodePath("AnimationComponent")
 position = Vector2(-1.83671e-40, -27)
 scale = Vector2(2.1568, 2.1568)
 sprite_frames = SubResource("SpriteFrames_eitv2")
-animation = &"run"
-frame_progress = 0.178903
+animation = &"swim"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

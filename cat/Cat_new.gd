@@ -23,8 +23,11 @@ func _physics_process(delta: float) -> void:
 	movement_component.handle_horizontal_movement(self, input_component.input_horizontal)
 	animation_component.handle_move_animation(self, input_component.input_horizontal)
 	
+	movement_component.handle_vertical_movement(self, input_component.input_vertical)
+	animation_component.handle_swim_animation(self, input_component.input_vertical)
+	
 	movement_component.handle_jump(self, input_component.get_jump_input())
-	animation_component.handle_jump_animation(movement_component.is_jumping, gravity_component.is_falling)
+	animation_component.handle_jump_animation(self, movement_component.is_jumping, gravity_component.is_falling)
 	
 	action_component.handle_hit(self, input_component.get_hit_input(), orientation)
 	animation_component.handle_hit_animation(self)
@@ -33,8 +36,8 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	
 	if ball_ref:
-		var pos = Vector2(position.x+50, position.y-100)
-		ball_ref.StationaryMove(pos)	
+		var pos = Vector2(position.x+orientation*50, position.y-50)
+		ball_ref.StationaryMove(pos)
 
 
 func PickupBall(ball:Node2D):

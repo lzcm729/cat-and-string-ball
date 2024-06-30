@@ -16,17 +16,25 @@ func handle_horizontal_flip(move_direction:float) -> void:
 func handle_move_animation(body, move_direction:float) -> void:
 	if body.is_hitting: return
 	handle_horizontal_flip(move_direction)
+	if body.is_in_water: return
 	if move_direction != 0:
 		sprite.play("run")
 	else:
 		sprite.play("idle")
+		
+		
+func handle_swim_animation(body, move_direction:float) -> void:
+	if body.is_in_water:
+		sprite.play("swim")
 
 
-func handle_jump_animation(is_jumping:bool, is_falling:bool) -> void:
+func handle_jump_animation(body, is_jumping:bool, is_falling:bool) -> void:
+	if body.is_in_water: return
 	if is_jumping:
 		sprite.play("jump")
 	elif is_falling:
 		sprite.play("fall")
+
 
 func handle_hit_animation(body) -> void:
 	if body.is_hitting:
