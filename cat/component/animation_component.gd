@@ -25,7 +25,8 @@ func handle_move_animation(body, move_direction:float) -> void:
 		
 func handle_swim_animation(body, move_direction:float) -> void:
 	if body.is_in_water:
-		sprite.play("swim")
+		if not body.is_hitting:
+			sprite.play("swim")
 
 
 func handle_jump_animation(body, is_jumping:bool, is_falling:bool) -> void:
