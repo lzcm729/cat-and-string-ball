@@ -8,9 +8,9 @@
 [ext_resource type="Script" path="res://Levels/Level_5/Stove.gd" id="6_m7sr7"]
 [ext_resource type="Texture2D" uid="uid://r3wiis3e22jn" path="res://icon.svg" id="7_covcq"]
 [ext_resource type="Script" path="res://Levels/Level_5/IgnitionButton.gd" id="8_aamd1"]
-[ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="9_62sn3"]
 [ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="10_c3l7r"]
 [ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="11_x170y"]
+[ext_resource type="PackedScene" uid="uid://b0w6mv2us6hhb" path="res://cat/Cat_new.tscn" id="12_dmtdp"]
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="12_w0qob"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbec1"]
@@ -38,7 +38,7 @@ scale = Vector2(13.9693, 11.0094)
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("2_2o3aw")]
 position = Vector2(344, 248)
-scale = Vector2(30.842, -0.939402)
+scale = Vector2(30, 1)
 
 [node name="高脚杯" parent="." groups=["Debris"] instance=ExtResource("3_ciewo")]
 position = Vector2(496, 200)
@@ -125,9 +125,6 @@ collision_mask = 2
 position = Vector2(0, -25.3608)
 shape = SubResource("RectangleShape2D_nmjxg")
 
-[node name="Cat" parent="." instance=ExtResource("9_62sn3")]
-position = Vector2(200, 600)
-
 [node name="StringBall" parent="." instance=ExtResource("10_c3l7r")]
 position = Vector2(456, 584)
 
@@ -140,14 +137,15 @@ level_name = "关卡5"
 level_id = 5
 back_type = 2
 
+[node name="CatNew" parent="." instance=ExtResource("12_dmtdp")]
+position = Vector2(196, 587)
+
 [connection signal="body_entered" from="Stove/FireArea" to="Stove" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Stove/FireArea" to="Stove" method="_on_area_2d_body_exited"]
 [connection signal="turn_off_fire" from="IgnitionButton" to="Stove" method="_on_ignition_button_turn_off_fire"]
 [connection signal="turn_on_fire" from="IgnitionButton" to="Stove" method="_on_ignition_button_turn_on_fire"]
 [connection signal="body_entered" from="IgnitionButton/Area2D" to="IgnitionButton" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="IgnitionButton/Area2D" to="IgnitionButton" method="_on_area_2d_body_exited"]
-[connection signal="cat_pat_ball" from="Cat" to="main_control" method="_on_cat_cat_pat_ball"]
-[connection signal="eat_core" from="Cat" to="main_control" method="_on_cat_eat_core"]
 [connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
 
 [editable path="高脚杯"]
