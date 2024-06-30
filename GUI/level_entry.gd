@@ -14,7 +14,6 @@ func _ready():
 func _process(delta):
 	var is_finish = global.check_level_finish(level_id)
 	$StringBall.visible = not is_finish
-	print(level_id, is_finish)
 
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
