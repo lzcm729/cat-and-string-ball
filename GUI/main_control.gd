@@ -15,7 +15,6 @@ const game_over_templ = preload("res://GUI/game_over.tscn")
 func _ready():
 	level_name_label.text = str(level_name)
 	health_label.text = '血量' + str(level_health)
-	connect("eat_core", Callable(self, "_on_cat_eat_core"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
