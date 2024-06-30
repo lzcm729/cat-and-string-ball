@@ -1,9 +1,68 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsljqu8vmc3qo"]
+[gd_scene load_steps=6 format=3 uid="uid://bsljqu8vmc3qo"]
 
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="1_2clud"]
+[ext_resource type="Texture2D" uid="uid://45ieprje7p0e" path="res://UI/level_choose/level_choose.png" id="1_dmf66"]
+[ext_resource type="Texture2D" uid="uid://davrffvb3uf3t" path="res://UI/Naidove.jpg" id="3_k8aks"]
+[ext_resource type="Texture2D" uid="uid://dalrk8ltlikne" path="res://UI/lzcm.jpg" id="4_5wntd"]
+[ext_resource type="Texture2D" uid="uid://dxxtfp6x1qapi" path="res://UI/VGCOQ.jpg" id="5_4xuho"]
 
 [node name="designer_intro" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 
+[node name="LevelChoose" type="Sprite2D" parent="."]
+position = Vector2(641, 361)
+texture = ExtResource("1_dmf66")
+
 [node name="main_control" parent="." instance=ExtResource("1_2clud")]
+
+[node name="level_name" parent="main_control" index="1"]
+visible = false
+
+[node name="health" parent="main_control" index="2"]
+visible = false
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(373, 352)
+scale = Vector2(0.169792, 0.169792)
+
+[node name="Naidove" type="Sprite2D" parent="Node2D"]
+position = Vector2(1490.06, 5.88939)
+scale = Vector2(1, 1)
+texture = ExtResource("3_k8aks")
+
+[node name="Label3" type="Label" parent="Node2D"]
+offset_left = 2632.64
+offset_top = 518.282
+offset_right = 3229.64
+offset_bottom = 723.282
+theme_override_font_sizes/font_size = 150
+text = "VGCOQ"
+
+[node name="Label2" type="Label" parent="Node2D"]
+offset_left = 1225.03
+offset_top = 518.282
+offset_right = 1822.03
+offset_bottom = 723.282
+theme_override_font_sizes/font_size = 150
+text = "NAIDOVE"
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_left = -111.902
+offset_top = 512.392
+offset_right = 288.098
+offset_bottom = 717.392
+theme_override_font_sizes/font_size = 150
+text = "LZCM"
+
+[node name="Lzcm" type="Sprite2D" parent="Node2D"]
+position = Vector2(82.454, -0.00012207)
+scale = Vector2(4.66019, 4.66019)
+texture = ExtResource("4_5wntd")
+
+[node name="Vgcoq" type="Sprite2D" parent="Node2D"]
+position = Vector2(2909.45, -0.000179735)
+scale = Vector2(4.91298, 4.91298)
+texture = ExtResource("5_4xuho")
+
+[editable path="main_control"]

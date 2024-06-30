@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bn4481xl7jj4g"]
+[gd_scene load_steps=3 format=3 uid="uid://bn4481xl7jj4g"]
 
 [ext_resource type="Script" path="res://GUI/main_control.gd" id="1_3p0ci"]
+[ext_resource type="Texture2D" uid="uid://k2ccbsxo0ve8" path="res://UI/btn1.png" id="2_np3g7"]
 
 [node name="main_control" type="Control"]
 layout_mode = 3
@@ -12,8 +13,13 @@ layout_mode = 0
 offset_top = -1.0
 offset_right = 193.0
 offset_bottom = 100.0
-text = "Back
+text = "
 "
+
+[node name="Sprite2D" type="Sprite2D" parent="back"]
+position = Vector2(97, 41)
+scale = Vector2(1.16176, 1.16176)
+texture = ExtResource("2_np3g7")
 
 [node name="level_name" type="Label" parent="."]
 layout_mode = 0

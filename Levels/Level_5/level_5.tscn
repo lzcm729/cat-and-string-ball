@@ -170,7 +170,7 @@ shape = SubResource("RectangleShape2D_5onvp")
 visible = false
 sprite_frames = SubResource("SpriteFrames_3qvuh")
 autoplay = "default"
-frame_progress = 0.676972
+frame_progress = 0.319158
 
 [node name="Sprite2D" type="Sprite2D" parent="Stove"]
 position = Vector2(-5.36442e-06, -2.86102e-05)
