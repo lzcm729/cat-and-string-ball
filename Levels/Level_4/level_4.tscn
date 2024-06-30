@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://3iyqigiyk7np" path="res://Platform.tscn" id="4_8ydj3"]
 [ext_resource type="Texture2D" uid="uid://ww4okg8hxlpx" path="res://Levels/Level_4/level_4_bathtub.png" id="5_gtguf"]
 [ext_resource type="Script" path="res://Levels/Level_4/WaterBody.gd" id="6_u1dep"]
-[ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="7_kvmji"]
 [ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="8_lreus"]
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="9_40xqr"]
 [ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="10_axgbo"]
 [ext_resource type="PackedScene" uid="uid://bx0knw8nruxex" path="res://Levels/Level_4/Duck.tscn" id="11_1r1ni"]
+[ext_resource type="PackedScene" uid="uid://b0w6mv2us6hhb" path="res://cat/Cat_new.tscn" id="13_gtk0c"]
 [ext_resource type="Texture2D" uid="uid://dvgsbtwqlna2g" path="res://Levels/Level_4/level_4_window.png" id="13_i6rwo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrq5i"]
@@ -112,18 +112,17 @@ texture = ExtResource("13_i6rwo")
 position = Vector2(-2.00003, 106)
 scale = Vector2(13.4, 0.960003)
 
-[node name="Cat" parent="." instance=ExtResource("7_kvmji")]
-position = Vector2(155, 624)
-
 [node name="StringBall" parent="." instance=ExtResource("8_lreus")]
 position = Vector2(384, 641)
 lock_rotation = true
+initial_hp = 50.0
 
 [node name="main_control" parent="." instance=ExtResource("9_40xqr")]
 level_name = "关卡4"
 back_type = 2
 
 [node name="ChaosCore" parent="." instance=ExtResource("10_axgbo")]
+visible = false
 
 [node name="Duck" parent="." instance=ExtResource("11_1r1ni")]
 position = Vector2(911, 89)
@@ -131,9 +130,10 @@ lock_rotation = true
 linear_damp = 3.0
 angular_damp = 5.0
 
+[node name="CatNew" parent="." instance=ExtResource("13_gtk0c")]
+position = Vector2(179, 640)
+
 [connection signal="body_entered" from="Bathbub/WaterBody" to="Bathbub/WaterBody" method="_on_body_entered"]
 [connection signal="body_exited" from="Bathbub/WaterBody" to="Bathbub/WaterBody" method="_on_body_exited"]
 [connection signal="body_shape_entered" from="Bathbub/WaterBody" to="Bathbub/WaterBody" method="_on_body_shape_entered"]
-[connection signal="cat_pat_ball" from="Cat" to="main_control" method="_on_cat_cat_pat_ball"]
-[connection signal="eat_core" from="Cat" to="main_control" method="_on_cat_eat_core"]
 [connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
