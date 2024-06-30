@@ -1,10 +1,84 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3e5souko28lq"]
+[gd_scene load_steps=16 format=3 uid="uid://d3e5souko28lq"]
 
+[ext_resource type="Texture2D" uid="uid://45ieprje7p0e" path="res://UI/level_choose/level_choose.png" id="1_041gw"]
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="1_mk74q"]
+[ext_resource type="Texture2D" uid="uid://b11x64r1jmew6" path="res://UI/keyboard.png" id="3_pmfo0"]
+[ext_resource type="Texture2D" uid="uid://dnc2oooilkpuu" path="res://cat/final_cat.png" id="4_empxl"]
+[ext_resource type="Texture2D" uid="uid://cvdra1erolnl6" path="res://UI/keyboard_space.png" id="4_f325m"]
+[ext_resource type="Texture2D" uid="uid://cqhak76kqruoh" path="res://StringBall/StringBall.png" id="5_exisb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jg6w"]
+atlas = ExtResource("4_empxl")
+region = Rect2(455, 0, 91, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj7xf"]
+atlas = ExtResource("4_empxl")
+region = Rect2(728, 0, 91, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8g3c"]
+atlas = ExtResource("4_empxl")
+region = Rect2(819, 0, 91, 57)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gkrda"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jg6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj7xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8g3c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe40b"]
+atlas = ExtResource("4_empxl")
+region = Rect2(1456, 0, 91, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldqbj"]
+atlas = ExtResource("4_empxl")
+region = Rect2(1547, 0, 91, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0r724"]
+atlas = ExtResource("4_empxl")
+region = Rect2(1638, 0, 91, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmfya"]
+atlas = ExtResource("4_empxl")
+region = Rect2(1729, 0, 91, 57)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e5m82"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xe40b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldqbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0r724")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmfya")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="guide" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+
+[node name="LevelChoose" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_041gw")
 
 [node name="main_control" parent="." instance=ExtResource("1_mk74q")]
 level_name = "Guide"
@@ -14,5 +88,154 @@ text = ""
 
 [node name="health" parent="main_control" index="2"]
 visible = false
+
+[node name="move" type="Node2D" parent="."]
+position = Vector2(898, 615)
+
+[node name="Keyboard3" type="Sprite2D" parent="move"]
+position = Vector2(-336, -354)
+texture = ExtResource("3_pmfo0")
+
+[node name="Keyboard2" type="Sprite2D" parent="move"]
+position = Vector2(-506, -350)
+texture = ExtResource("3_pmfo0")
+
+[node name="Keyboard" type="Sprite2D" parent="move"]
+position = Vector2(-421, -425)
+texture = ExtResource("3_pmfo0")
+
+[node name="KeyboardSpace" type="Sprite2D" parent="move"]
+position = Vector2(-417, -258)
+texture = ExtResource("4_f325m")
+
+[node name="Label3" type="Label" parent="move"]
+offset_left = -351.0
+offset_top = -382.0
+offset_right = -311.0
+offset_bottom = -340.0
+theme_override_font_sizes/font_size = 30
+text = "→"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="move"]
+position = Vector2(-94, -326)
+scale = Vector2(2.32456, 2.32456)
+sprite_frames = SubResource("SpriteFrames_gkrda")
+autoplay = "default"
+frame_progress = 0.219733
+
+[node name="Label2" type="Label" parent="move"]
+offset_left = -521.0
+offset_top = -379.0
+offset_right = -481.0
+offset_bottom = -337.0
+theme_override_font_sizes/font_size = 30
+text = "←"
+
+[node name="Label4" type="Label" parent="move"]
+offset_left = -457.0
+offset_top = -292.0
+offset_right = -374.0
+offset_bottom = -250.0
+theme_override_font_sizes/font_size = 30
+text = "space"
+
+[node name="Label" type="Label" parent="move"]
+offset_left = -430.0
+offset_top = -455.0
+offset_right = -390.0
+offset_bottom = -413.0
+theme_override_font_sizes/font_size = 30
+text = "↑"
+
+[node name="pat" type="Node2D" parent="."]
+position = Vector2(882, 738)
+
+[node name="Keyboard" type="Sprite2D" parent="pat"]
+position = Vector2(-398, -253)
+texture = ExtResource("3_pmfo0")
+
+[node name="Label3" type="Label" parent="pat"]
+offset_left = -407.0
+offset_top = -282.0
+offset_right = -367.0
+offset_bottom = -240.0
+theme_override_font_sizes/font_size = 30
+text = "F"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="pat"]
+position = Vector2(-70, -264)
+scale = Vector2(2.40789, 2.40789)
+sprite_frames = SubResource("SpriteFrames_e5m82")
+autoplay = "default"
+
+[node name="StringBall2" type="Sprite2D" parent="pat"]
+position = Vector2(76, -256)
+scale = Vector2(0.463064, 0.463064)
+texture = ExtResource("5_exisb")
+
+[node name="carry" type="Node2D" parent="."]
+position = Vector2(875, 867)
+
+[node name="Label6" type="Label" parent="carry"]
+offset_left = 316.0
+offset_top = -247.0
+offset_right = 356.0
+offset_bottom = -205.0
+theme_override_font_sizes/font_size = 30
+text = "↓"
+
+[node name="Label5" type="Label" parent="carry"]
+offset_left = 46.0
+offset_top = -249.0
+offset_right = 86.0
+offset_bottom = -207.0
+theme_override_font_sizes/font_size = 30
+text = "↑"
+
+[node name="StringBall2" type="Sprite2D" parent="carry"]
+position = Vector2(268, -228)
+scale = Vector2(0.321477, 0.321477)
+texture = ExtResource("5_exisb")
+
+[node name="StringBall" type="Sprite2D" parent="carry"]
+position = Vector2(5.99999, -283)
+scale = Vector2(0.387209, 0.387209)
+texture = ExtResource("5_exisb")
+
+[node name="Keyboard" type="Sprite2D" parent="carry"]
+position = Vector2(-462, -258)
+texture = ExtResource("3_pmfo0")
+
+[node name="Label3" type="Label" parent="carry"]
+offset_left = -471.0
+offset_top = -287.0
+offset_right = -431.0
+offset_bottom = -245.0
+theme_override_font_sizes/font_size = 30
+text = "T"
+
+[node name="Sprite2D2" type="Sprite2D" parent="carry"]
+position = Vector2(176, -256)
+scale = Vector2(2.31042, 2.31042)
+texture = ExtResource("4_empxl")
+hframes = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="carry"]
+position = Vector2(-63, -262)
+scale = Vector2(2.28947, 2.28947)
+texture = ExtResource("4_empxl")
+hframes = 20
+
+[node name="Keyboard2" type="Sprite2D" parent="carry"]
+position = Vector2(-324, -262)
+texture = ExtResource("3_pmfo0")
+
+[node name="Label4" type="Label" parent="carry"]
+offset_left = -333.0
+offset_top = -291.0
+offset_right = -293.0
+offset_bottom = -249.0
+theme_override_font_sizes/font_size = 30
+text = "G"
 
 [editable path="main_control"]
