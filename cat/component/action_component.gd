@@ -8,7 +8,7 @@ extends Node
 
 var ball_ref
 
-func handle_hit(body:CharacterBody2D, want_to_hit:bool, orientation:int):
+func handle_hit(body:Cat, want_to_hit:bool, orientation:int):
 	if not want_to_hit: return
 	if body.movement_component.is_jumping or body.gravity_component.is_falling: return
 	body.velocity.x = 0
@@ -19,6 +19,10 @@ func handle_hit(body:CharacterBody2D, want_to_hit:bool, orientation:int):
 	for result in results:
 		if result.collider.name == "StringBall":
 			result.collider.BeHit(Vector2(orientation*hit_force.x, hit_force.y))
+			body.emit_signal("cat_pat_ball")
+		if result.collider.name == 'ChaosCore':
+			result.collider.BeEaten()
+			body.eat_core.emit()
 
 
 func handle_pickup(ball:Node2D):

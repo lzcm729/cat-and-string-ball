@@ -1,4 +1,8 @@
 extends CharacterBody2D
+class_name Cat
+
+signal cat_pat_ball
+signal eat_core
 
 var ball_ref : Node2D
 var is_in_water = false

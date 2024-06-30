@@ -1,13 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://dw85br2ysl6yv"]
+[gd_scene load_steps=13 format=3 uid="uid://dw85br2ysl6yv"]
 
 [ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_qkfhq"]
 [ext_resource type="Texture2D" uid="uid://bq01b16rgxbrn" path="res://Levels/Level_3/level_3_wall.png" id="2_m4nf7"]
 [ext_resource type="PackedScene" uid="uid://3iyqigiyk7np" path="res://Platform.tscn" id="3_b0eo8"]
 [ext_resource type="Texture2D" uid="uid://stht5ktuvqvo" path="res://Levels/Level_3/level_3_chair.png" id="3_x8tle"]
 [ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="3_xjyuq"]
-[ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="4_dbd44"]
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="5_4aifg"]
 [ext_resource type="Texture2D" uid="uid://cuhmchofsripx" path="res://Levels/Level_3/level_3_rug.png" id="5_v27jq"]
+[ext_resource type="PackedScene" uid="uid://b0w6mv2us6hhb" path="res://cat/Cat_new.tscn" id="8_lf71e"]
+[ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="9_w07of"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gk5is"]
 size = Vector2(800, 2.98755)
@@ -109,14 +110,16 @@ debug_color = Color(0.806497, 0.20968, 0.875486, 0.42)
 [node name="StringBall" parent="." instance=ExtResource("3_xjyuq")]
 position = Vector2(427, 617)
 
-[node name="Cat" parent="." instance=ExtResource("4_dbd44")]
-position = Vector2(287, 594)
-
 [node name="main_control" parent="." instance=ExtResource("5_4aifg")]
 level_name = "Rug"
 level_health = 6
 level_id = 3
 back_type = 2
 
-[connection signal="cat_pat_ball" from="Cat" to="main_control" method="_on_cat_cat_pat_ball"]
-[connection signal="eat_core" from="Cat" to="main_control" method="_on_cat_eat_core"]
+[node name="CatNew" parent="." instance=ExtResource("8_lf71e")]
+position = Vector2(185, 610)
+
+[node name="ChaosCore" parent="." instance=ExtResource("9_w07of")]
+position = Vector2(-9, -328)
+
+[connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]

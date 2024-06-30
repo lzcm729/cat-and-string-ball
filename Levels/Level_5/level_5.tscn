@@ -90,15 +90,8 @@ scale = Vector2(17.88, 13.8848)
 [node name="glass" type="Node2D" parent="."]
 position = Vector2(156, 254)
 
-[node name="platform" type="Sprite2D" parent="glass"]
-texture = ExtResource("6_mw33l")
-
-[node name="StaticBody2D2" parent="glass/platform" instance=ExtResource("2_2o3aw")]
-position = Vector2(-4, -5)
-scale = Vector2(15.32, 1.007)
-
 [node name="高脚杯" parent="glass" groups=["Debris"] instance=ExtResource("3_ciewo")]
-position = Vector2(-1, -59)
+position = Vector2(-1, -57)
 metadata/_edit_group_ = true
 
 [node name="Normal" parent="glass/高脚杯" index="0"]
@@ -110,8 +103,34 @@ texture = ExtResource("5_r2h4m")
 [node name="CollisionShape2D" parent="glass/高脚杯" index="2"]
 position = Vector2(0, 4)
 
+[node name="高脚杯4" parent="glass" groups=["Debris"] instance=ExtResource("3_ciewo")]
+position = Vector2(791, 113)
+metadata/_edit_group_ = true
+
+[node name="Normal" parent="glass/高脚杯4" index="0"]
+texture = ExtResource("4_at8n7")
+
+[node name="Broken" parent="glass/高脚杯4" index="1"]
+texture = ExtResource("5_r2h4m")
+
+[node name="CollisionShape2D" parent="glass/高脚杯4" index="2"]
+position = Vector2(0, 4)
+
+[node name="高脚杯5" parent="glass" groups=["Debris"] instance=ExtResource("3_ciewo")]
+position = Vector2(848, 113)
+metadata/_edit_group_ = true
+
+[node name="Normal" parent="glass/高脚杯5" index="0"]
+texture = ExtResource("4_at8n7")
+
+[node name="Broken" parent="glass/高脚杯5" index="1"]
+texture = ExtResource("5_r2h4m")
+
+[node name="CollisionShape2D" parent="glass/高脚杯5" index="2"]
+position = Vector2(0, 4)
+
 [node name="高脚杯2" parent="glass" groups=["Debris"] instance=ExtResource("3_ciewo")]
-position = Vector2(71, -59)
+position = Vector2(71, -57)
 metadata/_edit_group_ = true
 
 [node name="Normal" parent="glass/高脚杯2" index="0"]
@@ -124,7 +143,7 @@ texture = ExtResource("5_r2h4m")
 position = Vector2(0, 4)
 
 [node name="高脚杯3" parent="glass" groups=["Debris"] instance=ExtResource("3_ciewo")]
-position = Vector2(-81, -59)
+position = Vector2(-81, -57)
 metadata/_edit_group_ = true
 
 [node name="Normal" parent="glass/高脚杯3" index="0"]
@@ -135,6 +154,13 @@ texture = ExtResource("5_r2h4m")
 
 [node name="CollisionShape2D" parent="glass/高脚杯3" index="2"]
 position = Vector2(0, 4)
+
+[node name="platform" type="Sprite2D" parent="glass"]
+texture = ExtResource("6_mw33l")
+
+[node name="StaticBody2D2" parent="glass/platform" instance=ExtResource("2_2o3aw")]
+position = Vector2(-4, -5)
+scale = Vector2(15.32, 1.007)
 
 [node name="table1" type="Sprite2D" parent="."]
 position = Vector2(1088, 500)
@@ -228,7 +254,11 @@ position = Vector2(300, 634)
 [connection signal="body_entered" from="IgnitionButton/Area2D" to="IgnitionButton" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="IgnitionButton/Area2D" to="IgnitionButton" method="_on_area_2d_body_exited"]
 [connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
+[connection signal="cat_pat_ball" from="CatNew" to="main_control" method="_on_cat_cat_pat_ball"]
+[connection signal="eat_core" from="CatNew" to="main_control" method="_on_cat_eat_core"]
 
 [editable path="glass/高脚杯"]
+[editable path="glass/高脚杯4"]
+[editable path="glass/高脚杯5"]
 [editable path="glass/高脚杯2"]
 [editable path="glass/高脚杯3"]

@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="2_elcjv"]
 [ext_resource type="Texture2D" uid="uid://cwfaoigykx65b" path="res://Levels/Level_2/level_2_wall.png" id="2_sma7h"]
 [ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="3_mvw4s"]
-[ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="4_kpi4q"]
 [ext_resource type="PackedScene" uid="uid://b2jpdxpv8bt0q" path="res://item_cleaner/cleaner.tscn" id="5_4iwd8"]
 [ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="6_fbydx"]
+[ext_resource type="PackedScene" uid="uid://b0w6mv2us6hhb" path="res://cat/Cat_new.tscn" id="7_3efs3"]
 
 [node name="Level2" type="Node2D"]
 
@@ -19,15 +19,11 @@ texture = ExtResource("2_sma7h")
 [node name="StringBall" parent="." instance=ExtResource("3_mvw4s")]
 position = Vector2(414, 640)
 
-[node name="Cat" parent="." instance=ExtResource("4_kpi4q")]
-position = Vector2(141, 624)
-
 [node name="Cleaner" parent="." instance=ExtResource("5_4iwd8")]
 position = Vector2(1150, 636)
 
 [node name="ChaosCore" parent="." instance=ExtResource("6_fbydx")]
-visible = false
-position = Vector2(-10.3825, -59.1853)
+position = Vector2(-8, -327)
 
 [node name="main_control" parent="." instance=ExtResource("1_lxh2x")]
 level_name = "Cleaner"
@@ -35,6 +31,7 @@ level_health = 3
 level_id = 2
 back_type = 2
 
+[node name="CatNew" parent="." instance=ExtResource("7_3efs3")]
+position = Vector2(150, 652)
+
 [connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
-[connection signal="cat_pat_ball" from="Cat" to="main_control" method="_on_cat_cat_pat_ball"]
-[connection signal="eat_core" from="Cat" to="main_control" method="_on_cat_eat_core"]
