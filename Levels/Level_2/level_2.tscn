@@ -48,6 +48,10 @@ level_health = 3
 level_id = 2
 back_type = 2
 
+[node name="level_name" parent="main_control" index="1"]
+offset_left = 378.0
+offset_right = 830.0
+
 [node name="door" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_ilf08")
 autoplay = true
@@ -57,3 +61,4 @@ autoplay = true
 [connection signal="eat_core" from="CatNew" to="main_control" method="_on_cat_eat_core"]
 
 [editable path="CatNew"]
+[editable path="main_control"]

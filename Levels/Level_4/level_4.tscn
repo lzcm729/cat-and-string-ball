@@ -152,6 +152,7 @@ hit_force = Vector2(50000, 0)
 
 [node name="main_control" parent="." instance=ExtResource("9_40xqr")]
 level_name = "Water"
+level_id = 4
 back_type = 2
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
