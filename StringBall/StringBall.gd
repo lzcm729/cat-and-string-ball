@@ -131,4 +131,4 @@ func BeDropped():
 
 
 func BeBurned():
-	current_hp *= 0.99
+	current_hp -= 1

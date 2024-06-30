@@ -252,6 +252,7 @@ texture = ExtResource("17_h5byr")
 
 [node name="StringBall" parent="." instance=ExtResource("10_c3l7r")]
 position = Vector2(82, 633)
+initial_hp = 200.0
 
 [node name="ChaosCore" parent="." instance=ExtResource("11_x170y")]
 visible = false
@@ -265,6 +266,7 @@ hit_force = Vector2(50000, 0)
 
 [node name="main_control" parent="." instance=ExtResource("12_w0qob")]
 level_name = "Fire"
+level_health = 2
 level_id = 5
 back_type = 2
 
