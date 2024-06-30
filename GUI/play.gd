@@ -1,11 +1,12 @@
 extends Button
 
-
+var globals = Globals
 
 
 func _on_pressed():
 	#进入选关界面
 	get_tree().change_scene_to_file("res://GUI/choose_level.tscn")
+	globals.check_is_first_in()
 	
 	
 

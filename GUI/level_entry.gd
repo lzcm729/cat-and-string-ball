@@ -3,8 +3,12 @@ extends Node2D
 @export var level_id = 1
 @onready var high_light = $highlight
 # Called when the node enters the scene tree for the first time.
+
+var global = Globals
+
 func _ready():
-	pass # Replace with function body.
+	var is_finish = global.check_level_finish(level_id)
+	$StringBall.visible = not is_finish
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://6wg3k7oe4f7c"]
+[gd_scene load_steps=5 format=3 uid="uid://6wg3k7oe4f7c"]
 
 [ext_resource type="Script" path="res://GUI/game_win.gd" id="1_gdy4o"]
 [ext_resource type="Texture2D" uid="uid://k2ccbsxo0ve8" path="res://UI/btn1.png" id="2_5r1fy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8kkxu"]
 texture = ExtResource("2_5r1fy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_07tqe"]
 
 [node name="game_win" type="Control"]
 layout_mode = 3
@@ -20,11 +22,11 @@ color = Color(0, 0, 0, 0.439216)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 411.0
-offset_top = 271.0
-offset_right = 862.0
-offset_bottom = 436.0
-theme_override_font_sizes/font_size = 120
+offset_left = 359.0
+offset_top = 229.0
+offset_right = 926.0
+offset_bottom = 421.0
+theme_override_font_sizes/font_size = 140
 text = "you win!"
 horizontal_alignment = 1
 
@@ -36,6 +38,7 @@ offset_right = 732.0
 offset_bottom = 574.0
 theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxTexture_8kkxu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_07tqe")
 text = "back"
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

@@ -8,6 +8,8 @@ extends Control
 @onready var level_name_label = $level_name
 @onready var health_label = $health
 
+var global = Globals
+
 const game_win_templ = preload("res://GUI/game_win.tscn")
 const game_over_templ = preload("res://GUI/game_over.tscn")
 
@@ -42,6 +44,7 @@ func _on_cat_cat_pat_ball():
 func _on_cat_eat_core():
 	var game_win = game_win_templ.instantiate()
 	game_win.level_id = level_id
+	global.change_level_finish(level_id)
 	add_child(game_win)
 
 

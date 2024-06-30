@@ -266,3 +266,5 @@ initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="FSM"]
 script = ExtResource("9_sk5vg")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

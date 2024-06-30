@@ -5,6 +5,7 @@ extends Control
 
 @onready var title = $Bg/path/title_follow/Title
 
+const bgm = preload("res://sounds/bgm.mp3")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass

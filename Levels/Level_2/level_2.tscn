@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2hb3jufadsr0"]
+[gd_scene load_steps=10 format=3 uid="uid://b2hb3jufadsr0"]
 
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="1_lxh2x"]
 [ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="2_elcjv"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="6_fbydx"]
 [ext_resource type="PackedScene" uid="uid://b0w6mv2us6hhb" path="res://cat/Cat_new.tscn" id="7_3efs3"]
 [ext_resource type="PackedScene" uid="uid://3iyqigiyk7np" path="res://Platform.tscn" id="8_rg3jl"]
+[ext_resource type="AudioStream" uid="uid://bc1lluoi5qvnl" path="res://sounds/door.wav" id="9_ilf08"]
 
 [node name="Level2" type="Node2D"]
 
@@ -46,6 +47,10 @@ level_name = "SuperCleaner"
 level_health = 3
 level_id = 2
 back_type = 2
+
+[node name="door" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ilf08")
+autoplay = true
 
 [connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
 [connection signal="cat_pat_ball" from="CatNew" to="main_control" method="_on_cat_cat_pat_ball"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqec6irfaowvp"]
+[gd_scene load_steps=17 format=3 uid="uid://cqec6irfaowvp"]
 
 [ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_w7awu"]
 [ext_resource type="Texture2D" uid="uid://6touatertv61" path="res://Levels/Level_4/level_4_wall.png" id="2_634sg"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bx0knw8nruxex" path="res://Levels/Level_4/Duck.tscn" id="11_1r1ni"]
 [ext_resource type="PackedScene" uid="uid://b0w6mv2us6hhb" path="res://cat/Cat_new.tscn" id="13_gtk0c"]
 [ext_resource type="Texture2D" uid="uid://dvgsbtwqlna2g" path="res://Levels/Level_4/level_4_window.png" id="13_i6rwo"]
+[ext_resource type="AudioStream" uid="uid://bc1lluoi5qvnl" path="res://sounds/door.wav" id="14_cpamb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrq5i"]
 
@@ -136,6 +137,10 @@ hit_force = Vector2(50000, 0)
 [node name="main_control" parent="." instance=ExtResource("9_40xqr")]
 level_name = "Water"
 back_type = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_cpamb")
+autoplay = true
 
 [connection signal="body_entered" from="Bathbub/WaterBody" to="Bathbub/WaterBody" method="_on_body_entered"]
 [connection signal="body_exited" from="Bathbub/WaterBody" to="Bathbub/WaterBody" method="_on_body_exited"]

@@ -14,7 +14,8 @@ func _process(delta):
 
 
 func _on_try_again_pressed():
-	get_tree().change_scene_to_file("res://Levels/level_"+str(level_id)+".tscn")
+	var level_name = "level_" + str(level_id) 
+	get_tree().change_scene_to_file("res://Levels/" + level_name + '/' + level_name + ".tscn")
 
 
 func _on_back_pressed():
