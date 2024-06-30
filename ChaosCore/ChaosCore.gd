@@ -24,4 +24,5 @@ func _on_string_ball_show_chaos_core(pos):
 
 
 func _on_timer_timeout():
+	if scale >= Vector2(10, 10): return
 	apply_scale(Vector2(1.1, 1.1))
