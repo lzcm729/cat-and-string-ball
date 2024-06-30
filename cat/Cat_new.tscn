@@ -205,8 +205,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v3a83"]
-radius = 34.0
-height = 166.0
+radius = 33.0
+height = 148.0
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_slokh"]
 points = PackedVector2Array(0, 0, -80, -30, -120, -30, -120, 30, -80, 30)
@@ -224,8 +224,8 @@ action_component = NodePath("ActionComponent")
 animation_component = NodePath("AnimationComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -31)
-scale = Vector2(2.91009, 2.91009)
+position = Vector2(-9.09495e-13, -14)
+scale = Vector2(2.1568, 2.1568)
 sprite_frames = SubResource("SpriteFrames_eitv2")
 animation = &"run"
 frame_progress = 0.178903

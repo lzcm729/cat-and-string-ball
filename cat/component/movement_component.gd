@@ -11,6 +11,9 @@ var is_jumping: bool = false
 func handle_horizontal_movement(body: CharacterBody2D, direction: float) -> void:
 	body.velocity.x = direction * speed
 
+func handle_vertical_movement(body: CharacterBody2D, direction: float) -> void:
+	if not body.is_in_water: return
+	body.velocity.x = direction * speed
 
 func handle_jump(body: CharacterBody2D, want_to_jump: bool) -> void:
 	if want_to_jump and body.is_on_floor():
