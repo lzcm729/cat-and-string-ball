@@ -134,7 +134,12 @@ angular_damp = 5.0
 [node name="CatNew" parent="." instance=ExtResource("13_gtk0c")]
 position = Vector2(179, 640)
 
+[node name="ActionComponent" parent="CatNew" index="6"]
+hit_force = Vector2(50000, 0)
+
 [connection signal="body_entered" from="Bathbub/WaterBody" to="Bathbub/WaterBody" method="_on_body_entered"]
 [connection signal="body_exited" from="Bathbub/WaterBody" to="Bathbub/WaterBody" method="_on_body_exited"]
 [connection signal="body_shape_entered" from="Bathbub/WaterBody" to="Bathbub/WaterBody" method="_on_body_shape_entered"]
 [connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
+
+[editable path="CatNew"]

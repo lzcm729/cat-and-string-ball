@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2hb3jufadsr0"]
+[gd_scene load_steps=9 format=3 uid="uid://b2hb3jufadsr0"]
 
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="1_lxh2x"]
 [ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="2_elcjv"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b2jpdxpv8bt0q" path="res://item_cleaner/cleaner.tscn" id="5_4iwd8"]
 [ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="6_fbydx"]
 [ext_resource type="PackedScene" uid="uid://b0w6mv2us6hhb" path="res://cat/Cat_new.tscn" id="7_3efs3"]
+[ext_resource type="PackedScene" uid="uid://3iyqigiyk7np" path="res://Platform.tscn" id="8_rg3jl"]
 
 [node name="Level2" type="Node2D"]
 
@@ -17,7 +18,7 @@ position = Vector2(641, 361)
 texture = ExtResource("2_sma7h")
 
 [node name="StringBall" parent="." instance=ExtResource("3_mvw4s")]
-position = Vector2(414, 640)
+position = Vector2(648, 475)
 
 [node name="Cleaner" parent="." instance=ExtResource("5_4iwd8")]
 position = Vector2(1150, 636)
@@ -34,4 +35,18 @@ back_type = 2
 [node name="CatNew" parent="." instance=ExtResource("7_3efs3")]
 position = Vector2(150, 652)
 
+[node name="ActionComponent" parent="CatNew" index="6"]
+hit_force = Vector2(50000, 0)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("8_rg3jl")]
+position = Vector2(776, 539)
+scale = Vector2(30.175, 1)
+
+[node name="Chair" type="StaticBody2D" parent="."]
+position = Vector2(164, 701)
+collision_mask = 15
+constant_linear_velocity = Vector2(6.33, 5.98)
+
 [connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
+
+[editable path="CatNew"]
