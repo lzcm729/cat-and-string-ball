@@ -220,7 +220,7 @@ sprite = NodePath("../AnimatedSprite2D")
 [node name="GravityComponent" parent="." instance=ExtResource("4_n2p5r")]
 
 [node name="MovementComponent" parent="." instance=ExtResource("7_keotf")]
-jump_velocity = -700.0
+jump_velocity = -600.0
 
 [node name="ActionComponent" parent="." node_paths=PackedStringArray("left_hit_cast", "right_hit_cast") instance=ExtResource("18_fgw5n")]
 hit_force = Vector2(0, -50000)
@@ -231,13 +231,13 @@ right_hit_cast = NodePath("../RightHitShapeCast")
 enabled = false
 shape = SubResource("ConvexPolygonShape2D_slokh")
 target_position = Vector2(0, 0)
-collision_mask = 520
+collision_mask = 524
 
 [node name="RightHitShapeCast" type="ShapeCast2D" parent="."]
 enabled = false
 shape = SubResource("ConvexPolygonShape2D_n6ff0")
 target_position = Vector2(0, 0)
-collision_mask = 520
+collision_mask = 524
 
 [node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("8_v5hhk")
