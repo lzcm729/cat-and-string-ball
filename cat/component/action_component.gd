@@ -10,7 +10,7 @@ var ball_ref
 
 func handle_hit(body:Cat, want_to_hit:bool, orientation:int):
 	if not want_to_hit: return
-	if body.movement_component.is_jumping or body.gravity_component.is_falling: return
+	if body.movement_component.is_jumping or body.gravity_component.is_falling and !body.is_in_water: return
 	body.velocity.x = 0
 	body.is_hitting = true
 	var hit_cast = right_hit_cast if (orientation == 1) else left_hit_cast
@@ -23,6 +23,8 @@ func handle_hit(body:Cat, want_to_hit:bool, orientation:int):
 		if result.collider.name == 'ChaosCore':
 			result.collider.BeEaten()
 			body.eat_core.emit()
+		if result.collider.name == 'Duck':
+			result.collider.apply_central_force(Vector2(5000*body.orientation, -2000))
 
 
 func handle_pickup(ball:Node2D):

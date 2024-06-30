@@ -13,11 +13,15 @@ func _process(delta):
 
 
 func BeEaten():
-	pass
+	$Timer.stop()
 
 
 func _on_string_ball_show_chaos_core(pos):
 	global_transform.origin = pos
+	$Timer.start()
 	set_sleeping(false)
 	show()
-	#set_position(pos)
+
+
+func _on_timer_timeout():
+	apply_scale(Vector2(1.1, 1.1))

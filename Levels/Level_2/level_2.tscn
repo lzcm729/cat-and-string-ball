@@ -26,12 +26,6 @@ position = Vector2(1150, 636)
 [node name="ChaosCore" parent="." instance=ExtResource("6_fbydx")]
 position = Vector2(-8, -327)
 
-[node name="main_control" parent="." instance=ExtResource("1_lxh2x")]
-level_name = "SuperCleaner"
-level_health = 3
-level_id = 2
-back_type = 2
-
 [node name="CatNew" parent="." instance=ExtResource("7_3efs3")]
 position = Vector2(150, 652)
 
@@ -47,7 +41,14 @@ position = Vector2(164, 701)
 collision_mask = 15
 constant_linear_velocity = Vector2(6.33, 5.98)
 
+[node name="main_control" parent="." instance=ExtResource("1_lxh2x")]
+level_name = "SuperCleaner"
+level_health = 3
+level_id = 2
+back_type = 2
+
 [connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
-[connection signal="cat_pat_ball" from="CatNew" to="main_control" method="_on_cat_new_cat_pat_ball"]
+[connection signal="cat_pat_ball" from="CatNew" to="main_control" method="_on_cat_cat_pat_ball"]
+[connection signal="eat_core" from="CatNew" to="main_control" method="_on_cat_eat_core"]
 
 [editable path="CatNew"]

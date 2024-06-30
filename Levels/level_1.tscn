@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="1_0vh8p"]
 [ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="1_eossy"]
-[ext_resource type="PackedScene" uid="uid://c4q7s0ehyqx0o" path="res://cat/cat.tscn" id="3_l3wy6"]
 [ext_resource type="TileSet" uid="uid://cfha1jbx7duy5" path="res://Levels/vacant_room.tres" id="4_p86rh"]
+[ext_resource type="PackedScene" uid="uid://b0w6mv2us6hhb" path="res://cat/Cat_new.tscn" id="5_5fdyv"]
 [ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="5_dgxty"]
 [ext_resource type="PackedScene" uid="uid://3iyqigiyk7np" path="res://Platform.tscn" id="6_nch2q"]
 
@@ -15,24 +15,58 @@
 tile_set = ExtResource("4_p86rh")
 format = 2
 
-[node name="StringBall" parent="." instance=ExtResource("5_dgxty")]
-position = Vector2(367, 63)
-
-[node name="Cat" parent="." instance=ExtResource("3_l3wy6")]
-position = Vector2(128, 576)
-
-[node name="Stage1" parent="." instance=ExtResource("6_nch2q")]
-position = Vector2(418, 400)
-scale = Vector2(15, 1.165)
-
-[node name="Stage2" parent="." instance=ExtResource("6_nch2q")]
-position = Vector2(887, 231)
-scale = Vector2(20, 1.165)
-
 [node name="main_control" parent="." instance=ExtResource("1_eossy")]
-level_name = "关卡1"
+level_name = "Cat→Ball"
 level_health = 9
 back_type = 2
 
-[connection signal="cat_pat_ball" from="Cat" to="main_control" method="_on_cat_cat_pat_ball"]
-[connection signal="eat_core" from="Cat" to="main_control" method="_on_cat_eat_core"]
+[node name="Label" type="Label" parent="."]
+offset_left = 79.0
+offset_top = 202.0
+offset_right = 931.0
+offset_bottom = 334.0
+theme_override_font_sizes/font_size = 30
+text = "1. Press F to [Pat] String Ball
+2. String Ball gets [smaller] as it rolls
+3. Finally, the [Core] appears!"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 863.0
+offset_top = 528.0
+offset_right = 1116.0
+offset_bottom = 615.0
+theme_override_font_sizes/font_size = 30
+text = "Press T to [Carry]
+Press G to [Drop]"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 696.0
+offset_top = 125.0
+offset_right = 1210.0
+offset_bottom = 212.0
+theme_override_font_sizes/font_size = 30
+text = "* Every [Pat] costs [1] PatChance ↗
+* FInd the Core with the given chances"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 765.0
+offset_top = 464.0
+offset_right = 1111.0
+offset_bottom = 506.0
+theme_override_font_sizes/font_size = 30
+text = "4. Press Space to [Jump]"
+
+[node name="StaticBody2D" parent="." instance=ExtResource("6_nch2q")]
+position = Vector2(873, 519)
+scale = Vector2(23.91, 1)
+
+[node name="StringBall" parent="." instance=ExtResource("5_dgxty")]
+position = Vector2(438, 643)
+
+[node name="CatNew" parent="." instance=ExtResource("5_5fdyv")]
+position = Vector2(241, 657)
+
+[node name="ActionComponent" parent="CatNew" index="6"]
+hit_force = Vector2(50000, 0)
+
+[editable path="CatNew"]
