@@ -18,7 +18,7 @@ func _process(delta):
 
 func check_is_first_in():
 	if is_first_in:
-		get_tree().change_scene_to_file("res://Levels/level_1.tscn")
+		get_tree().change_scene_to_file("res://Levels/Level_1/level_1.tscn")
 		is_first_in = false 
 
 

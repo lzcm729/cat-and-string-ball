@@ -139,10 +139,10 @@ text = "Exit"
 
 [node name="about" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1018.0
-offset_top = 445.0
-offset_right = 1252.0
-offset_bottom = 555.0
+offset_left = 25.0
+offset_top = 590.0
+offset_right = 259.0
+offset_bottom = 700.0
 theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxTexture_ukugd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_n4k1q")

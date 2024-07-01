@@ -8,6 +8,9 @@ extends Control
 @onready var level_name_label = $level_name
 @onready var health_label = $health
 
+var is_game_over = false
+var is_game_win = false
+
 var global = Globals
 
 const game_win_templ = preload("res://GUI/game_win.tscn")
@@ -21,10 +24,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if level_health == 0:
-		var game_over = game_over_templ.instantiate()
-		game_over.level_id = level_id
-		add_child(game_over)
+	if level_health < 0:
+		if not is_game_over:
+			var game_over = game_over_templ.instantiate()
+			game_over.level_id = level_id
+			add_child(game_over)
+			is_game_over = true
 
 # TEST
 #func _input(event):
@@ -42,10 +47,12 @@ func _on_cat_cat_pat_ball():
 
 
 func _on_cat_eat_core():
-	var game_win = game_win_templ.instantiate()
-	game_win.level_id = level_id
-	global.change_level_finish(level_id)
-	add_child(game_win)
+	if not is_game_win:
+		var game_win = game_win_templ.instantiate()
+		game_win.level_id = level_id
+		global.change_level_finish(level_id)
+		add_child(game_win)
+		is_game_win = true
 
 
 func _on_back_pressed():

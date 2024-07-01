@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://b11x64r1jmew6" path="res://UI/keyboard.png" id="3_pmfo0"]
 [ext_resource type="Texture2D" uid="uid://dnc2oooilkpuu" path="res://cat/final_cat.png" id="4_empxl"]
 [ext_resource type="Texture2D" uid="uid://cvdra1erolnl6" path="res://UI/keyboard_space.png" id="4_f325m"]
-[ext_resource type="LabelSettings" uid="uid://cb6gco4q8mls" path="res://font/new_label_settings.tres" id="4_ljoe7"]
 [ext_resource type="Texture2D" uid="uid://cqhak76kqruoh" path="res://StringBall/StringBall.png" id="5_exisb"]
+[ext_resource type="Texture2D" uid="uid://c45f0peg620qf" path="res://UI/arrow.png" id="7_y16mh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2jg6w"]
 atlas = ExtResource("4_empxl")
@@ -99,46 +99,15 @@ position = Vector2(-656, -380.32)
 scale = Vector2(0.66, 0.66)
 texture = ExtResource("3_pmfo0")
 
-[node name="Label3" type="Label" parent="move"]
-offset_left = -680.0
-offset_top = -409.0
-offset_right = -632.0
-offset_bottom = -363.0
-theme_override_font_sizes/font_size = 30
-text = "➡️"
-label_settings = ExtResource("4_ljoe7")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Keyboard2" type="Sprite2D" parent="move"]
 position = Vector2(-753.32, -379.64)
 scale = Vector2(0.66, 0.66)
 texture = ExtResource("3_pmfo0")
 
-[node name="Label2" type="Label" parent="move"]
-offset_left = -769.0
-offset_top = -402.0
-offset_right = -729.0
-offset_bottom = -360.0
-theme_override_font_sizes/font_size = 30
-text = "⬅️"
-label_settings = ExtResource("4_ljoe7")
-
 [node name="Keyboard" type="Sprite2D" parent="move"]
 position = Vector2(-706, -434.32)
 scale = Vector2(0.66, 0.66)
 texture = ExtResource("3_pmfo0")
-
-[node name="Label" type="Label" parent="move"]
-offset_left = -725.0
-offset_top = -460.0
-offset_right = -685.0
-offset_bottom = -418.0
-theme_override_font_sizes/font_size = 30
-text = "⬆️"
-label_settings = ExtResource("4_ljoe7")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="move"]
 position = Vector2(-567, -401.32)
@@ -148,17 +117,34 @@ autoplay = "default"
 frame_progress = 0.219733
 
 [node name="KeyboardSpace" type="Sprite2D" parent="move"]
-position = Vector2(104.26, -325.64)
+position = Vector2(-0.73999, -403.32)
 scale = Vector2(0.66, 0.66)
 texture = ExtResource("4_f325m")
 
 [node name="Label4" type="Label" parent="move"]
-offset_left = 62.26
-offset_top = -355.64
-offset_right = 145.26
-offset_bottom = -313.64
+offset_left = -42.74
+offset_top = -433.32
+offset_right = 40.26
+offset_bottom = -391.32
 theme_override_font_sizes/font_size = 30
 text = "space"
+
+[node name="Arrow2" type="Sprite2D" parent="move"]
+position = Vector2(-753.549, -386.5)
+rotation = -1.56062
+scale = Vector2(0.27742, 0.27742)
+texture = ExtResource("7_y16mh")
+
+[node name="Arrow" type="Sprite2D" parent="move"]
+position = Vector2(-706.549, -442.5)
+scale = Vector2(0.343751, 0.343751)
+texture = ExtResource("7_y16mh")
+
+[node name="Arrow3" type="Sprite2D" parent="move"]
+position = Vector2(-652.549, -386.5)
+rotation = 1.58481
+scale = Vector2(0.27742, 0.27742)
+texture = ExtResource("7_y16mh")
 
 [node name="pat" type="Node2D" parent="."]
 position = Vector2(882, 738)
@@ -188,14 +174,21 @@ scale = Vector2(0.293, 0.293)
 texture = ExtResource("5_exisb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1005, 209)
+position = Vector2(1063, 211)
+scale = Vector2(1.26025, 1.26025)
+texture = ExtResource("4_empxl")
+hframes = 20
+frame = 10
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1159, 197)
 scale = Vector2(1.26025, 1.26025)
 texture = ExtResource("4_empxl")
 hframes = 20
 frame = 12
 
 [node name="carry" type="Node2D" parent="."]
-position = Vector2(875, 867)
+position = Vector2(876, 819)
 
 [node name="StringBall" type="Sprite2D" parent="carry"]
 position = Vector2(-197.091, -632)
@@ -216,12 +209,20 @@ theme_override_font_sizes/font_size = 30
 text = "T"
 
 [node name="Label5" type="Label" parent="carry"]
-offset_left = -178.0
-offset_top = -661.0
-offset_right = -138.0
-offset_bottom = -619.0
+offset_left = -372.0
+offset_top = -671.0
+offset_right = -301.0
+offset_bottom = -629.0
 theme_override_font_sizes/font_size = 30
 text = "Grab"
+
+[node name="Label9" type="Label" parent="carry"]
+offset_left = -21.0
+offset_top = -677.0
+offset_right = 55.0
+offset_bottom = -635.0
+theme_override_font_sizes/font_size = 30
+text = "Jump"
 
 [node name="Sprite2D" type="Sprite2D" parent="carry"]
 position = Vector2(-251.92, -610.503)
@@ -254,11 +255,27 @@ scale = Vector2(0.261, 0.261)
 texture = ExtResource("5_exisb")
 
 [node name="Label6" type="Label" parent="carry"]
-offset_left = -168.0
-offset_top = -494.0
-offset_right = -128.0
-offset_bottom = -452.0
+offset_left = -369.0
+offset_top = -550.0
+offset_right = -297.0
+offset_bottom = -508.0
 theme_override_font_sizes/font_size = 30
 text = "Drop"
+
+[node name="Label7" type="Label" parent="carry"]
+offset_left = -723.0
+offset_top = -704.0
+offset_right = -644.0
+offset_bottom = -662.0
+theme_override_font_sizes/font_size = 30
+text = "Move"
+
+[node name="Label8" type="Label" parent="carry"]
+offset_left = -752.0
+offset_top = -549.0
+offset_right = -673.0
+offset_bottom = -507.0
+theme_override_font_sizes/font_size = 30
+text = "Pat"
 
 [editable path="main_control"]
