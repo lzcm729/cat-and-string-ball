@@ -1,0 +1,117 @@
+[gd_scene load_steps=11 format=3 uid="uid://b8b3p0ub10jc3"]
+
+[ext_resource type="Texture2D" uid="uid://dkwvep7atv67i" path="res://UI/room_bg.png" id="1_1jbuu"]
+[ext_resource type="PackedScene" uid="uid://d3e5souko28lq" path="res://GUI/guide.tscn" id="2_kdltw"]
+[ext_resource type="PackedScene" uid="uid://dpqb8ih1u4omf" path="res://Levels/vacant_room.tscn" id="3_jfrq6"]
+[ext_resource type="TileSet" uid="uid://cfha1jbx7duy5" path="res://Levels/vacant_room.tres" id="4_u3q88"]
+[ext_resource type="Texture2D" uid="uid://dvgsbtwqlna2g" path="res://Levels/Level_4/level_4_window.png" id="5_3c7wx"]
+[ext_resource type="PackedScene" uid="uid://3iyqigiyk7np" path="res://Platform.tscn" id="6_ginm7"]
+[ext_resource type="PackedScene" uid="uid://b36bl5hadkdtm" path="res://StringBall/StringBall.tscn" id="7_hq5oh"]
+[ext_resource type="PackedScene" uid="uid://b0w6mv2us6hhb" path="res://cat/Cat_new.tscn" id="8_gwsxw"]
+[ext_resource type="PackedScene" uid="uid://dmrnndjc054qm" path="res://ChaosCore/ChaosCore.tscn" id="9_6uys5"]
+[ext_resource type="PackedScene" uid="uid://bn4481xl7jj4g" path="res://GUI/main_control.tscn" id="10_7vfvi"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="RoomBg" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(639, 359)
+texture = ExtResource("1_1jbuu")
+
+[node name="guide" parent="." instance=ExtResource("2_kdltw")]
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 2.0
+offset_bottom = -1.0
+
+[node name="vacant_room" parent="." instance=ExtResource("3_jfrq6")]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("4_u3q88")
+format = 2
+
+[node name="window" type="Sprite2D" parent="."]
+position = Vector2(1107, 419)
+texture = ExtResource("5_3c7wx")
+
+[node name="StaticBody2D2" parent="window" instance=ExtResource("6_ginm7")]
+position = Vector2(-1, 101)
+scale = Vector2(13.4, 0.960003)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 55.0
+offset_top = 542.0
+offset_right = 485.0
+offset_bottom = 657.0
+theme_override_colors/font_color = Color(0.28485, 0.28485, 0.28485, 1)
+theme_override_font_sizes/font_size = 24
+text = "Press F to [Pat] String Ball"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 431.0
+offset_top = 537.0
+offset_right = 861.0
+offset_bottom = 652.0
+theme_override_colors/font_color = Color(0.28485, 0.28485, 0.28485, 1)
+theme_override_font_sizes/font_size = 24
+text = "String Ball gets [smaller] as it rolls"
+
+[node name="Label6" type="Label" parent="."]
+offset_left = 947.0
+offset_top = 541.0
+offset_right = 1377.0
+offset_bottom = 656.0
+theme_override_colors/font_color = Color(0.28485, 0.28485, 0.28485, 1)
+theme_override_font_sizes/font_size = 24
+text = "Finally, the [Core] appears!"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 109.0
+offset_top = 368.0
+offset_right = 623.0
+offset_bottom = 455.0
+theme_override_colors/font_color = Color(0.286275, 0.286275, 0.286275, 1)
+theme_override_font_sizes/font_size = 24
+text = "* Every [Pat] costs [1] PatChance"
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 503.0
+offset_top = 107.0
+offset_right = 1017.0
+offset_bottom = 194.0
+theme_override_colors/font_color = Color(0.286275, 0.286275, 0.286275, 1)
+theme_override_font_sizes/font_size = 24
+text = "Find the Core in StringBall"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 1073.0
+offset_top = 417.0
+offset_right = 1256.0
+offset_bottom = 488.0
+theme_override_colors/font_color = Color(0.286275, 0.286275, 0.286275, 1)
+theme_override_font_sizes/font_size = 24
+text = "Jump！"
+
+[node name="StringBall" parent="." instance=ExtResource("7_hq5oh")]
+position = Vector2(289, 636)
+initial_hp = 60.0
+
+[node name="CatNew" parent="." instance=ExtResource("8_gwsxw")]
+position = Vector2(127, 659)
+
+[node name="ActionComponent" parent="CatNew" index="6"]
+hit_force = Vector2(50000, 0)
+
+[node name="ChaosCore" parent="." instance=ExtResource("9_6uys5")]
+position = Vector2(-4, -327)
+
+[node name="main_control" parent="." instance=ExtResource("10_7vfvi")]
+level_name = "Cat&Ball"
+level_health = 9
+back_type = 2
+
+[connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
+[connection signal="cat_pat_ball" from="CatNew" to="main_control" method="_on_cat_cat_pat_ball"]
+[connection signal="eat_core" from="CatNew" to="main_control" method="_on_cat_eat_core"]
+
+[editable path="CatNew"]
