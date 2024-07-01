@@ -256,7 +256,7 @@ initial_hp = 200.0
 
 [node name="ChaosCore" parent="." instance=ExtResource("11_x170y")]
 visible = false
-position = Vector2(448, 64)
+position = Vector2(-8, -327)
 
 [node name="CatNew" parent="." instance=ExtResource("21_k41ey")]
 position = Vector2(300, 634)
