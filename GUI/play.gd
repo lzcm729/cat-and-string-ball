@@ -25,4 +25,4 @@ func _on_about_pressed():
 
 func _on_how_to_play_pressed():
 	#打开操作说明
-	get_tree().change_scene_to_file("res://Levels/level_1.tscn")
+	get_tree().change_scene_to_file("res://Levels/Level_1/level_1.tscn")

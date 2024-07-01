@@ -110,8 +110,12 @@ level_name = "Cat&Ball"
 level_health = 9
 back_type = 2
 
+[node name="back" parent="main_control" index="0"]
+text = "Skip"
+
 [connection signal="show_chaos_core" from="StringBall" to="ChaosCore" method="_on_string_ball_show_chaos_core"]
 [connection signal="cat_pat_ball" from="CatNew" to="main_control" method="_on_cat_cat_pat_ball"]
 [connection signal="eat_core" from="CatNew" to="main_control" method="_on_cat_eat_core"]
 
 [editable path="CatNew"]
+[editable path="main_control"]
